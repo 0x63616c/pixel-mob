@@ -6,6 +6,8 @@
 
 ![Pixel Mob landing page: a pixel crowd spelling PIXEL MOB](docs/hero.png)
 
+**Demo (50 s):** [docs/demo.mp4](docs/demo.mp4) — a Birthday template with an emoji scene and a from-name, the receiver's teaser, three scenes assembling with zero overlaps, a ❤️ reaction and tap-to-dance. Regenerate it with `python3 scripts/demo.py`.
+
 <img src="docs/assemble-iphone.png" alt="The mob leader shouting MOB, ASSEMBLE! on an iPhone" width="260">
 
 ## Features
