@@ -1,0 +1,7 @@
+[extend]
+useDefault = true
+
+# Cloudflare's Web Analytics beacon identifier is public (shipped in page source), not an API credential.
+[[allowlists]]
+description = "Public Cloudflare Web Analytics beacon ID"
+regexes = ['''aae05380cc30416e8ed07b16c430bcbc''']
