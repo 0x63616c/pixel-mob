@@ -6,7 +6,7 @@ const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&
 const PAGES = {
   landing: {
     title: 'Pixel Mob — Turn any message into a tiny pixel crowd',
-    description: 'Make a mob of tiny pixel people spell your message. Create a free surprise link, send it to a friend and watch the crowd assemble.',
+    description: 'Make a mob of tiny pixel people spell your message, emoji and drawings. Pick a theme, add scenes or a countdown, send a free surprise link and watch the crowd assemble.',
     image: '/og.png',
     imageAlt: 'Pixel Mob: a crowd of tiny pixel people spells PIXEL MOB above the words “Tiny people. Big feelings.”',
     robots: 'index,follow',
@@ -14,7 +14,7 @@ const PAGES = {
   },
   new: {
     title: 'Make a Pixel Mob message — free surprise link',
-    description: 'Type up to 32 characters and get a link. Your friend sees a crowd of tiny pixel people wander about, then assemble into your words.',
+    description: 'Type your words, add pixel drawings like ❤️ 🎂 ⭐, choose a birthday, Christmas or wedding theme, and get a link. Your friend watches a tiny crowd assemble into your message.',
     image: '/og.png',
     imageAlt: 'Pixel Mob: a crowd of tiny pixel people spells PIXEL MOB above the words “Tiny people. Big feelings.”',
     robots: 'index,follow',
@@ -77,10 +77,11 @@ export function renderMeta(kind, { path = '/', beacon = '' } = {}) {
       '@graph': [
         { '@type': 'WebApplication', '@id': SITE + '/#app', name: 'Pixel Mob', url: SITE + '/', description: PAGES.landing.description,
           applicationCategory: 'EntertainmentApplication', operatingSystem: 'Any', browserRequirements: 'Requires JavaScript and HTML5 canvas',
-          isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, image: SITE + '/og.png', inLanguage: 'en' },
+          isAccessibleForFree: true, offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }, image: SITE + '/og.png', inLanguage: 'en',
+          featureList: ['Messages spelled by a crowd of pixel people', 'Pixel emoji drawings', 'Up to four scenes', 'Birthday, Christmas, Halloween, wedding and stadium themes', 'Custom colours and mob size', 'Countdown links', 'Reactions and replies', 'GIF and video download', 'Chiptune sound'] },
         { '@type': 'WebSite', '@id': SITE + '/#site', name: 'Pixel Mob', url: SITE + '/' },
         { '@type': 'HowTo', name: 'How to send a Pixel Mob message', step: [
-          { '@type': 'HowToStep', name: 'Write your words', text: 'Type up to 32 letters, numbers or punctuation.' },
+          { '@type': 'HowToStep', name: 'Write your words', text: 'Type up to 32 characters a scene, add pixel drawings, or start from a template. Up to four scenes.' },
           { '@type': 'HowToStep', name: 'Send the surprise', text: 'Copy the link or use your phone’s share sheet. The preview keeps the message secret.' },
           { '@type': 'HowToStep', name: 'Watch them assemble', text: 'Your friend opens the link, taps to reveal, and the crowd spells your message.' } ] },
       ],

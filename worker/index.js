@@ -1,7 +1,9 @@
 import { renderMeta, SITE } from './meta.js';
 import { CODE_RE, isValidCode } from './code.js';
 
-const EVENTS = new Set(['created', 'opened', 'revealed', 'replay', 'make_your_own_click', 'share_native']);
+const EVENTS = new Set(['created', 'opened', 'revealed', 'replay', 'make_your_own_click', 'share_native', 'reaction', 'reply', 'download']);
+// Optional detail, from a fixed list per event. Free text never reaches analytics.
+const DETAILS = { reaction: new Set(['love', 'haha', 'wow', 'yay']), download: new Set(['gif', 'mp4', 'webm']) };
 const PAGES = new Set(['home', 'surprise', 'error', 'lost']);
 const SAFE_ASSETS = new Set(['/app.js', '/logo.svg', '/wordmark.svg', '/favicon.svg', '/favicon.ico', '/favicon-32.png', '/apple-touch-icon.png', '/icon-192.png', '/icon-512.png', '/icon-maskable-512.png', '/og.png', '/og-message.png', '/site.webmanifest']);
 const PREVIEW_HOST = 'pixelmob.worldwidewebb.workers.dev';
@@ -9,8 +11,10 @@ const POLICY = {
   'X-Content-Type-Options': 'nosniff',
   'Referrer-Policy': 'no-referrer', // never send a message code as a referrer
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), browsing-topics=()',
-  'X-Frame-Options': 'DENY',
-  'Content-Security-Policy': "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-REPLACE_JSONLD_HASH'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'",
+  // SAMEORIGIN: the page frames itself (hidden) to record GIF/video downloads. Nobody else can frame it.
+  'X-Frame-Options': 'SAMEORIGIN',
+  'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
+  'Content-Security-Policy': "default-src 'self'; script-src 'self' https://static.cloudflareinsights.com 'sha256-REPLACE_JSONLD_HASH'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'self'",
 };
 function reply(body, status = 200, headers = {}) {
   const h = new Headers({ ...POLICY, 'Cache-Control': 'no-store', ...headers });
@@ -44,7 +48,10 @@ export async function ingest(req, env) {
   if (req.method !== 'POST') return methodNotAllowed('POST');
   const url = new URL(req.url), origin = req.headers.get('Origin');
   // No CORS. Origin must match this exact host. The browser also tells us if this is cross-site.
-  if ((origin && origin !== url.origin) || ['cross-site', 'same-site'].includes(req.headers.get('Sec-Fetch-Site'))) return reply(null, 403);
+  // Safari sends `Origin: null` for beacons from pages with Referrer-Policy: no-referrer, so a null origin
+  // is accepted only when the browser doesn't say the request is cross-site.
+  const site = req.headers.get('Sec-Fetch-Site');
+  if ((origin && origin !== 'null' && origin !== url.origin) || ['cross-site', 'same-site'].includes(site)) return reply(null, 403);
   if (/bot|crawler|spider|headless/i.test(req.headers.get('User-Agent') || '')) return reply(null, 204);
   const ct = req.headers.get('Content-Type') || '';
   if (!/^(text\/plain|application\/json)(;|$)/i.test(ct)) return reply(null, 415);
@@ -61,9 +68,10 @@ export async function ingest(req, env) {
   if (raw === null) return reply(null, 413);
   let body;
   try { body = JSON.parse(raw); } catch { return reply(null, 400); }
-  if (!body || typeof body !== 'object' || Array.isArray(body) || Object.keys(body).some((k) => !['e', 'p'].includes(k)) || !EVENTS.has(body.e) || !PAGES.has(body.p)) return reply(null, 400);
+  if (!body || typeof body !== 'object' || Array.isArray(body) || Object.keys(body).some((k) => !['e', 'p', 'd'].includes(k)) || !EVENTS.has(body.e) || !PAGES.has(body.p)) return reply(null, 400);
+  if (body.d !== undefined && !(DETAILS[body.e] && DETAILS[body.e].has(body.d))) return reply(null, 400);
   const country = /^[A-Z]{2}$/.test(req.cf?.country || '') ? req.cf.country : 'XX';
-  env.MOB_EVENTS.writeDataPoint({ indexes: ['v1'], blobs: [body.e, country, body.p], doubles: [1] });
+  env.MOB_EVENTS.writeDataPoint({ indexes: ['v1'], blobs: [body.e, country, body.p, body.d || ''], doubles: [1] });
   return reply(null, 204);
 }
 
@@ -74,7 +82,7 @@ async function html(req, env, kind, path, status = 200) {
   let body = await asset.text();
   // Cloudflare Web Analytics deliberately only runs on the landing/creator. Link paths are private,
   // so neither Web Analytics nor Workers request logs ever receive the code.
-  const beacon = ['landing', 'new'].includes(kind) && /^[a-f0-9]{32}$/.test(env.WEB_ANALYTICS_TOKEN || '') ? env.WEB_ANALYTICS_TOKEN : '';
+  const beacon = ['landing', 'new'].includes(kind) && !new URL(req.url).searchParams.has('capture') && /^[a-f0-9]{32}$/.test(env.WEB_ANALYTICS_TOKEN || '') ? env.WEB_ANALYTICS_TOKEN : '';
   const meta = renderMeta(kind, { path, beacon });
   body = body.replace(/<!--META-->[\s\S]*?<!--\/META-->/, `<!--META-->\n${meta}\n<!--/META-->`);
   const headers = { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' };
@@ -126,7 +134,8 @@ async function sameSecret(a, b) {
   const [x, y] = await Promise.all([crypto.subtle.digest('SHA-256', enc.encode(a)), crypto.subtle.digest('SHA-256', enc.encode(b))]);
   return crypto.subtle.timingSafeEqual(x, y);
 }
-const LABEL = { created: 'Links created', opened: 'Links opened', revealed: 'Reveals', replay: 'Replays', make_your_own_click: '“Make your own” taps', share_native: 'Native shares' };
+const LABEL = { created: 'Links created', opened: 'Links opened', revealed: 'Reveals', replay: 'Replays', reaction: 'Reactions', reply: 'Replies started', download: 'Downloads', make_your_own_click: '“Make your own” taps', share_native: 'Native shares' };
+const DETAIL_LABEL = { love: '❤️ Love', haha: '😂 Haha', wow: '😮 Wow', yay: '🙌 Yay', gif: 'GIF', mp4: 'MP4 video', webm: 'WebM video' };
 async function aeQuery(env, sql) {
   const r = await fetch(`https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/analytics_engine/sql`, {
     method: 'POST', headers: { Authorization: `Bearer ${env.STATS_API_TOKEN}`, 'Content-Type': 'text/plain' }, body: sql });
@@ -138,14 +147,15 @@ async function stats(req, env) {
   const nf = () => html(req, env, 'lost', '/stats', 404);
   if (!env.STATS_KEY || env.STATS_KEY.length < 32 || !(await sameSecret(k, env.STATS_KEY))) return nf();
   const days = Math.min(90, Math.max(1, parseInt(url.searchParams.get('d') || '7', 10) || 7));
-  let rows = [], countries = [], daily = [], err = '';
+  let rows = [], countries = [], daily = [], details = [], err = '';
   if (env.STATS_API_TOKEN && env.CF_ACCOUNT_ID) {
     try {
       const w = `timestamp > NOW() - INTERVAL '${days}' DAY`;
-      [rows, countries, daily] = await Promise.all([
+      [rows, countries, daily, details] = await Promise.all([
         aeQuery(env, `SELECT blob1 AS event, SUM(_sample_interval) AS n FROM pixelmob_events WHERE ${w} GROUP BY event ORDER BY n DESC FORMAT JSON`),
         aeQuery(env, `SELECT blob2 AS country, SUM(_sample_interval) AS n FROM pixelmob_events WHERE ${w} AND blob1 = 'opened' GROUP BY country ORDER BY n DESC LIMIT 15 FORMAT JSON`),
         aeQuery(env, `SELECT toStartOfDay(timestamp) AS day, blob1 AS event, SUM(_sample_interval) AS n FROM pixelmob_events WHERE ${w} GROUP BY day, event ORDER BY day FORMAT JSON`),
+        aeQuery(env, `SELECT blob1 AS event, blob4 AS detail, SUM(_sample_interval) AS n FROM pixelmob_events WHERE ${w} AND blob1 IN ('reaction', 'download') GROUP BY event, detail ORDER BY n DESC FORMAT JSON`),
       ]);
     } catch (e) { err = 'Couldn’t reach Analytics Engine right now. Try again in a minute.'; }
   } else err = 'Stats storage is connected, but the read-only query token hasn’t been added yet.';
@@ -170,6 +180,7 @@ ${err ? `<div class="card err">${e(err)}</div>` : ''}
 <div class="grid">${Object.keys(LABEL).map((ev) => `<div class="card"><div class="n">${(by[ev] || 0).toLocaleString('en-US')}</div><div class="l">${LABEL[ev]}</div></div>`).join('')}<div class="card"><div class="n">${rate}</div><div class="l">Opened → revealed</div></div></div>
 <div class="grid"><div class="card"><strong>Opens by day</strong><table>${[...dayMap].map(([d, v]) => `<tr><td>${d}</td><td style="width:50%"><div class="bar"><i style="width:${Math.round(((v.opened || 0) / maxDay) * 100)}%"></i></div></td><td>${v.opened || 0}</td></tr>`).join('') || '<tr><td>No opens yet</td><td></td></tr>'}</table></div>
 <div class="card"><strong>Opens by country</strong><table>${countries.map((c) => `<tr><td>${flag(c.country)} ${e(c.country === 'XX' ? 'Unknown' : c.country)}</td><td>${Number(c.n).toLocaleString('en-US')}</td></tr>`).join('') || '<tr><td>No opens yet</td><td></td></tr>'}</table></div></div>
+<div class="grid">${['reaction', 'download'].map((ev) => `<div class="card"><strong>${ev === 'reaction' ? 'Reactions' : 'Downloads'} by type</strong><table>${details.filter((r) => r.event === ev).map((r) => `<tr><td>${e(DETAIL_LABEL[r.detail] || 'Other')}</td><td>${Number(r.n).toLocaleString('en-US')}</td></tr>`).join('') || `<tr><td>No ${ev === 'reaction' ? 'reactions' : 'downloads'} yet</td><td></td></tr>`}</table></div>`).join('')}</div>
 <p class="foot">Counts can be sampled at very high volume, so we weight them by Analytics Engine’s sample interval. Keep this URL private.</p></main></body></html>`;
   return reply(body, 200, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'private, no-store', 'X-Robots-Tag': 'noindex, nofollow', 'Content-Security-Policy': "default-src 'none'; img-src 'self'; style-src 'unsafe-inline'; base-uri 'none'; frame-ancestors 'none'" });
 }
@@ -192,7 +203,7 @@ export default {
       return html(req, env, 'landing', '/');
     }
     if (path === '/new') return html(req, env, 'new', '/new');
-    const legacy = path.match(/^\/s\/([A-Za-z0-9_-]{6,90})\/?$/);
+    const legacy = path.match(/^\/s\/([A-Za-z0-9_-]{6,180})\/?$/);
     if (legacy) return isValidCode(legacy[1]) ? redirect(url.origin + '/' + legacy[1]) : html(req, env, 'scrambled', path, 404);
     if (SAFE_ASSETS.has(path)) {
       const res = await env.ASSETS.fetch(req);
@@ -204,7 +215,7 @@ export default {
     }
     // Reserved namespaces always win over the code matcher.
     if (/^\/(api|stats|s|new|create|the-office)(\/|$)/.test(path)) return html(req, env, 'lost', path, 404);
-    const code = path.match(/^\/([A-Za-z0-9_-]{6,90})\/?$/)?.[1];
+    const code = path.match(/^\/([A-Za-z0-9_-]{6,180})\/?$/)?.[1];
     if (code && isValidCode(code)) {
       if (path.endsWith('/')) return redirect(url.origin + '/' + code);
       return html(req, env, 'message', '/' + code);
