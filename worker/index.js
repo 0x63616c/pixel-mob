@@ -107,28 +107,6 @@ async function html(req, env, kind, path, status = 200) {
   return res;
 }
 
-async function office(req, env) {
-  const url = new URL(req.url), path = url.pathname;
-  if (path === '/the-office') return redirect(url.origin + '/the-office/' + url.search);
-  const au = new URL(req.url);
-  if (au.pathname.endsWith('/')) au.pathname += 'index.html';
-  const res = await env.ASSETS.fetch(new Request(au, { method: 'GET' }));
-  if (res.status === 404) return html(req, env, 'lost', path, 404);
-  const h = new Headers(res.headers);
-  if (/\.wasm$/.test(path)) h.set('Content-Type', 'application/wasm');
-  if (/\.js$/.test(path)) h.set('Content-Type', 'text/javascript; charset=utf-8');
-  if (/\.html$/.test(path) || path.endsWith('/')) h.set('Cache-Control', 'no-cache');
-  else if (/[.-][a-f0-9]{8,}\./i.test(path)) h.set('Cache-Control', 'public,max-age=31536000,immutable');
-  else h.set('Cache-Control', 'public,max-age=3600');
-  h.set('X-Content-Type-Options', 'nosniff'); h.set('Referrer-Policy', 'no-referrer');
-  // Bevy can require WASM compilation; keep these headers scoped to the game, not share links.
-  // The office page boots from small inline scripts (base-path fix, seed box, wasm loader), so inline is allowed here only.
-  h.set('Cross-Origin-Opener-Policy', 'same-origin');
-  h.set('Cross-Origin-Embedder-Policy', 'require-corp');
-  h.set('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval' https://static.cloudflareinsights.com; worker-src 'self' blob:; connect-src 'self' https://cloudflareinsights.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'");
-  return new Response(req.method === 'HEAD' ? null : res.body, { status: res.status, headers: h });
-}
-
 // ---------- /stats: private, password-less, unguessable key in ?k= (Worker secret STATS_KEY) ----------
 async function sameSecret(a, b) {
   const enc = new TextEncoder();
@@ -193,8 +171,7 @@ export default {
     if (req.method !== 'GET' && req.method !== 'HEAD' && path !== '/api/event') return methodNotAllowed('GET, HEAD');
     if (path === '/api/event') return ingest(req, env);
     if (path === '/stats') return stats(req, env);
-    if (path === '/the-office' || path.startsWith('/the-office/')) return office(req, env);
-    if (path === '/robots.txt') return plain(`User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /stats\nDisallow: /s/\nDisallow: /the-office/\n\nSitemap: ${SITE}/sitemap.xml\n`);
+    if (path === '/robots.txt') return plain(`User-agent: *\nAllow: /\nDisallow: /api/\nDisallow: /stats\nDisallow: /s/\n\nSitemap: ${SITE}/sitemap.xml\n`);
     if (path === '/sitemap.xml') return plain(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${SITE}/</loc></url><url><loc>${SITE}/new</loc></url></urlset>`, 'application/xml; charset=utf-8');
     if (path === '/create' || path === '/new/' || (path === '/' && url.searchParams.has('create'))) return redirect(url.origin + '/new');
     if (path === '/index.html') return redirect(url.origin + '/');

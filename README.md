@@ -50,9 +50,7 @@ Deploy with `npx wrangler deploy` (uses `wrangler.jsonc` and Workers Static Asse
 
 ## The Office
 
-A tiny Severance-style pixel office sim (Bevy + WebAssembly). Play it at **[pixelmob.io/the-office](https://pixelmob.io/the-office/)**. Source lives in [`the-office/`](the-office/); the Worker serves the release build from `site/the-office/` (with the correct `application/wasm` type) and reserves `/the-office/*` so share links never collide with it.
-
-![The Office, mid-morning at Plenum Industries](the-office/readme-hero.png)
+Source for an unreleased pixel office sim lives in [`the-office/`](the-office/). It is not currently served on pixelmob.io.
 
 ## License
 
