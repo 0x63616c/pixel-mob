@@ -87,7 +87,12 @@ function computeLayout(){
   let best=null;
   const PU=HAT_THEMES.has(THEME)?18:16; // rows get taller when everyone wears a hat, so hats never poke into the row above
   for(const lines of lineOptions(text,H>W*1.3?4:3)){
-    const r=sizeCells(rasterLines(lines));
+    const hats=HAT_THEMES.has(THEME),base=rasterLines(lines,{hats});
+    // Native huge art, not a nearest-neighbour blow-up. Fall back as one unit at the mob cap.
+    const large=SIZE==="huge"?rasterLines(lines,{hats,huge:true}):null;
+    // huge only when it still fits at one art-pixel per device pixel (a slow device may have lowered DPR)
+    const fits=x=>W*0.92/(x.cols*10)>=1&&rh*0.94/(x.rows*PU)>=1;
+    const r=large&&large.cells.length<=760&&fits(large)?large:sizeCells(base);
     // narrow screens: let neighbours stand shoulder to shoulder (outlines touch) to win a bigger crowd
     const tight=W*0.92/(r.cols*11)<rh*0.94/(r.rows*PU);
     const cwU=tight?10:11;
@@ -112,8 +117,8 @@ function computeLayout(){
 // mob size: small thins straight strokes (ends, corners and junctions stay), huge splits every pixel into four people
 function sizeCells(r){
   if(SIZE==="small"){const has=new Set(r.cells.map(([x,y])=>x+","+y)),h=(x,y)=>has.has(x+","+y);
-    return {cols:r.cols,rows:r.rows,cells:r.cells.filter(([x,y])=>{const st=(h(x-1,y)&&h(x+1,y)&&!h(x,y-1)&&!h(x,y+1))||(h(x,y-1)&&h(x,y+1)&&!h(x-1,y)&&!h(x+1,y));return !st||((x+y)&1)===0;})};}
-  if(SIZE==="huge"&&r.cells.length*4<=760){const c=[];r.cells.forEach(([x,y,t])=>{for(let j=0;j<2;j++)for(let i=0;i<2;i++)c.push([x*2+i,y*2+j,t]);});return {cols:r.cols*2,rows:r.rows*2,cells:c};}
+    return {cols:r.cols,rows:r.rows,cells:r.cells.filter(([x,y,tint])=>{if(tint)return true;const st=(h(x-1,y)&&h(x+1,y)&&!h(x,y-1)&&!h(x,y+1))||(h(x,y-1)&&h(x,y+1)&&!h(x-1,y)&&!h(x+1,y));return !st||((x+y)&1)===0;})};}
+
   return r;
 }
 function resize(){

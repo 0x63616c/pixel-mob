@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { isValidCode } from '../worker/code.js';
 const src = readFileSync(new URL('../src/glyphs.js', import.meta.url), 'utf8').replace(/^\s*\(\(\) => \{\s*'use strict';/, '');
-const L = new Function(src + '\nreturn {encodeMsg,decodeMsg,encodePayload,decodePayload,sanitize,cleanText,G,ALPHA2,DRAW,toDisplay};')();
+const L = new Function(src + '\nreturn {encodeMsg,decodeMsg,encodePayload,decodePayload,sanitize,cleanText,G,ALPHA2,DRAW,toDisplay,rasterLines,DRAWBITS,lineOptions};')();
 test('legacy v1 links still decode', () => {
   for (const [c, t] of [['o8RNMt_7gE3luA', 'HI GEORGE'], ['iO6oiOl7IaxSbQ', 'SURPRISE!'], ['rd__-TgI8Js29Q', 'SURPRISE!']]) { assert.equal(L.decodeMsg(c), t); assert.ok(isValidCode(c)); }
 });
@@ -39,4 +39,14 @@ test('scenes and extras round-trip, with the longest link under 180 chars', () =
 test('tampered codes are rejected', () => {
   const c = L.encodeMsg('HELLO <3'); const bad = c[3] === 'A' ? 'B' : 'A';
   assert.equal(L.decodeMsg(c.slice(0, 3) + bad + c.slice(4)), null); assert.equal(isValidCode(c.slice(0, 3) + bad + c.slice(4)), false);
+});
+test('mob drawings are square on screen and huge uses native art', () => {
+  const heart = L.cleanText('❤️');
+  const med = L.rasterLines([heart], {}), hats = L.rasterLines([heart], { hats: true }), huge = L.rasterLines([heart], { huge: true });
+  assert.deepEqual([med.cols, med.rows, hats.cols, huge.cols, huge.rows], [11, 7, 12, 22, 14]);
+  assert.ok(Math.abs((med.cols * 10.5) / (med.rows * 16) - 1) < 0.05, 'medium aspect');
+  const blown = new Set(med.cells.flatMap(([x, y]) => [[0, 0], [1, 0], [0, 1], [1, 1]].map(([i, j]) => `${x * 2 + i},${y * 2 + j}`)));
+  assert.notDeepEqual(new Set(huge.cells.map(([x, y]) => `${x},${y}`)), blown, 'huge is not a 2x blow-up');
+  assert.equal(L.DRAWBITS.h.length, L.DRAW.length); assert.equal(L.DRAWBITS.hh.length, L.DRAW.length);
+  assert.deepEqual(L.rasterLines(['HI']).cells, L.rasterLines(['HI'], {}).cells, 'text unchanged');
 });
