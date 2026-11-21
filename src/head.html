@@ -87,6 +87,62 @@
   .actions{display:flex;gap:10px;margin-top:12px}
   .actions .grow{flex:1}
   #copyBtn.done{background:#2e9e5b;border-color:#2e9e5b;box-shadow:var(--sh-btn) #1d6b3c}
+  /* creator extras */
+  .chips{display:flex;gap:8px;overflow-x:auto;margin:2px -16px 10px;padding:2px 16px 6px;scrollbar-width:none;scroll-snap-type:x proximity}
+  .chips::-webkit-scrollbar,.emojis::-webkit-scrollbar{display:none}
+  .chips button{flex:none;scroll-snap-align:start;appearance:none;font:600 13px/1 system-ui,sans-serif;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:999px;padding:8px 12px;min-height:36px;cursor:pointer;box-shadow:var(--sh-press) var(--ink);touch-action:manipulation;white-space:nowrap}
+  .chips button:active,.chips button[aria-pressed=true]{transform:translate(-2px,2px);box-shadow:none}
+  .chips button[aria-pressed=true]{background:var(--ink);color:#fff}
+  #scenes{display:flex;flex-direction:column;gap:8px}
+  .sn{font:700 11px/1 ui-monospace,monospace;color:#b9b1a5;min-width:10px}
+  #scenes .scene:only-child .sn,#scenes .scene:only-child .rm{display:none}
+  .msg{flex:1;min-width:0;border:0;background:transparent;outline:none;color:var(--ink);font:700 20px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.06em;text-transform:uppercase;padding:12px 0}
+  .msg::placeholder{color:#b9b1a5;letter-spacing:.06em}
+  .scene+.scene .field{min-height:46px}.scene+.scene .msg{font-size:17px;padding:9px 0}
+  .count{font:600 13px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#8b847a;font-variant-numeric:tabular-nums;transition:color .2s,transform .15s}
+  .count.near{color:#d35400}.count.bump{transform:scale(1.25)}
+  .rm{appearance:none;border:0;background:none;color:#8b847a;font-size:16px;width:32px;height:32px;margin-right:-8px;border-radius:8px;cursor:pointer}
+  .tools{display:flex;align-items:center;gap:8px;margin-top:8px}
+  .emojis{flex:1;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin-left:-4px;-webkit-mask-image:linear-gradient(90deg,#000 88%,transparent);mask-image:linear-gradient(90deg,#000 88%,transparent)}
+  .emojis button{flex:none;appearance:none;border:0;background:none;font-size:22px;line-height:1;width:40px;height:40px;border-radius:10px;cursor:pointer;touch-action:manipulation}
+  .emojis button:hover{background:#f1ede6}.emojis button:active{transform:translate(-1px,1px) scale(.92)}
+  .mini{appearance:none;flex:none;font:700 12px/1 system-ui,sans-serif;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:9px;padding:0 10px;min-height:34px;cursor:pointer;box-shadow:var(--sh-press) var(--ink);touch-action:manipulation}
+  .mini:active{transform:translate(-2px,2px);box-shadow:none}.mini[disabled]{opacity:.35;pointer-events:none}
+  #more{padding:0;max-width:none;margin:0 0 10px;border:2px solid #e3ddd3;border-radius:12px;background:#fffdf8}
+  #more summary{list-style:none;cursor:pointer;padding:11px 12px;font:700 13px/1.2 system-ui,sans-serif;color:var(--ink);display:flex;gap:8px;align-items:center}
+  #more summary::-webkit-details-marker{display:none}
+  #more summary::before{content:"+";font:700 15px/1 ui-monospace,monospace;width:12px}#more[open] summary::before{content:"–"}
+  #moreSum{font-weight:500;color:#8b847a;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;flex:1;text-align:right}
+  .opts{display:grid;gap:10px;padding:2px 12px 12px}
+  .opt{display:grid;grid-template-columns:84px 1fr;align-items:center;gap:8px}
+  .ol{font:600 12px/1.2 system-ui,sans-serif;color:#6f675d}
+  .opt input[type=text],.opt input[type=datetime-local]{width:100%;min-width:0;font:600 16px/1.2 system-ui,sans-serif;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:9px;padding:7px 9px;min-height:38px;text-transform:uppercase}
+  .opt input[type=datetime-local]{text-transform:none;font-size:14px}
+  .atw{display:flex;gap:6px;min-width:0}
+  .seg{display:flex;flex-wrap:wrap;gap:6px}
+  .seg button{appearance:none;font:600 12px/1 system-ui,sans-serif;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:8px;padding:0 9px;min-height:32px;cursor:pointer;touch-action:manipulation}
+  .seg button[aria-checked=true]{background:var(--ink);color:#fff}
+  .sw{display:flex;flex-wrap:wrap;gap:6px}
+  .sw button{appearance:none;width:28px;height:28px;border-radius:7px;border:2px solid var(--ink);cursor:pointer;padding:0;touch-action:manipulation;font:700 10px/1 system-ui;color:var(--ink);background:#fff}
+  .sw button[aria-checked=true]{outline:3px solid #3a7bd5;outline-offset:1px}
+  /* receiver extras */
+  .bar .col{display:flex;flex-direction:column;align-items:center;gap:12px;width:100%}
+  .bar .row{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+  #reacts{display:flex;gap:8px;padding:5px 8px;background:rgba(255,253,248,.92);border:2px solid var(--ink);border-radius:999px;box-shadow:var(--sh-press) var(--ink)}
+  #reacts button{appearance:none;border:0;background:none;font-size:24px;line-height:1;width:44px;height:40px;border-radius:999px;cursor:pointer;touch-action:manipulation;transition:transform .12s}
+  #reacts button:hover{transform:scale(1.15)}#reacts button:active{transform:scale(.9)}
+  #reacts button.picked{background:#ffe9a8}
+  #saveMenu{display:flex;gap:8px;align-items:center}#saveMenu[hidden]{display:none}
+  #saveProg{font:700 12px/1 ui-monospace,monospace;color:var(--ink);min-width:44px;background:rgba(255,253,248,.9);padding:6px 8px;border-radius:8px}
+  #saveProg:empty{display:none}
+  #countdown{display:flex;flex-direction:column;align-items:center;gap:8px}#countdown[hidden]{display:none}
+  #countdown .cl{font:700 11px/1 ui-monospace,monospace;letter-spacing:.22em;color:#8b847a}
+  #sndBtn{position:fixed;top:calc(10px + env(safe-area-inset-top));right:calc(14px + env(safe-area-inset-right));z-index:6;margin:0;background:rgba(255,253,248,.85);border:2px solid var(--ink);box-shadow:var(--sh-press) var(--ink);width:40px;height:40px;font-size:17px;display:none;opacity:1;visibility:visible;pointer-events:auto}
+  #sndBtn:active{transform:translate(-2px,2px);box-shadow:none}
+  html[data-app=surprise] #sndBtn,html[data-app=error] #sndBtn,.panel-open #sndBtn{display:block}
+  html.rec #teaser,html.rec .bar,html.rec #sndBtn,html.rec #brandline,html.rec #toast{display:none!important}
+  .dark #lost p,.dark #brandline{color:#e9e2d6}
+  @media (max-width:420px){.wide{display:none}#reacts button{width:40px}.bar .row .pbtn{padding:0 12px;font-size:14px}}
   /* toast */
   #toast{position:fixed;left:50%;top:calc(14px + env(safe-area-inset-top));z-index:9;transform:translate(-50%,-12px);background:var(--ink);color:#fff;
     font-size:14px;font-weight:600;padding:12px 16px;border-radius:12px;box-shadow:var(--sh-btn) #120d0a;max-width:calc(100vw - 32px);text-align:center}
@@ -145,10 +201,11 @@
     <div class="section-label">A LITTLE CROWD GOES A LONG WAY</div>
     <h2 id="how-title">Say it with a mob.</h2>
     <p class="lead">Pixel Mob turns your words into a living pixel-art message. The crowd wanders, a leader calls “Mob, assemble!”, and everyone runs into place. It’s a tiny surprise, made just for them.</p>
-    <ol class="steps"><li><span>01</span><h3>Write your words</h3><p>A birthday wish. An inside joke. A very important “HI”. You get 32 characters. The mob handles the rest.</p></li><li><span>02</span><h3>Send the surprise</h3><p>Copy your link or use your phone’s share sheet. The preview keeps the message a surprise.</p></li><li><span>03</span><h3>Watch them assemble</h3><p>Your friend opens the link, taps to reveal, and the mob spells it out. Confetti very much included.</p></li></ol>
+    <ol class="steps"><li><span>01</span><h3>Write your words</h3><p>A birthday wish. An inside joke. A very important “HI”. Add a ❤️ or a 🎂, up to four scenes, a theme or a countdown. The mob handles the rest.</p></li><li><span>02</span><h3>Send the surprise</h3><p>Copy your link or use your phone’s share sheet. The preview keeps the message a surprise.</p></li><li><span>03</span><h3>Watch them assemble</h3><p>Your friend taps to reveal, the mob spells it out, then they react, save it as a GIF or video, or reply with a mob of their own.</p></li></ol>
     <div class="outro"><h2>Small gesture.<br>Massive mob energy.</h2><button class="pbtn" type="button" data-open-panel>Make your first message →</button><p>Free. No account. Just a little joy.</p></div>
     <details><summary>Can anyone read my message?</summary><p>Your message is scrambled into the link, not saved in a database. This is a surprise, not encryption: anyone with the link can reveal it. Please don’t use it for private information.</p></details>
-    <details><summary>What can the mob spell?</summary><p>Up to 32 letters, numbers, spaces and supported punctuation, plus hearts. Accented letters are simplified, and we’ll tell you if a character can’t be used.</p></details>
+    <details><summary>What can the mob spell?</summary><p>Up to 32 letters, numbers, spaces and symbols per scene, plus 20 pixel drawings such as ❤️ 🎂 🎉 ⭐ 💍 🎄 🎃 and 🏆. Accented letters are simplified, and we’ll tell you if a character can’t be used.</p></details>
+    <details><summary>Can I save it or schedule it?</summary><p>Yes. Whoever opens it can save the reveal as a GIF or video, made on their own device with a small pixelmob.io mark. Set “Opens at” and the link shows a live countdown until the moment you pick.</p></details>
     <details><summary>Does it work on my phone?</summary><p>Yes. Pixel Mob is made for modern phone and desktop browsers, with touch controls, keyboard support and a reduced-motion option that follows your device’s preference.</p></details>
   </section>
   <footer><a href="/" aria-label="Pixel Mob home"><img src="/wordmark.svg" alt="Pixel Mob" width="140" height="20"></a><p>Many tiny people. One big feeling.</p><nav aria-label="Footer"><a href="/new">Make a message</a><a href="/the-office/">The Office ↗</a></nav><p class="privacy-note">No accounts. No message database.<br>Anonymous usage counts help keep the mob moving.</p></footer>
@@ -158,20 +215,40 @@
 <div id="teaser" class="fx" aria-live="polite"><div class="card">
   <div class="eyebrow">PIXEL MOB · INCOMING</div>
   <div id="teaserTitle" role="heading" aria-level="2" aria-label="Someone sent you a message"></div>
-  <p class="sub">A tiny mob. A message just for you.</p>
+  <p class="sub" id="teaserSub">A tiny mob. A message just for you.</p>
+  <div id="countdown" hidden><div class="cl">OPENS IN</div><div id="cdArt" role="timer" aria-live="off"></div></div>
   <button id="reveal" class="pbtn" type="button">Meet your mob 👀</button>
 </div></div>
 
-<div id="endbar" class="bar fx"><button id="replay" class="pbtn light" type="button">↻ Replay</button><button class="pbtn" type="button" data-open-panel>Make your own mob →</button></div>
+<div id="endbar" class="bar fx"><div class="col">
+  <div id="reacts" role="group" aria-label="React to your mob"><button type="button" data-r="love" aria-label="Love it">❤️</button><button type="button" data-r="haha" aria-label="Haha">😂</button><button type="button" data-r="wow" aria-label="Wow">😮</button><button type="button" data-r="yay" aria-label="Yay">🙌</button></div>
+  <div class="row"><button id="replay" class="pbtn light" type="button" aria-label="Replay">↻<span class="wide"> Replay</span></button><button id="saveBtn" class="pbtn light" type="button" aria-haspopup="true" aria-expanded="false">⤓ Save</button><button id="replyBtn" class="pbtn" type="button" hidden>Reply with a mob →</button><button id="makeBtn" class="pbtn" type="button" data-open-panel>Make your own →</button></div>
+  <div id="saveMenu" hidden><button type="button" data-fmt="gif" class="pbtn light">GIF</button><button type="button" data-fmt="video" class="pbtn light">Video</button><span id="saveProg" aria-live="polite"></span></div>
+</div></div>
+<button id="sndBtn" class="icon-btn fx" type="button" aria-pressed="false" aria-label="Sound on" title="Sound"><span aria-hidden="true">🔊</span></button>
 <section id="panel" role="dialog" aria-modal="false" aria-labelledby="ptitle" aria-hidden="true">
   <header><img class="pic" src="/logo.svg" width="36" height="20" alt="">
     <h2 id="ptitle"><span class="sr">Make a Pixel Mob message</span><span id="ptitleArt"></span></h2>
     <button id="pclose" class="icon-btn" type="button" aria-label="Close">✕</button></header>
-  <p class="sub">Your words. One tiny mob. Send a link and let the crowd do the talking.</p>
-  <label class="sr" for="msg">Your secret message</label>
-  <div class="field"><input id="msg" type="text" maxlength="48" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false"
-    enterkeyhint="done" placeholder="HAPPY BIRTHDAY!" aria-describedby="note count"><span id="count" aria-live="polite">0/32</span></div>
-  <div id="note">Letters, numbers and symbols like ! ? # @ &amp; % &lt; &gt; { } ~ £ € ♥ all work</div>
+  <div id="tpls" class="chips" role="group" aria-label="Start from a template"></div>
+  <div id="scenes">
+    <div class="scene" data-i="0"><label class="sr" for="msg">Your secret message</label>
+      <div class="field"><span class="sn" aria-hidden="true">1</span><input id="msg" class="msg" type="text" maxlength="140" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false"
+        enterkeyhint="done" placeholder="HAPPY BIRTHDAY!" aria-describedby="note"><span id="count" class="count" aria-live="polite">0/32</span></div></div>
+  </div>
+  <div class="tools"><div id="emojis" class="emojis" role="group" aria-label="Add a pixel drawing"></div>
+    <button id="addScene" class="mini" type="button" aria-label="Add another scene">+ Scene</button></div>
+  <div id="note">Letters, numbers, symbols and drawings like ❤️ 🎂 ⭐ all work</div>
+  <details id="more"><summary>More options <span id="moreSum"></span></summary>
+    <div class="opts">
+      <label class="opt"><span class="ol">From</span><input id="from" type="text" maxlength="24" autocomplete="nickname" autocapitalize="characters" spellcheck="false" placeholder="Your name (optional)"></label>
+      <div class="opt"><span class="ol" id="lTheme">Theme</span><div id="themes" class="seg" role="radiogroup" aria-labelledby="lTheme"></div></div>
+      <div class="opt"><span class="ol" id="lMob">Mob</span><div id="mobSw" class="sw" role="radiogroup" aria-labelledby="lMob"></div></div>
+      <div class="opt"><span class="ol" id="lBg">Background</span><div id="bgSw" class="sw" role="radiogroup" aria-labelledby="lBg"></div></div>
+      <div class="opt"><span class="ol" id="lSize">Mob size</span><div id="sizes" class="seg" role="radiogroup" aria-labelledby="lSize"></div></div>
+      <label class="opt"><span class="ol">Opens at</span><span class="atw"><input id="at" type="datetime-local"><button id="atClear" class="mini" type="button" hidden>Clear</button></span></label>
+    </div>
+  </details>
   <div id="link" class="empty" aria-label="Your link">Type something to get your link</div>
   <div class="actions"><button id="copyBtn" class="pbtn grow" type="button" disabled><span>Copy link</span></button>
     <button id="shareBtn" class="pbtn light" type="button" hidden disabled>Share…</button>

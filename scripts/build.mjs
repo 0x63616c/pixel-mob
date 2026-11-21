@@ -6,7 +6,7 @@ const root = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const read = (p) => readFile(resolve(root, p), 'utf8');
 const out = (p, v) => writeFile(resolve(root, p), v);
 await mkdir(resolve(root, 'site'), { recursive: true });
-const parts = await Promise.all(['glyphs', 'sprites', 'world', 'ui'].map((s) => read(`src/${s}.js`)));
+const parts = await Promise.all(['glyphs', 'sprites', 'sound', 'world', 'capture', 'ui'].map((s) => read(`src/${s}.js`)));
 const glyphs = parts[0].replace(/^\s*\(\(\) => \{\s*'use strict';\s*/, '');
 const script = `(() => {\n'use strict';\n${[glyphs, ...parts.slice(1)].join('\n')}`;
 new Function(script); // fail the build on any syntax error
