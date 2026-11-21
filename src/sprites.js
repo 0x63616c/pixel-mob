@@ -1,5 +1,7 @@
 // ---------- sprites ----------
-const SW=12,SH=16;            // frame size incl. 1px outline (10x14 art)
+const SW=12,SH=19;            // frame size incl. 1px outline (10x17 art: 3 spare rows above the head for hats)
+const TOP=3;                  // art rows reserved for headwear
+const SHB=SH-TOP;             // visible body height: heads sit SHB*S above the feet
 const R=a=>a[Math.random()*a.length|0], rnd=(a,b)=>a+Math.random()*(b-a), clamp=(v,a,b)=>v<a?a:v>b?b:v;
 const SKINS=["#f7d7bd","#f0c39d","#e2a878","#c58a5c","#a1683f","#7a4b2c","#5b3720"];
 const ZSKIN=["#8cc152","#7fb85c","#9ccc65","#a3c46b"];
@@ -23,11 +25,11 @@ function newLook(){
 }
 // kinds: F,Fblink,FlookL,FlookR,Fwave1,Fwave2,Fcheer,FwalkA,FwalkB,Bidle,BwalkA,BwalkB,Sa,Sp,Sb
 function frameGrid(L,kind){
-  const g=Array.from({length:14},()=>Array(10).fill(null));
-  const put=(r,c,v)=>{c+=1;if(r>=0&&r<14&&c>=0&&c<10)g[r][c]=v;};
-  const del=(r,c)=>{c+=1;if(r>=0&&r<14&&c>=0&&c<10)g[r][c]=null;};
+  const g=Array.from({length:14+TOP},()=>Array(10).fill(null));
+  const put=(r,c,v)=>{c+=1;r+=TOP;if(r>=0&&r<14+TOP&&c>=0&&c<10)g[r][c]=v;};
+  const del=(r,c)=>{c+=1;r+=TOP;if(r>=0&&r<14+TOP&&c>=0&&c<10)g[r][c]=null;};
   const M={S:L.skin,s:shade(L.skin,.85),H:L.hair,h:shade(L.hair,.8),E:L.eye,T:L.shirt,t:shade(L.shirt,.82),P:L.pants,
-    B:L.shoes,C:L.hat,c:shade(L.hat,.75),K:L.pants,W:"#ffffff",Q:"#f09a9a"};
+    B:L.shoes,C:L.hat,c:shade(L.hat,.75),K:L.pants,W:"#ffffff",Q:"#f09a9a",Y:"#f1c40f",A:L.acc2||"#ffffff"};
   const row=(r,str)=>{[...str].forEach((ch,c)=>{if(ch!==".")put(r,c,M[ch]);});};
   const side=kind[0]==="S", back=kind[0]==="B", front=kind[0]==="F";
   const st=L.style;
@@ -76,6 +78,17 @@ function frameGrid(L,kind){
     if(st==="cap"||st==="beanie"){row(0,"..CCCC..");row(1,".CCCCCC.");row(2,".cccccc.");}
     if(st==="bun"){put(-1,3,M.H);put(-1,4,M.H);row(0,"..HHHH..");}
   }
+  // ---- themed headwear (drawn over hair; uses the rows above the head)
+  const acc=L.acc;
+  if(acc==="party"){row(-3,"....Y...");row(-2,"...CA...");row(-1,"...ACC..");row(0,"..CACA..");}
+  if(acc==="santa"){row(-2,".....WW.");row(-1,"...CCCW.");row(0,"..CCCCC.");row(1,".WWWWWW.");}
+  if(acc==="witch"){row(-3,"....C...");row(-2,"...CC...");row(-1,"...CCC..");row(0,"..CAAC..");row(1,"CCCCCCCC");}
+  if(acc==="ears"){row(-1,".C....C.");row(0,".CC..CC.");}
+  if(acc==="horns"){row(-1,".A....A.");row(0,".AA..AA.");}
+  if(acc==="tophat"){row(-3,"..CCCC..");row(-2,"..CCCC..");row(-1,"..AAAA..");row(0,".cccccc.");}
+  if(acc==="veil"){row(0,"..WWWW..");row(1,".WWWWWW.");if(!side)for(let r=2;r<=8;r++){put(r,0,M.W);put(r,7,M.W);}else for(let r=2;r<=8;r++)put(r,0,M.W);}
+  if(acc==="flowers"){row(0,"..AYAY..");put(1,1,M.A);put(1,6,M.Y);}
+  if(acc==="foam"&&front&&(kind==="Fcheer"||kind.startsWith("Fwave"))){put(1,8,M.A);put(2,8,M.A);put(3,8,M.A);put(0,8,M.A);}
   // ---- body
   if(!side){
     row(6,".TTTTTT.");row(7,"TTTTTTTT");row(8,"TTTTTTTT");row(9,"STTTTTTS");
@@ -121,8 +134,8 @@ function buildSheet(L){
   const set=(px,py,c)=>{const o=(py*TW+px)*4;d[o]=c[0];d[o+1]=c[1];d[o+2]=c[2];d[o+3]=255;};
   list.forEach(([g,flip],fi)=>{
     const ox=fi*SW,Wd=10;
-    const at=(r,c)=>{if(r<0||r>=14||c<0||c>=Wd)return null;return g[r][flip?Wd-1-c:c];};
-    for(let r=-1;r<=14;r++)for(let c=-1;c<=Wd;c++){
+    const at=(r,c)=>{if(r<0||r>=14+TOP||c<0||c>=Wd)return null;return g[r][flip?Wd-1-c:c];};
+    for(let r=-1;r<=14+TOP;r++)for(let c=-1;c<=Wd;c++){
       const v=at(r,c);
       if(v)set(ox+c+1,r+1,rgbOf(v));
       else if(at(r-1,c)||at(r+1,c)||at(r,c-1)||at(r,c+1))set(ox+c+1,r+1,out);
@@ -133,6 +146,31 @@ function buildSheet(L){
 }
 function pixCanvas(rows,map){const h=rows.length,w=rows[0].length;const cv=document.createElement("canvas");cv.width=w;cv.height=h;
   const x=cv.getContext("2d");rows.forEach((r,y)=>[...r].forEach((ch,c)=>{if(map[ch]){x.fillStyle=map[ch];x.fillRect(c,y,1,1);}}));return cv;}
+// ---------- themes: palettes, headwear and ambience. Indexes live in THEMES (glyphs.js) ----------
+const THEME_DEF={
+  default:{bg:"#f4f2ee"},
+  birthday:{bg:"#fff6e8",ambient:"confetti",shirts:["#ff6b9d","#f1c40f","#3a7bd5","#2ecc71","#9b59b6","#ff8c42"],
+    dress:L=>{if(Math.random()<.68){L.acc="party";L.hat=R(["#e74c3c","#3a7bd5","#2ecc71","#9b59b6","#ff6b9d","#ff8c42"]);L.acc2="#ffffff";}}},
+  christmas:{bg:"#1f2a44",dark:true,ambient:"snow",shirts:["#c0392b","#e74c3c","#27ae60","#2ecc71","#f4f4f4","#c0392b"],
+    dress:L=>{if(Math.random()<.72){L.acc="santa";L.hat="#d63031";}else{L.style="beanie";L.hat=R(["#27ae60","#f4f4f4","#c0392b"]);}}},
+  halloween:{bg:"#2a1f33",dark:true,ambient:"fireflies",shirts:["#e67e22","#2d2d2d","#8e44ad","#27ae60","#d35400","#4a235a"],
+    dress:L=>{const r=Math.random();if(r<.34){L.acc="witch";L.hat="#2d2d2d";L.acc2="#8e44ad";}else if(r<.56){L.acc="ears";L.hat="#2d2d2d";}else if(r<.72){L.acc="horns";L.acc2="#e74c3c";}
+      if(Math.random()<.2){L.zombie=true;L.skin=R(ZSKIN);}}},
+  wedding:{bg:"#fbf1f3",ambient:"petals",celebrate:"hearts",shirts:["#f4f4f4","#2d2d2d","#f6c5cf","#f4f4f4","#2d2d2d","#b8c9e8"],
+    dress:L=>{const r=Math.random();if(r<.3){L.acc="tophat";L.hat="#2d2d2d";L.acc2="#e2483d";L.shirt="#2d2d2d";}else if(r<.55){L.acc="veil";L.shirt="#f4f4f4";L.skirt=true;L.pants="#f4f4f4";}else if(r<.72){L.acc="flowers";L.acc2="#ff6b9d";}}},
+  stadium:{bg:"#3f7d3a",dark:true,ambient:"flashes",wave:true,
+    dress:(L,p)=>{const home=Math.random()<.5;L.shirt=home?"#e74c3c":"#3a7bd5";L.stripe=Math.random()<.5;L.hat=L.shirt;L.style=Math.random()<.4?"cap":L.style;
+      if(Math.random()<.25){L.acc="foam";L.acc2="#f1c40f";}}},
+};
+function dressLook(L,theme,mob){
+  const T=THEME_DEF[theme]||THEME_DEF.default;
+  L.acc=null;L.acc2=null;
+  if(T.shirts&&Math.random()<.85)L.shirt=R(T.shirts);
+  if(T.dress)T.dress(L);
+  if(L.acc&&L.acc!=="foam"&&["cap","beanie","mohawk","afro","bun","pony"].includes(L.style))L.style="short";
+  if(mob>=0){const c=MOB_COLORS[mob];L.shirt=Math.random()<.8?c:shade(c,Math.random()<.5?.85:1.12);}
+  return L;
+}
 const BUBBLE=pixCanvas([".XXXXX.","XWWRWWX","XWWRWWX","XWWRWWX","XWWWWWX","XWWRWWX",".XXXXX.","..XX...","..X...."],{X:OUT,W:"#fff",R:"#e2483d"});
 const HEART=pixCanvas([".XX.XX.","XRRXRRX","XRRRRRX",".XRRRX.","..XRX..","...X..."],{X:OUT,R:"#ff5a7a"});
 const SHADOW=pixCanvas(["..XXXXXX..","XXXXXXXXXX","..XXXXXX.."],{X:"rgba(70,52,36,0.16)"});
