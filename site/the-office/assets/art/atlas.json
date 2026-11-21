@@ -1,0 +1,12204 @@
+{
+ "version": 1,
+ "pixel_tile": 16,
+ "people": {
+  "cell": [
+   24,
+   32
+  ],
+  "foot_anchor": [
+   12,
+   30
+  ],
+  "cols": 8,
+  "by_person": {
+   "margot": "people/margot.png",
+   "dev": "people/dev.png",
+   "bianca": "people/bianca.png",
+   "theo": "people/theo.png",
+   "hiroshi": "people/hiroshi.png",
+   "priya": "people/priya.png",
+   "lucas": "people/lucas.png",
+   "amara": "people/amara.png",
+   "kai": "people/kai.png",
+   "ingrid": "people/ingrid.png",
+   "tomas": "people/tomas.png",
+   "nadia": "people/nadia.png",
+   "ben": "people/ben.png",
+   "sofia": "people/sofia.png",
+   "jamal": "people/jamal.png",
+   "mei": "people/mei.png",
+   "oskar": "people/oskar.png",
+   "leila": "people/leila.png",
+   "rory": "people/rory.png",
+   "analucia": "people/analucia.png",
+   "wen": "people/wen.png",
+   "felix": "people/felix.png",
+   "greta": "people/greta.png",
+   "sam": "people/sam.png",
+   "clara": "people/clara.png",
+   "arjun": "people/arjun.png",
+   "hannah": "people/hannah.png",
+   "diego": "people/diego.png",
+   "yuki": "people/yuki.png",
+   "zara": "people/zara.png",
+   "elliot": "people/elliot.png",
+   "marisol": "people/marisol.png",
+   "chad": "people/chad.png",
+   "fatima": "people/fatima.png",
+   "jordan": "people/jordan.png",
+   "nikolai": "people/nikolai.png",
+   "olivia": "people/olivia.png",
+   "ravi": "people/ravi.png",
+   "camille": "people/camille.png",
+   "grace": "people/grace.png",
+   "tyler": "people/tyler.png",
+   "aisha": "people/aisha.png",
+   "henrik": "people/henrik.png",
+   "lucy": "people/lucy.png",
+   "bea": "people/bea.png",
+   "martin": "people/martin.png",
+   "destiny": "people/destiny.png",
+   "owen": "people/owen.png",
+   "imani": "people/imani.png",
+   "pablo": "people/pablo.png",
+   "ines": "people/ines.png",
+   "walter": "people/walter.png",
+   "harlan": "people/harlan.png"
+  },
+  "kinds": {
+   "margot": "staff",
+   "dev": "staff",
+   "bianca": "staff",
+   "theo": "staff",
+   "hiroshi": "staff",
+   "priya": "staff",
+   "lucas": "staff",
+   "amara": "staff",
+   "kai": "staff",
+   "ingrid": "staff",
+   "tomas": "staff",
+   "nadia": "staff",
+   "ben": "staff",
+   "sofia": "staff",
+   "jamal": "staff",
+   "mei": "staff",
+   "oskar": "staff",
+   "leila": "staff",
+   "rory": "staff",
+   "analucia": "staff",
+   "wen": "staff",
+   "felix": "staff",
+   "greta": "staff",
+   "sam": "staff",
+   "clara": "staff",
+   "arjun": "staff",
+   "hannah": "staff",
+   "diego": "staff",
+   "yuki": "staff",
+   "zara": "staff",
+   "elliot": "staff",
+   "marisol": "staff",
+   "chad": "staff",
+   "fatima": "staff",
+   "jordan": "staff",
+   "nikolai": "staff",
+   "olivia": "staff",
+   "ravi": "staff",
+   "camille": "staff",
+   "grace": "staff",
+   "tyler": "staff",
+   "aisha": "staff",
+   "henrik": "staff",
+   "lucy": "staff",
+   "bea": "receptionist",
+   "martin": "staff",
+   "destiny": "staff",
+   "owen": "staff",
+   "imani": "staff",
+   "pablo": "staff",
+   "ines": "cleaner",
+   "walter": "cleaner",
+   "harlan": "security"
+  },
+  "presets": [
+   "p00",
+   "p01",
+   "p02",
+   "p03",
+   "p04",
+   "p05",
+   "p06",
+   "p07",
+   "p08",
+   "p09",
+   "p10",
+   "p11",
+   "p12",
+   "p13",
+   "p14",
+   "p15",
+   "p16",
+   "p17",
+   "p18",
+   "p19",
+   "p20",
+   "p21",
+   "receptionist",
+   "facilities_a",
+   "facilities_b",
+   "supervisor"
+  ],
+  "rows": [
+   "idle_S",
+   "idle_N",
+   "idle_E",
+   "idle_W",
+   "walk_S",
+   "walk_N",
+   "walk_E",
+   "walk_W",
+   "run_S",
+   "run_N",
+   "run_E",
+   "run_W",
+   "talk_S",
+   "talk_N",
+   "talk_E",
+   "talk_W",
+   "type_S",
+   "type_N",
+   "type_E",
+   "type_W",
+   "sleep_S",
+   "sleep_N",
+   "sleep_E",
+   "sleep_W",
+   "celebrate_S",
+   "celebrate_N",
+   "celebrate_E",
+   "celebrate_W",
+   "facepalm_S",
+   "facepalm_N",
+   "facepalm_E",
+   "facepalm_W",
+   "sit_S",
+   "sit_N",
+   "sit_E",
+   "sit_W",
+   "drink_S",
+   "drink_N",
+   "drink_E",
+   "drink_W",
+   "tired_S",
+   "tired_N",
+   "tired_E",
+   "tired_W",
+   "phone_S",
+   "phone_N",
+   "phone_E",
+   "phone_W",
+   "knock_S",
+   "knock_N",
+   "knock_E",
+   "knock_W",
+   "wave_S",
+   "wave_N",
+   "wave_E",
+   "wave_W",
+   "clap_S",
+   "clap_N",
+   "clap_E",
+   "clap_W",
+   "flashlight_S",
+   "flashlight_N",
+   "flashlight_E",
+   "flashlight_W",
+   "stretch_S",
+   "stretch_N",
+   "stretch_E",
+   "stretch_W",
+   "nod_S",
+   "nod_N",
+   "nod_E",
+   "nod_W",
+   "doze_S",
+   "doze_N",
+   "doze_E",
+   "doze_W",
+   "bow_S",
+   "bow_N",
+   "bow_E",
+   "bow_W",
+   "pet_S",
+   "pet_N",
+   "pet_E",
+   "pet_W",
+   "fidget_S",
+   "fidget_N",
+   "fidget_E",
+   "fidget_W"
+  ],
+  "anims": {
+   "idle": {
+    "frames": 8,
+    "fps": 4,
+    "loop": true
+   },
+   "walk": {
+    "frames": 4,
+    "fps": 8,
+    "loop": true
+   },
+   "run": {
+    "frames": 4,
+    "fps": 12,
+    "loop": true
+   },
+   "talk": {
+    "frames": 4,
+    "fps": 6,
+    "loop": true
+   },
+   "type": {
+    "frames": 4,
+    "fps": 8,
+    "loop": true
+   },
+   "sleep": {
+    "frames": 4,
+    "fps": 2,
+    "loop": true
+   },
+   "celebrate": {
+    "frames": 4,
+    "fps": 8,
+    "loop": true
+   },
+   "facepalm": {
+    "frames": 4,
+    "fps": 5,
+    "loop": false
+   },
+   "sit": {
+    "frames": 2,
+    "fps": 1,
+    "loop": true
+   },
+   "drink": {
+    "frames": 4,
+    "fps": 3,
+    "loop": true
+   },
+   "tired": {
+    "frames": 4,
+    "fps": 2,
+    "loop": true
+   },
+   "phone": {
+    "frames": 4,
+    "fps": 4,
+    "loop": true
+   },
+   "knock": {
+    "frames": 4,
+    "fps": 6,
+    "loop": true
+   },
+   "wave": {
+    "frames": 4,
+    "fps": 6,
+    "loop": true
+   },
+   "clap": {
+    "frames": 4,
+    "fps": 8,
+    "loop": true
+   },
+   "flashlight": {
+    "frames": 4,
+    "fps": 7,
+    "loop": true
+   },
+   "stretch": {
+    "frames": 6,
+    "fps": 5,
+    "loop": false
+   },
+   "nod": {
+    "frames": 4,
+    "fps": 5,
+    "loop": true
+   },
+   "doze": {
+    "frames": 8,
+    "fps": 3,
+    "loop": true
+   },
+   "bow": {
+    "frames": 4,
+    "fps": 4,
+    "loop": false
+   },
+   "pet": {
+    "frames": 4,
+    "fps": 5,
+    "loop": true
+   },
+   "fidget": {
+    "frames": 6,
+    "fps": 5,
+    "loop": true
+   }
+  },
+  "dirs": [
+   "S",
+   "N",
+   "E",
+   "W"
+  ],
+  "sheets": {
+   "p00": "people/p00.png",
+   "p01": "people/p01.png",
+   "p02": "people/p02.png",
+   "p03": "people/p03.png",
+   "p04": "people/p04.png",
+   "p05": "people/p05.png",
+   "p06": "people/p06.png",
+   "p07": "people/p07.png",
+   "p08": "people/p08.png",
+   "p09": "people/p09.png",
+   "p10": "people/p10.png",
+   "p11": "people/p11.png",
+   "p12": "people/p12.png",
+   "p13": "people/p13.png",
+   "p14": "people/p14.png",
+   "p15": "people/p15.png",
+   "p16": "people/p16.png",
+   "p17": "people/p17.png",
+   "p18": "people/p18.png",
+   "p19": "people/p19.png",
+   "p20": "people/p20.png",
+   "p21": "people/p21.png",
+   "receptionist": "people/receptionist.png",
+   "facilities_a": "people/facilities_a.png",
+   "facilities_b": "people/facilities_b.png",
+   "supervisor": "people/supervisor.png",
+   "margot": "people/margot.png",
+   "dev": "people/dev.png",
+   "bianca": "people/bianca.png",
+   "theo": "people/theo.png",
+   "hiroshi": "people/hiroshi.png",
+   "priya": "people/priya.png",
+   "lucas": "people/lucas.png",
+   "amara": "people/amara.png",
+   "kai": "people/kai.png",
+   "ingrid": "people/ingrid.png",
+   "tomas": "people/tomas.png",
+   "nadia": "people/nadia.png",
+   "ben": "people/ben.png",
+   "sofia": "people/sofia.png",
+   "jamal": "people/jamal.png",
+   "mei": "people/mei.png",
+   "oskar": "people/oskar.png",
+   "leila": "people/leila.png",
+   "rory": "people/rory.png",
+   "analucia": "people/analucia.png",
+   "wen": "people/wen.png",
+   "felix": "people/felix.png",
+   "greta": "people/greta.png",
+   "sam": "people/sam.png",
+   "clara": "people/clara.png",
+   "arjun": "people/arjun.png",
+   "hannah": "people/hannah.png",
+   "diego": "people/diego.png",
+   "yuki": "people/yuki.png",
+   "zara": "people/zara.png",
+   "elliot": "people/elliot.png",
+   "marisol": "people/marisol.png",
+   "chad": "people/chad.png",
+   "fatima": "people/fatima.png",
+   "jordan": "people/jordan.png",
+   "nikolai": "people/nikolai.png",
+   "olivia": "people/olivia.png",
+   "ravi": "people/ravi.png",
+   "camille": "people/camille.png",
+   "grace": "people/grace.png",
+   "tyler": "people/tyler.png",
+   "aisha": "people/aisha.png",
+   "henrik": "people/henrik.png",
+   "lucy": "people/lucy.png",
+   "bea": "people/bea.png",
+   "martin": "people/martin.png",
+   "destiny": "people/destiny.png",
+   "owen": "people/owen.png",
+   "imani": "people/imani.png",
+   "pablo": "people/pablo.png",
+   "ines": "people/ines.png",
+   "walter": "people/walter.png",
+   "harlan": "people/harlan.png"
+  },
+  "looks": {
+   "p00": {
+    "skin": 1,
+    "hair": "#5a3a22",
+    "hairStyle": "feather",
+    "top": "suit",
+    "topColor": "#6b4a2f",
+    "pants": "#4a3a2c",
+    "acc": [
+     "tie",
+     "glasses"
+    ],
+    "tieColor": "#c9a03a"
+   },
+   "p01": {
+    "skin": 4,
+    "hair": "#1e1612",
+    "hairStyle": "afro",
+    "top": "turtleneck",
+    "topColor": "#c9a03a",
+    "pants": "#3a3a40"
+   },
+   "p02": {
+    "skin": 0,
+    "hair": "#c98a3a",
+    "hairStyle": "bob",
+    "top": "cardigan",
+    "topColor": "#7a8a3a",
+    "innerColor": "#efe6d0",
+    "pants": "#6b4a2f",
+    "acc": [
+     "earrings"
+    ]
+   },
+   "p03": {
+    "skin": 2,
+    "hair": "#2a1d16",
+    "hairStyle": "sidepart",
+    "top": "suit",
+    "topColor": "#2c3a57",
+    "pants": "#2c3a57",
+    "acc": [
+     "tie",
+     "badge"
+    ],
+    "tieColor": "#8f3f26"
+   },
+   "p04": {
+    "skin": 0,
+    "hair": "#d9c08a",
+    "hairStyle": "long",
+    "top": "blouse",
+    "topColor": "#c0622f",
+    "pants": "#5a4632",
+    "acc": [
+     "badge"
+    ]
+   },
+   "p05": {
+    "skin": 3,
+    "hair": "#1e1612",
+    "hairStyle": "short",
+    "top": "sweater",
+    "topColor": "#8f3f26",
+    "innerColor": "#efe6d0",
+    "pants": "#3a3a40",
+    "acc": [
+     "mustache"
+    ]
+   },
+   "p06": {
+    "skin": 1,
+    "hair": "#8a8680",
+    "hairStyle": "bald",
+    "top": "suit",
+    "topColor": "#3a3a40",
+    "pants": "#3a3a40",
+    "acc": [
+     "tie",
+     "glasses"
+    ],
+    "tieColor": "#2f6f68"
+   },
+   "p07": {
+    "skin": 5,
+    "hair": "#141010",
+    "hairStyle": "bun",
+    "top": "turtleneck",
+    "topColor": "#2f6f68",
+    "pants": "#2a2a30",
+    "acc": [
+     "earrings"
+    ]
+   },
+   "p08": {
+    "skin": 0,
+    "hair": "#7a4a26",
+    "hairStyle": "mullet",
+    "top": "shirt",
+    "topColor": "#c7d6e0",
+    "pants": "#6b4a2f",
+    "acc": [
+     "tie",
+     "mustache"
+    ],
+    "tieColor": "#6e2f3a"
+   },
+   "p09": {
+    "skin": 2,
+    "hair": "#3a2418",
+    "hairStyle": "feather",
+    "top": "dress",
+    "topColor": "#6e2f3a",
+    "pants": "#6e2f3a",
+    "shoes": "#3a2418"
+   },
+   "p10": {
+    "skin": 1,
+    "hair": "#b0602a",
+    "hairStyle": "short",
+    "top": "cardigan",
+    "topColor": "#b08850",
+    "innerColor": "#c7d6e0",
+    "pants": "#3a3a40",
+    "acc": [
+     "glasses",
+     "tie"
+    ],
+    "tieColor": "#2c3a57"
+   },
+   "p11": {
+    "skin": 4,
+    "hair": "#2a1d16",
+    "hairStyle": "sidepart",
+    "top": "suit",
+    "topColor": "#6b4a2f",
+    "pants": "#6b4a2f",
+    "acc": [
+     "tie",
+     "beard"
+    ],
+    "tieColor": "#c0622f"
+   },
+   "p12": {
+    "skin": 0,
+    "hair": "#3a2a1e",
+    "hairStyle": "bob",
+    "top": "turtleneck",
+    "topColor": "#efe6d0",
+    "pants": "#2c3a57",
+    "acc": [
+     "glasses"
+    ]
+   },
+   "p13": {
+    "skin": 3,
+    "hair": "#1e1612",
+    "hairStyle": "afro",
+    "top": "suit",
+    "topColor": "#7a8a3a",
+    "pants": "#4a3a2c",
+    "acc": [
+     "tie"
+    ],
+    "tieColor": "#c9a03a"
+   },
+   "p14": {
+    "skin": 1,
+    "hair": "#e0c890",
+    "hairStyle": "feather",
+    "top": "sweater",
+    "topColor": "#2f6f68",
+    "innerColor": "#efe6d0",
+    "pants": "#b08850"
+   },
+   "p15": {
+    "skin": 2,
+    "hair": "#5a3a22",
+    "hairStyle": "long",
+    "top": "cardigan",
+    "topColor": "#c0622f",
+    "innerColor": "#efe6d0",
+    "pants": "#4a3a2c",
+    "acc": [
+     "glasses"
+    ]
+   },
+   "p16": {
+    "skin": 0,
+    "hair": "#c0c0bc",
+    "hairStyle": "sidepart",
+    "top": "suit",
+    "topColor": "#8a7a62",
+    "pants": "#8a7a62",
+    "acc": [
+     "tie",
+     "mustache",
+     "glasses"
+    ],
+    "tieColor": "#8f3f26"
+   },
+   "p17": {
+    "skin": 5,
+    "hair": "#141010",
+    "hairStyle": "short",
+    "top": "shirt",
+    "topColor": "#efe6d0",
+    "pants": "#2c3a57",
+    "acc": [
+     "tie",
+     "badge"
+    ],
+    "tieColor": "#2f6f68"
+   },
+   "p18": {
+    "skin": 1,
+    "hair": "#2a1d16",
+    "hairStyle": "bun",
+    "top": "blouse",
+    "topColor": "#c9a03a",
+    "pants": "#3a3a40",
+    "acc": [
+     "glasses"
+    ]
+   },
+   "p19": {
+    "skin": 4,
+    "hair": "#2a1d16",
+    "hairStyle": "mullet",
+    "top": "turtleneck",
+    "topColor": "#6e2f3a",
+    "pants": "#3a3a40",
+    "acc": [
+     "beard"
+    ]
+   },
+   "p20": {
+    "skin": 2,
+    "hair": "#7a4a26",
+    "hairStyle": "short",
+    "top": "sweater",
+    "topColor": "#c9a03a",
+    "innerColor": "#c7d6e0",
+    "pants": "#2c3a57",
+    "acc": [
+     "tie"
+    ],
+    "tieColor": "#2c3a57"
+   },
+   "p21": {
+    "skin": 0,
+    "hair": "#a0522d",
+    "hairStyle": "bob",
+    "top": "dress",
+    "topColor": "#2f6f68",
+    "pants": "#2f6f68",
+    "shoes": "#3a2418",
+    "acc": [
+     "earrings"
+    ]
+   },
+   "receptionist": {
+    "skin": 1,
+    "hair": "#3a2418",
+    "hairStyle": "bun",
+    "top": "blouse",
+    "topColor": "#efe6d0",
+    "pants": "#2c3a57",
+    "acc": [
+     "headset",
+     "earrings",
+     "badge"
+    ]
+   },
+   "facilities_a": {
+    "skin": 2,
+    "hair": "#3a3a3a",
+    "hairStyle": "cap",
+    "top": "jumpsuit",
+    "topColor": "#9a9ea3",
+    "pants": "#9a9ea3",
+    "capColor": "#7d8287",
+    "shoes": "#3a3a40"
+   },
+   "facilities_b": {
+    "skin": 4,
+    "hair": "#1e1612",
+    "hairStyle": "cap",
+    "top": "jumpsuit",
+    "topColor": "#8e9297",
+    "pants": "#8e9297",
+    "capColor": "#6f747a",
+    "shoes": "#3a3a40"
+   },
+   "supervisor": {
+    "skin": 0,
+    "hair": "#2a2420",
+    "hairStyle": "sidepart",
+    "top": "suit",
+    "topColor": "#1f2430",
+    "pants": "#1f2430",
+    "acc": [
+     "tie",
+     "badge"
+    ],
+    "tieColor": "#1f2430",
+    "shoes": "#111111"
+   },
+   "margot": {
+    "skin": "#f6d7c3",
+    "hair": "#efe6c8",
+    "hairStyle": "bob",
+    "top": "suit",
+    "topColor": "#efe6d0",
+    "pants": "#2c3a57",
+    "shoes": "#1e2a44",
+    "innerColor": "#c7d6e0",
+    "tieColor": "#2f6f68",
+    "acc": [
+     "earrings",
+     "tie"
+    ]
+   },
+   "dev": {
+    "skin": "#a5694a",
+    "hair": "#1f1a17",
+    "hairStyle": "short",
+    "top": "turtleneck",
+    "topColor": "#3a3a40",
+    "pants": "#1f2430",
+    "shoes": "#2a211c",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "beard",
+     "glasses"
+    ]
+   },
+   "bianca": {
+    "skin": "#5a3423",
+    "hair": "#1f1a17",
+    "hairStyle": "long",
+    "top": "suit",
+    "topColor": "#7a6a8a",
+    "pants": "#3a3a40",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "tieColor": "#8f3f26",
+    "acc": [
+     "earrings",
+     "tie"
+    ]
+   },
+   "theo": {
+    "skin": "#f6d7c3",
+    "hair": "#d9b46a",
+    "hairStyle": "sidepart",
+    "top": "cardigan",
+    "topColor": "#9fb3c0",
+    "pants": "#a7a9ac",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "glasses"
+    ]
+   },
+   "hiroshi": {
+    "skin": "#efc3a4",
+    "hair": "#1f1a17",
+    "hairStyle": "short",
+    "top": "shirt",
+    "topColor": "#55565c",
+    "pants": "#1f2430",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "headphones"
+    ]
+   },
+   "priya": {
+    "skin": "#a5694a",
+    "hair": "#1f1a17",
+    "hairStyle": "long",
+    "top": "shirt",
+    "topColor": "#3d7f86",
+    "pants": "#3a3a40",
+    "shoes": "#2a211c",
+    "innerColor": "#efe6d0",
+    "tieColor": "#6e2f3a",
+    "acc": [
+     "glasses",
+     "tie"
+    ]
+   },
+   "lucas": {
+    "skin": "#c68863",
+    "hair": "#3b2a20",
+    "hairStyle": "curly",
+    "top": "turtleneck",
+    "topColor": "#c9a03a",
+    "pants": "#3d7f86",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "airpods"
+    ]
+   },
+   "amara": {
+    "skin": "#7d4b32",
+    "hair": "#1f1a17",
+    "hairStyle": "afro",
+    "top": "shirt",
+    "topColor": "#b08850",
+    "pants": "#3a3a40",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "earrings"
+    ]
+   },
+   "kai": {
+    "skin": "#c68863",
+    "hair": "#1f1a17",
+    "hairStyle": "mohawk",
+    "top": "turtleneck",
+    "topColor": "#a7a9ac",
+    "pants": "#3a3a40",
+    "shoes": "#2a211c",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "headphones"
+    ]
+   },
+   "ingrid": {
+    "skin": "#f6d7c3",
+    "hair": "#d9b46a",
+    "hairStyle": "pony",
+    "top": "vest",
+    "topColor": "#2c3a57",
+    "pants": "#1f2430",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "glasses"
+    ]
+   },
+   "tomas": {
+    "skin": "#e0ac8a",
+    "hair": "#3b2a20",
+    "hairStyle": "short",
+    "top": "shirt",
+    "topColor": "#c0622f",
+    "pants": "#3d7f86",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "mustache"
+    ]
+   },
+   "nadia": {
+    "skin": "#f6d7c3",
+    "hair": "#8a3b1e",
+    "hairStyle": "bun",
+    "top": "cardigan",
+    "topColor": "#5a6a32",
+    "pants": "#3a3a40",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "glasses"
+    ]
+   },
+   "ben": {
+    "skin": "#efc3a4",
+    "hair": "#c0622b",
+    "hairStyle": "beanie",
+    "top": "turtleneck",
+    "topColor": "#7a8a3a",
+    "pants": "#a7a9ac",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "capColor": "#c9a03a",
+    "acc": [
+     "beard"
+    ]
+   },
+   "sofia": {
+    "skin": "#efc3a4",
+    "hair": "#3b2a20",
+    "hairStyle": "long",
+    "top": "suit",
+    "topColor": "#d9cdaf",
+    "pants": "#2c3a57",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "tieColor": "#2f6f68",
+    "acc": [
+     "earrings",
+     "tie"
+    ]
+   },
+   "jamal": {
+    "skin": "#7d4b32",
+    "hair": "#1f1a17",
+    "hairStyle": "buzz",
+    "top": "shirt",
+    "topColor": "#efe6d0",
+    "pants": "#1f2430",
+    "shoes": "#5a2a22",
+    "innerColor": "#c7d6e0",
+    "acc": [
+     "sunglasses"
+    ]
+   },
+   "mei": {
+    "skin": "#efc3a4",
+    "hair": "#1f1a17",
+    "hairStyle": "bob",
+    "top": "cardigan",
+    "topColor": "#b8a0b8",
+    "pants": "#3a3a40",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "glasses"
+    ]
+   },
+   "oskar": {
+    "skin": "#f6d7c3",
+    "hair": "#6b4a2f",
+    "hairStyle": "sidepart",
+    "top": "shirt",
+    "topColor": "#9fb3c0",
+    "pants": "#3d7f86",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "mustache"
+    ]
+   },
+   "leila": {
+    "skin": "#e0ac8a",
+    "hair": "#3b2a20",
+    "hairStyle": "hijab",
+    "top": "dress",
+    "topColor": "#3d7f86",
+    "pants": "#a7a9ac",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "acc": []
+   },
+   "rory": {
+    "skin": "#f6d7c3",
+    "hair": "#c0622b",
+    "hairStyle": "curly",
+    "top": "turtleneck",
+    "topColor": "#1f2430",
+    "pants": "#3a3a40",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "beard",
+     "headphones"
+    ]
+   },
+   "analucia": {
+    "skin": "#c68863",
+    "hair": "#3b2a20",
+    "hairStyle": "pony",
+    "top": "suit",
+    "topColor": "#7a6a8a",
+    "pants": "#2c3a57",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "tieColor": "#2f6f68",
+    "acc": [
+     "glasses",
+     "tie"
+    ]
+   },
+   "wen": {
+    "skin": "#efc3a4",
+    "hair": "#1f1a17",
+    "hairStyle": "short",
+    "top": "shirt",
+    "topColor": "#efe6d0",
+    "pants": "#55565c",
+    "shoes": "#5a2a22",
+    "innerColor": "#c7d6e0",
+    "tieColor": "#8f3f26",
+    "acc": [
+     "glasses",
+     "tie"
+    ]
+   },
+   "felix": {
+    "skin": "#7d4b32",
+    "hair": "#1f1a17",
+    "hairStyle": "afro",
+    "top": "shirt",
+    "topColor": "#c9a03a",
+    "pants": "#3a3a40",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "airpods"
+    ]
+   },
+   "greta": {
+    "skin": "#f6d7c3",
+    "hair": "#e6e2da",
+    "hairStyle": "bun",
+    "top": "cardigan",
+    "topColor": "#a7a9ac",
+    "pants": "#2c3a57",
+    "shoes": "#2a211c",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "glasses"
+    ]
+   },
+   "sam": {
+    "skin": "#a5694a",
+    "hair": "#4f7fd1",
+    "hairStyle": "short",
+    "top": "turtleneck",
+    "topColor": "#3d7f86",
+    "pants": "#a7a9ac",
+    "shoes": "#2a211c",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "earrings"
+    ]
+   },
+   "clara": {
+    "skin": "#f6d7c3",
+    "hair": "#6b4a2f",
+    "hairStyle": "long",
+    "top": "suit",
+    "topColor": "#2c3a57",
+    "pants": "#efe6d0",
+    "shoes": "#2a211c",
+    "innerColor": "#efe6d0",
+    "tieColor": "#c0622f",
+    "acc": [
+     "glasses",
+     "tie"
+    ]
+   },
+   "arjun": {
+    "skin": "#c68863",
+    "hair": "#1f1a17",
+    "hairStyle": "sidepart",
+    "top": "vest",
+    "topColor": "#efe6d0",
+    "pants": "#2c3a57",
+    "shoes": "#1e2a44",
+    "innerColor": "#c7d6e0",
+    "acc": [
+     "badge"
+    ]
+   },
+   "hannah": {
+    "skin": "#f6d7c3",
+    "hair": "#8a3b1e",
+    "hairStyle": "pony",
+    "top": "cardigan",
+    "topColor": "#b08850",
+    "pants": "#3d7f86",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "acc": []
+   },
+   "diego": {
+    "skin": "#c68863",
+    "hair": "#3b2a20",
+    "hairStyle": "short",
+    "top": "shirt",
+    "topColor": "#5a6a32",
+    "pants": "#a7a9ac",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "beard"
+    ]
+   },
+   "yuki": {
+    "skin": "#efc3a4",
+    "hair": "#1f1a17",
+    "hairStyle": "bob",
+    "top": "shirt",
+    "topColor": "#1f2430",
+    "pants": "#3a3a40",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "tieColor": "#8f3f26",
+    "acc": [
+     "glasses",
+     "tie"
+    ]
+   },
+   "zara": {
+    "skin": "#c68863",
+    "hair": "#1f1a17",
+    "hairStyle": "hijab",
+    "top": "dress",
+    "topColor": "#d9cdaf",
+    "pants": "#efe6d0",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "acc": []
+   },
+   "elliot": {
+    "skin": "#efc3a4",
+    "hair": "#e48fb0",
+    "hairStyle": "mohawk",
+    "top": "shirt",
+    "topColor": "#efe6d0",
+    "pants": "#1f2430",
+    "shoes": "#2a211c",
+    "innerColor": "#c7d6e0",
+    "acc": [
+     "earrings"
+    ]
+   },
+   "marisol": {
+    "skin": "#e0ac8a",
+    "hair": "#3b2a20",
+    "hairStyle": "curly",
+    "top": "cardigan",
+    "topColor": "#c9a03a",
+    "pants": "#3d7f86",
+    "shoes": "#2a211c",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "earrings"
+    ]
+   },
+   "chad": {
+    "skin": "#f6d7c3",
+    "hair": "#d9b46a",
+    "hairStyle": "sidepart",
+    "top": "vest",
+    "topColor": "#3d7f86",
+    "pants": "#a7a9ac",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "airpods"
+    ]
+   },
+   "fatima": {
+    "skin": "#c68863",
+    "hair": "#1f1a17",
+    "hairStyle": "hijab",
+    "top": "suit",
+    "topColor": "#2c3a57",
+    "pants": "#3a3a40",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "tieColor": "#2f6f68",
+    "acc": [
+     "tie"
+    ]
+   },
+   "jordan": {
+    "skin": "#a5694a",
+    "hair": "#6b4a2f",
+    "hairStyle": "buzz",
+    "top": "vest",
+    "topColor": "#3d7f86",
+    "pants": "#3a3a40",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "airpods"
+    ]
+   },
+   "nikolai": {
+    "skin": "#f6d7c3",
+    "hair": "#6b4a2f",
+    "hairStyle": "short",
+    "top": "shirt",
+    "topColor": "#55565c",
+    "pants": "#1f2430",
+    "shoes": "#2a211c",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "beard",
+     "glasses"
+    ]
+   },
+   "olivia": {
+    "skin": "#5a3423",
+    "hair": "#1f1a17",
+    "hairStyle": "long",
+    "top": "suit",
+    "topColor": "#b08850",
+    "pants": "#1f2430",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "tieColor": "#2f6f68",
+    "acc": [
+     "earrings",
+     "tie"
+    ]
+   },
+   "ravi": {
+    "skin": "#a5694a",
+    "hair": "#1f1a17",
+    "hairStyle": "curly",
+    "top": "cardigan",
+    "topColor": "#efe6d0",
+    "pants": "#3d7f86",
+    "shoes": "#5a2a22",
+    "innerColor": "#c7d6e0",
+    "acc": [
+     "beard",
+     "glasses"
+    ]
+   },
+   "camille": {
+    "skin": "#f6d7c3",
+    "hair": "#3b2a20",
+    "hairStyle": "bob",
+    "top": "shirt",
+    "topColor": "#b8a0b8",
+    "pants": "#3a3a40",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "sunglasses"
+    ]
+   },
+   "grace": {
+    "skin": "#7d4b32",
+    "hair": "#1f1a17",
+    "hairStyle": "long",
+    "top": "cardigan",
+    "topColor": "#a7a9ac",
+    "pants": "#efe6d0",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "earrings"
+    ]
+   },
+   "tyler": {
+    "skin": "#e0ac8a",
+    "hair": "#1f1a17",
+    "hairStyle": "sidepart",
+    "top": "vest",
+    "topColor": "#9fb3c0",
+    "pants": "#a7a9ac",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "badge"
+    ]
+   },
+   "aisha": {
+    "skin": "#5a3423",
+    "hair": "#1f1a17",
+    "hairStyle": "afro",
+    "top": "dress",
+    "topColor": "#c9a03a",
+    "pants": "#2c3a57",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "earrings"
+    ]
+   },
+   "henrik": {
+    "skin": "#f6d7c3",
+    "hair": "#9a9a9a",
+    "hairStyle": "sidepart",
+    "top": "suit",
+    "topColor": "#efe6d0",
+    "pants": "#2c3a57",
+    "shoes": "#5a2a22",
+    "innerColor": "#c7d6e0",
+    "tieColor": "#c0622f",
+    "acc": [
+     "glasses",
+     "tie"
+    ]
+   },
+   "lucy": {
+    "skin": "#efc3a4",
+    "hair": "#1f1a17",
+    "hairStyle": "pony",
+    "top": "cardigan",
+    "topColor": "#efe6d0",
+    "pants": "#55565c",
+    "shoes": "#5a2a22",
+    "innerColor": "#c7d6e0",
+    "acc": [
+     "glasses"
+    ]
+   },
+   "bea": {
+    "skin": "#c68863",
+    "hair": "#3b2a20",
+    "hairStyle": "bun",
+    "top": "cardigan",
+    "topColor": "#efe6d0",
+    "pants": "#2c3a57",
+    "shoes": "#1e2a44",
+    "innerColor": "#c7d6e0",
+    "acc": [
+     "badge",
+     "headset"
+    ]
+   },
+   "martin": {
+    "skin": "#efc3a4",
+    "hair": "#6b4a2f",
+    "hairStyle": "short",
+    "top": "vest",
+    "topColor": "#5a6a32",
+    "pants": "#a7a9ac",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "tieColor": "#6e2f3a",
+    "acc": [
+     "badge",
+     "mustache",
+     "tie"
+    ]
+   },
+   "destiny": {
+    "skin": "#7d4b32",
+    "hair": "#1f1a17",
+    "hairStyle": "long",
+    "top": "suit",
+    "topColor": "#3d7f86",
+    "pants": "#3a3a40",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "tieColor": "#8f3f26",
+    "acc": [
+     "airpods",
+     "tie"
+    ]
+   },
+   "owen": {
+    "skin": "#f6d7c3",
+    "hair": "#c0622b",
+    "hairStyle": "short",
+    "top": "turtleneck",
+    "topColor": "#8f3f26",
+    "pants": "#3d7f86",
+    "shoes": "#2a211c",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "beard",
+     "headphones"
+    ]
+   },
+   "imani": {
+    "skin": "#5a3423",
+    "hair": "#1f1a17",
+    "hairStyle": "curly",
+    "top": "cardigan",
+    "topColor": "#b8a0b8",
+    "pants": "#2c3a57",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "earrings"
+    ]
+   },
+   "pablo": {
+    "skin": "#c68863",
+    "hair": "#1f1a17",
+    "hairStyle": "short",
+    "top": "turtleneck",
+    "topColor": "#3a3a40",
+    "pants": "#1f2430",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "acc": [
+     "headphones",
+     "mustache"
+    ]
+   },
+   "ines": {
+    "skin": "#e0ac8a",
+    "hair": "#3b2a20",
+    "hairStyle": "cap",
+    "top": "jumpsuit",
+    "topColor": "#a7a9ac",
+    "pants": "#a7a9ac",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "capColor": "#7d8287",
+    "acc": []
+   },
+   "walter": {
+    "skin": "#f6d7c3",
+    "hair": "#9a9a9a",
+    "hairStyle": "cap",
+    "top": "jumpsuit",
+    "topColor": "#a7a9ac",
+    "pants": "#a7a9ac",
+    "shoes": "#5a2a22",
+    "innerColor": "#efe6d0",
+    "capColor": "#7d8287",
+    "acc": [
+     "mustache"
+    ]
+   },
+   "harlan": {
+    "skin": "#f6d7c3",
+    "hair": "#3b2a20",
+    "hairStyle": "sidepart",
+    "top": "suit",
+    "topColor": "#1f2430",
+    "pants": "#1f2430",
+    "shoes": "#1e2a44",
+    "innerColor": "#efe6d0",
+    "tieColor": "#1f2430",
+    "acc": [
+     "badge",
+     "glasses",
+     "tie"
+    ]
+   }
+  }
+ },
+ "goat": {
+  "sheet": "goat.png",
+  "cell": [
+   24,
+   24
+  ],
+  "foot_anchor": [
+   12,
+   21
+  ],
+  "cols": 4,
+  "rows": [
+   "idle_S",
+   "idle_N",
+   "idle_E",
+   "idle_W",
+   "walk_S",
+   "walk_N",
+   "walk_E",
+   "walk_W"
+  ],
+  "anims": {
+   "idle": {
+    "frames": 4,
+    "fps": 3,
+    "loop": true
+   },
+   "walk": {
+    "frames": 4,
+    "fps": 7,
+    "loop": true
+   }
+  }
+ },
+ "props": {
+  "mug_orange": {
+   "frames": [
+    [
+     422,
+     998,
+     8,
+     9
+    ]
+   ],
+   "anchor": [
+    4,
+    8
+   ]
+  },
+  "mug_mustard": {
+   "frames": [
+    [
+     431,
+     998,
+     8,
+     9
+    ]
+   ],
+   "anchor": [
+    4,
+    8
+   ]
+  },
+  "mug_teal": {
+   "frames": [
+    [
+     440,
+     998,
+     8,
+     9
+    ]
+   ],
+   "anchor": [
+    4,
+    8
+   ]
+  },
+  "mug_cream": {
+   "frames": [
+    [
+     449,
+     998,
+     8,
+     9
+    ]
+   ],
+   "anchor": [
+    4,
+    8
+   ]
+  },
+  "photo_frame": {
+   "frames": [
+    [
+     303,
+     998,
+     8,
+     10
+    ]
+   ],
+   "anchor": [
+    4,
+    9
+   ]
+  },
+  "figurine": {
+   "frames": [
+    [
+     458,
+     998,
+     8,
+     9
+    ]
+   ],
+   "anchor": [
+    4,
+    8
+   ]
+  },
+  "stress_ball": {
+   "frames": [
+    [
+     11,
+     1011,
+     6,
+     6
+    ]
+   ],
+   "anchor": [
+    3,
+    5
+   ]
+  },
+  "cactus": {
+   "frames": [
+    [
+     274,
+     998,
+     8,
+     11
+    ]
+   ],
+   "anchor": [
+    4,
+    10
+   ]
+  },
+  "nameplate": {
+   "frames": [
+    [
+     81,
+     1011,
+     12,
+     5
+    ]
+   ],
+   "anchor": [
+    6,
+    4
+   ]
+  },
+  "papers": {
+   "frames": [
+    [
+     959,
+     998,
+     10,
+     7
+    ]
+   ],
+   "anchor": [
+    5,
+    6
+   ]
+  },
+  "eraser": {
+   "frames": [
+    [
+     94,
+     1011,
+     7,
+     5
+    ]
+   ],
+   "anchor": [
+    3,
+    4
+   ],
+   "note": "desk-tchotchke reward"
+  },
+  "caricature": {
+   "frames": [
+    [
+     737,
+     984,
+     10,
+     12
+    ]
+   ],
+   "anchor": [
+    5,
+    11
+   ],
+   "note": "reward: caricature portrait"
+  },
+  "melon": {
+   "frames": [
+    [
+     970,
+     998,
+     9,
+     7
+    ]
+   ],
+   "anchor": [
+    4,
+    6
+   ]
+  },
+  "waffle": {
+   "frames": [
+    [
+     913,
+     998,
+     9,
+     8
+    ]
+   ],
+   "anchor": [
+    4,
+    7
+   ]
+  },
+  "desk": {
+   "frames": [
+    [
+     528,
+     750,
+     34,
+     26
+    ]
+   ],
+   "anchor": [
+    17,
+    13
+   ],
+   "sort": "anchor",
+   "note": "single desk, worker sits north (facing S) or south (facing N)"
+  },
+  "desk_pod4": {
+   "frames": [
+    [
+     954,
+     466,
+     70,
+     50
+    ]
+   ],
+   "anchor": [
+    35,
+    25
+   ],
+   "sort": "anchor",
+   "seats": [
+    {
+     "x": -17,
+     "y": -19,
+     "facing": "S"
+    },
+    {
+     "x": 15,
+     "y": -19,
+     "facing": "S"
+    },
+    {
+     "x": -17,
+     "y": 17,
+     "facing": "N"
+    },
+    {
+     "x": 15,
+     "y": 17,
+     "facing": "N"
+    }
+   ],
+   "crt": [
+    {
+     "x": -17,
+     "y": -12,
+     "sprite": "crt_back"
+    },
+    {
+     "x": 15,
+     "y": -12,
+     "sprite": "crt_back"
+    },
+    {
+     "x": -17,
+     "y": 2,
+     "sprite": "crt_front"
+    },
+    {
+     "x": 15,
+     "y": 2,
+     "sprite": "crt_front"
+    }
+   ],
+   "keyboard": [
+    {
+     "x": -17,
+     "y": -17
+    },
+    {
+     "x": 15,
+     "y": -17
+    },
+    {
+     "x": -17,
+     "y": 6
+    },
+    {
+     "x": 15,
+     "y": 6
+    }
+   ],
+   "items": [
+    {
+     "x": -28,
+     "y": -15
+    },
+    {
+     "x": 4,
+     "y": -15
+    },
+    {
+     "x": -6,
+     "y": 4
+    },
+    {
+     "x": 26,
+     "y": 4
+    }
+   ],
+   "note": "Seats/crt are offsets from the anchor (= pod centre). Seat (x,y) is where the seated person's FOOT anchor goes. North seats face S and are drawn BEFORE the pod; south seats face N and are drawn AFTER it."
+  },
+  "crt_front": {
+   "frames": [
+    [
+     935,
+     750,
+     20,
+     22
+    ],
+    [
+     956,
+     750,
+     20,
+     22
+    ],
+    [
+     977,
+     750,
+     20,
+     22
+    ],
+    [
+     998,
+     750,
+     20,
+     22
+    ],
+    [
+     0,
+     783,
+     20,
+     22
+    ],
+    [
+     21,
+     783,
+     20,
+     22
+    ]
+   ],
+   "anchor": [
+    10,
+    18
+   ],
+   "fps": 4,
+   "note": "screen faces camera (desk south of a worker facing N... i.e. south-row pod desks). Animated numbers."
+  },
+  "crt_back": {
+   "frames": [
+    [
+     42,
+     783,
+     20,
+     22
+    ],
+    [
+     63,
+     783,
+     20,
+     22
+    ]
+   ],
+   "anchor": [
+    10,
+    18
+   ],
+   "fps": 1,
+   "note": "back of a CRT (screen faces away from camera)"
+  },
+  "keyboard": {
+   "frames": [
+    [
+     980,
+     998,
+     16,
+     7
+    ]
+   ],
+   "anchor": [
+    8,
+    4
+   ]
+  },
+  "phone": {
+   "frames": [
+    [
+     748,
+     984,
+     14,
+     12
+    ]
+   ],
+   "anchor": [
+    7,
+    9
+   ]
+  },
+  "phone_ring": {
+   "frames": [
+    [
+     763,
+     984,
+     14,
+     12
+    ],
+    [
+     778,
+     984,
+     14,
+     12
+    ]
+   ],
+   "anchor": [
+    7,
+    9
+   ],
+   "fps": 12,
+   "note": "ringing desk phone (lone one in the void)"
+  },
+  "chair_s_orange": {
+   "frames": [
+    [
+     628,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ],
+   "note": "worker faces S; draw BEFORE the person"
+  },
+  "chair_n_orange": {
+   "frames": [
+    [
+     645,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ],
+   "note": "worker faces N; draw AFTER the person (covers their lower back)"
+  },
+  "chair_e_orange": {
+   "frames": [
+    [
+     662,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ]
+  },
+  "chair_w_orange": {
+   "frames": [
+    [
+     679,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ]
+  },
+  "chair_s_mustard": {
+   "frames": [
+    [
+     696,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ],
+   "note": "worker faces S; draw BEFORE the person"
+  },
+  "chair_n_mustard": {
+   "frames": [
+    [
+     713,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ],
+   "note": "worker faces N; draw AFTER the person (covers their lower back)"
+  },
+  "chair_e_mustard": {
+   "frames": [
+    [
+     730,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ]
+  },
+  "chair_w_mustard": {
+   "frames": [
+    [
+     747,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ]
+  },
+  "chair_s_teal": {
+   "frames": [
+    [
+     764,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ],
+   "note": "worker faces S; draw BEFORE the person"
+  },
+  "chair_n_teal": {
+   "frames": [
+    [
+     781,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ],
+   "note": "worker faces N; draw AFTER the person (covers their lower back)"
+  },
+  "chair_e_teal": {
+   "frames": [
+    [
+     798,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ]
+  },
+  "chair_w_teal": {
+   "frames": [
+    [
+     815,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ]
+  },
+  "chair_s_avocado": {
+   "frames": [
+    [
+     832,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ],
+   "note": "worker faces S; draw BEFORE the person"
+  },
+  "chair_n_avocado": {
+   "frames": [
+    [
+     849,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ],
+   "note": "worker faces N; draw AFTER the person (covers their lower back)"
+  },
+  "chair_e_avocado": {
+   "frames": [
+    [
+     866,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ]
+  },
+  "chair_w_avocado": {
+   "frames": [
+    [
+     883,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ]
+  },
+  "chair_s_cream": {
+   "frames": [
+    [
+     900,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ],
+   "note": "worker faces S; draw BEFORE the person"
+  },
+  "chair_n_cream": {
+   "frames": [
+    [
+     917,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ],
+   "note": "worker faces N; draw AFTER the person (covers their lower back)"
+  },
+  "chair_e_cream": {
+   "frames": [
+    [
+     934,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ]
+  },
+  "chair_w_cream": {
+   "frames": [
+    [
+     951,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ]
+  },
+  "filing_cabinet": {
+   "frames": [
+    [
+     230,
+     750,
+     18,
+     30
+    ]
+   ],
+   "anchor": [
+    9,
+    27
+   ]
+  },
+  "filing_cabinet_avocado": {
+   "frames": [
+    [
+     249,
+     750,
+     18,
+     30
+    ]
+   ],
+   "anchor": [
+    9,
+    27
+   ]
+  },
+  "snake_plant": {
+   "frames": [
+    [
+     268,
+     750,
+     16,
+     30
+    ]
+   ],
+   "anchor": [
+    8,
+    27
+   ]
+  },
+  "snake_plant_terracotta": {
+   "frames": [
+    [
+     285,
+     750,
+     16,
+     30
+    ]
+   ],
+   "anchor": [
+    8,
+    27
+   ]
+  },
+  "plant_tall": {
+   "frames": [
+    [
+     67,
+     713,
+     22,
+     34
+    ]
+   ],
+   "anchor": [
+    11,
+    30
+   ]
+  },
+  "table_booth": {
+   "frames": [
+    [
+     819,
+     750,
+     24,
+     24
+    ]
+   ],
+   "anchor": [
+    12,
+    8
+   ],
+   "seats": [
+    {
+     "x": 0,
+     "y": -5,
+     "facing": "S"
+    }
+   ],
+   "note": "seats = offsets from anchor (table centre) where seated FOOT anchors go"
+  },
+  "table_huddle": {
+   "frames": [
+    [
+     204,
+     713,
+     36,
+     32
+    ]
+   ],
+   "anchor": [
+    18,
+    12
+   ],
+   "seats": [
+    {
+     "x": -9,
+     "y": -9,
+     "facing": "S"
+    },
+    {
+     "x": 9,
+     "y": -9,
+     "facing": "S"
+    },
+    {
+     "x": -9,
+     "y": 15,
+     "facing": "N"
+    },
+    {
+     "x": 9,
+     "y": 15,
+     "facing": "N"
+    }
+   ],
+   "note": "seats = offsets from anchor (table centre) where seated FOOT anchors go"
+  },
+  "table_team": {
+   "frames": [
+    [
+     0,
+     713,
+     66,
+     36
+    ]
+   ],
+   "anchor": [
+    33,
+    13
+   ],
+   "seats": [
+    {
+     "x": -21,
+     "y": -10,
+     "facing": "S"
+    },
+    {
+     "x": -7,
+     "y": -10,
+     "facing": "S"
+    },
+    {
+     "x": 7,
+     "y": -10,
+     "facing": "S"
+    },
+    {
+     "x": 21,
+     "y": -10,
+     "facing": "S"
+    },
+    {
+     "x": -21,
+     "y": 18,
+     "facing": "N"
+    },
+    {
+     "x": -7,
+     "y": 18,
+     "facing": "N"
+    },
+    {
+     "x": 7,
+     "y": 18,
+     "facing": "N"
+    },
+    {
+     "x": 21,
+     "y": 18,
+     "facing": "N"
+    }
+   ],
+   "note": "seats = offsets from anchor (table centre)"
+  },
+  "table_boardroom": {
+   "frames": [
+    [
+     361,
+     625,
+     130,
+     42
+    ]
+   ],
+   "anchor": [
+    65,
+    16
+   ],
+   "seats": [
+    {
+     "x": -50,
+     "y": -13,
+     "facing": "S"
+    },
+    {
+     "x": -33,
+     "y": -13,
+     "facing": "S"
+    },
+    {
+     "x": -16,
+     "y": -13,
+     "facing": "S"
+    },
+    {
+     "x": 1,
+     "y": -13,
+     "facing": "S"
+    },
+    {
+     "x": 18,
+     "y": -13,
+     "facing": "S"
+    },
+    {
+     "x": 35,
+     "y": -13,
+     "facing": "S"
+    },
+    {
+     "x": -50,
+     "y": 21,
+     "facing": "N"
+    },
+    {
+     "x": -33,
+     "y": 21,
+     "facing": "N"
+    },
+    {
+     "x": -16,
+     "y": 21,
+     "facing": "N"
+    },
+    {
+     "x": 1,
+     "y": 21,
+     "facing": "N"
+    },
+    {
+     "x": 18,
+     "y": 21,
+     "facing": "N"
+    },
+    {
+     "x": 35,
+     "y": 21,
+     "facing": "N"
+    }
+   ],
+   "note": "seats = offsets from anchor (table centre)"
+  },
+  "lectern": {
+   "frames": [
+    [
+     468,
+     750,
+     18,
+     28
+    ]
+   ],
+   "anchor": [
+    9,
+    25
+   ]
+  },
+  "bench": {
+   "frames": [
+    [
+     460,
+     828,
+     60,
+     16
+    ]
+   ],
+   "anchor": [
+    30,
+    7
+   ],
+   "seats": [
+    {
+     "x": -21,
+     "y": 2,
+     "facing": "N"
+    },
+    {
+     "x": -7,
+     "y": 2,
+     "facing": "N"
+    },
+    {
+     "x": 7,
+     "y": 2,
+     "facing": "N"
+    },
+    {
+     "x": 21,
+     "y": 2,
+     "facing": "N"
+    }
+   ],
+   "note": "all-hands bench; seated people face N toward the stage (draw after bench)"
+  },
+  "projector_screen": {
+   "frames": [
+    [
+     547,
+     403,
+     84,
+     58
+    ],
+    [
+     632,
+     403,
+     84,
+     58
+    ],
+    [
+     717,
+     403,
+     84,
+     58
+    ],
+    [
+     802,
+     403,
+     84,
+     58
+    ]
+   ],
+   "anchor": [
+    42,
+    54
+   ],
+   "fps": 2,
+   "float": true,
+   "note": "floating screen; hovers (bob 1px slowly)"
+  },
+  "coffee_station": {
+   "frames": [
+    [
+     114,
+     670,
+     48,
+     40
+    ],
+    [
+     163,
+     670,
+     48,
+     40
+    ],
+    [
+     212,
+     670,
+     48,
+     40
+    ],
+    [
+     261,
+     670,
+     48,
+     40
+    ],
+    [
+     310,
+     670,
+     48,
+     40
+    ]
+   ],
+   "anchor": [
+    24,
+    30
+   ],
+   "fps": 4,
+   "states": {
+    "ok": [
+     0,
+     1,
+     2
+    ],
+    "broken": [
+     3,
+     4
+    ]
+   }
+  },
+  "water_cooler": {
+   "frames": [
+    [
+     241,
+     713,
+     16,
+     32
+    ],
+    [
+     258,
+     713,
+     16,
+     32
+    ],
+    [
+     275,
+     713,
+     16,
+     32
+    ]
+   ],
+   "anchor": [
+    8,
+    29
+   ],
+   "fps": 3
+  },
+  "elevator": {
+   "frames": [
+    [
+     584,
+     259,
+     44,
+     62
+    ],
+    [
+     629,
+     259,
+     44,
+     62
+    ],
+    [
+     674,
+     259,
+     44,
+     62
+    ],
+    [
+     719,
+     259,
+     44,
+     62
+    ],
+    [
+     764,
+     259,
+     44,
+     62
+    ],
+    [
+     809,
+     259,
+     44,
+     62
+    ]
+   ],
+   "anchor": [
+    22,
+    53
+   ],
+   "fps": 8,
+   "states": {
+    "closed": [
+     0
+    ],
+    "opening": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5
+    ],
+    "open": [
+     5
+    ],
+    "closing": [
+     5,
+     4,
+     3,
+     2,
+     1,
+     0
+    ]
+   },
+   "note": "door frames 0(closed)..5(open). Interior is warm-lit; people step into the doorway at anchor y-6."
+  },
+  "elevator_rise": {
+   "frames": [
+    [
+     854,
+     259,
+     44,
+     62
+    ],
+    [
+     899,
+     259,
+     44,
+     62
+    ],
+    [
+     944,
+     259,
+     44,
+     62
+    ],
+    [
+     0,
+     340,
+     44,
+     62
+    ],
+    [
+     45,
+     340,
+     44,
+     62
+    ],
+    [
+     90,
+     340,
+     44,
+     62
+    ],
+    [
+     135,
+     340,
+     44,
+     62
+    ],
+    [
+     180,
+     340,
+     44,
+     62
+    ],
+    [
+     225,
+     340,
+     44,
+     62
+    ]
+   ],
+   "anchor": [
+    22,
+    53
+   ],
+   "fps": 10,
+   "note": "frames 0 (sunk into the floor) .. 8 (risen). Play reversed to sink."
+  },
+  "sign_0": {
+   "frames": [
+    [
+     126,
+     783,
+     161,
+     21
+    ]
+   ],
+   "anchor": [
+    80,
+    20
+   ],
+   "float": true,
+   "note": "floating sign: draw ~10-14px above its ground shadow (sign_shadow), bob 1px"
+  },
+  "sign_1": {
+   "frames": [
+    [
+     288,
+     783,
+     190,
+     21
+    ]
+   ],
+   "anchor": [
+    95,
+    20
+   ],
+   "float": true,
+   "note": "floating sign: draw ~10-14px above its ground shadow (sign_shadow), bob 1px"
+  },
+  "sign_2": {
+   "frames": [
+    [
+     479,
+     783,
+     203,
+     21
+    ]
+   ],
+   "anchor": [
+    101,
+    20
+   ],
+   "float": true,
+   "note": "floating sign: draw ~10-14px above its ground shadow (sign_shadow), bob 1px"
+  },
+  "sign_3": {
+   "frames": [
+    [
+     683,
+     783,
+     191,
+     21
+    ]
+   ],
+   "anchor": [
+    95,
+    20
+   ],
+   "float": true,
+   "note": "floating sign: draw ~10-14px above its ground shadow (sign_shadow), bob 1px"
+  },
+  "sign_4": {
+   "frames": [
+    [
+     875,
+     783,
+     104,
+     21
+    ]
+   ],
+   "anchor": [
+    52,
+    20
+   ],
+   "float": true,
+   "note": "floating sign: draw ~10-14px above its ground shadow (sign_shadow), bob 1px"
+  },
+  "sign_5": {
+   "frames": [
+    [
+     0,
+     806,
+     73,
+     21
+    ]
+   ],
+   "anchor": [
+    36,
+    20
+   ],
+   "float": true,
+   "note": "floating sign: draw ~10-14px above its ground shadow (sign_shadow), bob 1px"
+  },
+  "sign_6": {
+   "frames": [
+    [
+     74,
+     806,
+     115,
+     21
+    ]
+   ],
+   "anchor": [
+    57,
+    20
+   ],
+   "float": true,
+   "note": "floating sign: draw ~10-14px above its ground shadow (sign_shadow), bob 1px"
+  },
+  "sign_dept_a": {
+   "frames": [
+    [
+     190,
+     806,
+     112,
+     21
+    ]
+   ],
+   "anchor": [
+    56,
+    20
+   ],
+   "float": true,
+   "note": "floating sign: draw ~10-14px above its ground shadow (sign_shadow), bob 1px"
+  },
+  "sign_dept_b": {
+   "frames": [
+    [
+     303,
+     806,
+     115,
+     21
+    ]
+   ],
+   "anchor": [
+    57,
+    20
+   ],
+   "float": true,
+   "note": "floating sign: draw ~10-14px above its ground shadow (sign_shadow), bob 1px"
+  },
+  "sign_blank_40": {
+   "frames": [
+    [
+     419,
+     806,
+     42,
+     21
+    ]
+   ],
+   "anchor": [
+    21,
+    20
+   ],
+   "float": true,
+   "text_rect": [
+    3,
+    3,
+    36,
+    11
+   ],
+   "note": "blank floating sign; overlay Bevy text (Silkscreen 8px, #2a3a36) in text_rect"
+  },
+  "sign_blank_64": {
+   "frames": [
+    [
+     462,
+     806,
+     66,
+     21
+    ]
+   ],
+   "anchor": [
+    33,
+    20
+   ],
+   "float": true,
+   "text_rect": [
+    3,
+    3,
+    60,
+    11
+   ],
+   "note": "blank floating sign; overlay Bevy text (Silkscreen 8px, #2a3a36) in text_rect"
+  },
+  "sign_blank_96": {
+   "frames": [
+    [
+     529,
+     806,
+     98,
+     21
+    ]
+   ],
+   "anchor": [
+    49,
+    20
+   ],
+   "float": true,
+   "text_rect": [
+    3,
+    3,
+    92,
+    11
+   ],
+   "note": "blank floating sign; overlay Bevy text (Silkscreen 8px, #2a3a36) in text_rect"
+  },
+  "sign_shadow": {
+   "frames": [
+    [
+     18,
+     1011,
+     40,
+     6
+    ]
+   ],
+   "anchor": [
+    20,
+    3
+   ]
+  },
+  "room_tag": {
+   "frames": [
+    [
+     422,
+     883,
+     34,
+     13
+    ]
+   ],
+   "anchor": [
+    17,
+    12
+   ],
+   "float": true,
+   "text_rect": [
+    3,
+    2,
+    28,
+    8
+   ],
+   "note": "small dark floating room/capacity tag; overlay green text"
+  },
+  "founder_shrine": {
+   "frames": [
+    [
+     310,
+     403,
+     48,
+     60
+    ],
+    [
+     359,
+     403,
+     48,
+     60
+    ],
+    [
+     408,
+     403,
+     48,
+     60
+    ],
+    [
+     457,
+     403,
+     48,
+     60
+    ]
+   ],
+   "anchor": [
+    24,
+    55
+   ],
+   "fps": 6,
+   "states": {
+    "idle": [
+     0,
+     1,
+     2
+    ],
+    "blink": [
+     3
+    ]
+   },
+   "note": "original generic founder portrait, candles flicker; frame 3 = portrait blink (show ~0.15 s, rarely)"
+  },
+  "portrait": {
+   "frames": [
+    [
+     673,
+     466,
+     54,
+     52
+    ],
+    [
+     728,
+     466,
+     54,
+     52
+    ]
+   ],
+   "anchor": [
+    27,
+    47
+   ],
+   "states": {
+    "idle": [
+     0
+    ],
+    "blink": [
+     1
+    ]
+   },
+   "footprint": [
+    3,
+    1
+   ],
+   "kind": "furniture",
+   "note": "founder portrait on a brass stand; frame 1 = blink"
+  },
+  "carpet_tl": {
+   "frames": [
+    [
+     521,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "carpet_t": {
+   "frames": [
+    [
+     538,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "carpet_tr": {
+   "frames": [
+    [
+     555,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "carpet_l": {
+   "frames": [
+    [
+     572,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "carpet_c": {
+   "frames": [
+    [
+     589,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "carpet_r": {
+   "frames": [
+    [
+     606,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "carpet_bl": {
+   "frames": [
+    [
+     623,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "carpet_b": {
+   "frames": [
+    [
+     640,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "carpet_br": {
+   "frames": [
+    [
+     657,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "carpet_shadow": {
+   "frames": [
+    [
+     399,
+     1011,
+     16,
+     4
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "outline_tl": {
+   "frames": [
+    [
+     674,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "outline_t": {
+   "frames": [
+    [
+     691,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "outline_tr": {
+   "frames": [
+    [
+     708,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "outline_l": {
+   "frames": [
+    [
+     725,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "outline_c": {
+   "frames": [
+    [
+     742,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "outline_r": {
+   "frames": [
+    [
+     759,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "outline_bl": {
+   "frames": [
+    [
+     776,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "outline_b": {
+   "frames": [
+    [
+     793,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "outline_br": {
+   "frames": [
+    [
+     810,
+     828,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true
+  },
+  "void_grid": {
+   "frames": [
+    [
+     454,
+     259,
+     64,
+     64
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "note": "tile infinitely with alpha fading by distance from camera"
+  },
+  "desk_lamp": {
+   "frames": [
+    [
+     24,
+     828,
+     12,
+     18
+    ],
+    [
+     37,
+     828,
+     12,
+     18
+    ]
+   ],
+   "anchor": [
+    6,
+    16
+   ],
+   "states": {
+    "off": [
+     0
+    ],
+    "on": [
+     1
+    ]
+   },
+   "note": "avocado arc lamp; switch to \"on\" at night and add a warm additive glow (#ffd68c) under it"
+  },
+  "facilities_cart": {
+   "frames": [
+    [
+     844,
+     750,
+     26,
+     24
+    ]
+   ],
+   "anchor": [
+    12,
+    20
+   ],
+   "note": "Facilities crew push this while tidying (walk beside it)"
+  },
+  "emote_exclaim": {
+   "frames": [
+    [
+     140,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_question": {
+   "frames": [
+    [
+     156,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_zzz": {
+   "frames": [
+    [
+     172,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_heart": {
+   "frames": [
+    [
+     188,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_coffee": {
+   "frames": [
+    [
+     204,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_party": {
+   "frames": [
+    [
+     220,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_skull": {
+   "frames": [
+    [
+     236,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_angry": {
+   "frames": [
+    [
+     252,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_sweat": {
+   "frames": [
+    [
+     268,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_idea": {
+   "frames": [
+    [
+     284,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_eyes": {
+   "frames": [
+    [
+     300,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_music": {
+   "frames": [
+    [
+     316,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_numbers": {
+   "frames": [
+    [
+     332,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_check": {
+   "frames": [
+    [
+     348,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_dots": {
+   "frames": [
+    [
+     364,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_sparkle": {
+   "frames": [
+    [
+     380,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_goat": {
+   "frames": [
+    [
+     396,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_melon": {
+   "frames": [
+    [
+     412,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_waffle": {
+   "frames": [
+    [
+     428,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "emote_alarm": {
+   "frames": [
+    [
+     444,
+     828,
+     15,
+     17
+    ]
+   ],
+   "anchor": [
+    5,
+    16
+   ],
+   "note": "emote badge, pop above head (anchor = tail tip)"
+  },
+  "bubble": {
+   "frames": [
+    [
+     170,
+     883,
+     15,
+     15
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "slice": 5,
+   "note": "9-slice: 5px border on all sides. Text Silkscreen 8px (or VT323 16px) colour = border colour."
+  },
+  "bubble_tail": {
+   "frames": [
+    [
+     102,
+     1011,
+     7,
+     5
+    ]
+   ],
+   "anchor": [
+    3,
+    4
+   ],
+   "note": "draw centred under the bubble, overlapping its bottom border by 1px"
+  },
+  "bubble_memo": {
+   "frames": [
+    [
+     186,
+     883,
+     15,
+     15
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "slice": 5,
+   "note": "9-slice: 5px border on all sides. Text Silkscreen 8px (or VT323 16px) colour = border colour."
+  },
+  "bubble_memo_tail": {
+   "frames": [
+    [
+     110,
+     1011,
+     7,
+     5
+    ]
+   ],
+   "anchor": [
+    3,
+    4
+   ],
+   "note": "draw centred under the bubble, overlapping its bottom border by 1px"
+  },
+  "bubble_whisper": {
+   "frames": [
+    [
+     202,
+     883,
+     15,
+     15
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "slice": 5,
+   "note": "9-slice: 5px border on all sides. Text Silkscreen 8px (or VT323 16px) colour = border colour."
+  },
+  "bubble_whisper_tail": {
+   "frames": [
+    [
+     997,
+     998,
+     7,
+     7
+    ]
+   ],
+   "anchor": [
+    3,
+    4
+   ],
+   "note": "draw centred under the bubble, overlapping its bottom border by 1px"
+  },
+  "bubble_typing": {
+   "frames": [
+    [
+     467,
+     998,
+     17,
+     9
+    ],
+    [
+     485,
+     998,
+     17,
+     9
+    ],
+    [
+     503,
+     998,
+     17,
+     9
+    ]
+   ],
+   "anchor": [
+    8,
+    9
+   ],
+   "fps": 6
+  },
+  "shadow_person": {
+   "frames": [
+    [
+     118,
+     1011,
+     14,
+     5
+    ]
+   ],
+   "anchor": [
+    7,
+    2
+   ],
+   "note": "draw at the foot point under every walking person (not when seated)"
+  },
+  "shadow_goat": {
+   "frames": [
+    [
+     133,
+     1011,
+     16,
+     5
+    ]
+   ],
+   "anchor": [
+    8,
+    2
+   ]
+  },
+  "shadow_small": {
+   "frames": [
+    [
+     416,
+     1011,
+     10,
+     4
+    ]
+   ],
+   "anchor": [
+    5,
+    2
+   ]
+  },
+  "select_ring": {
+   "frames": [
+    [
+     521,
+     998,
+     20,
+     9
+    ],
+    [
+     542,
+     998,
+     20,
+     9
+    ]
+   ],
+   "anchor": [
+    10,
+    4
+   ],
+   "fps": 4
+  },
+  "fx_zzz": {
+   "frames": [
+    [
+     286,
+     883,
+     12,
+     14
+    ],
+    [
+     299,
+     883,
+     12,
+     14
+    ],
+    [
+     312,
+     883,
+     12,
+     14
+    ],
+    [
+     325,
+     883,
+     12,
+     14
+    ]
+   ],
+   "anchor": [
+    2,
+    13
+   ],
+   "fps": 3
+  },
+  "fx_confetti": {
+   "frames": [
+    [
+     359,
+     670,
+     40,
+     40
+    ],
+    [
+     400,
+     670,
+     40,
+     40
+    ],
+    [
+     441,
+     670,
+     40,
+     40
+    ],
+    [
+     482,
+     670,
+     40,
+     40
+    ],
+    [
+     523,
+     670,
+     40,
+     40
+    ],
+    [
+     564,
+     670,
+     40,
+     40
+    ],
+    [
+     605,
+     670,
+     40,
+     40
+    ],
+    [
+     646,
+     670,
+     40,
+     40
+    ]
+   ],
+   "anchor": [
+    20,
+    28
+   ],
+   "fps": 12,
+   "loop": false
+  },
+  "fx_sparkle": {
+   "frames": [
+    [
+     563,
+     998,
+     9,
+     9
+    ],
+    [
+     573,
+     998,
+     9,
+     9
+    ],
+    [
+     583,
+     998,
+     9,
+     9
+    ],
+    [
+     593,
+     998,
+     9,
+     9
+    ]
+   ],
+   "anchor": [
+    4,
+    4
+   ],
+   "fps": 10
+  },
+  "fx_steam": {
+   "frames": [
+    [
+     338,
+     883,
+     10,
+     14
+    ],
+    [
+     349,
+     883,
+     10,
+     14
+    ],
+    [
+     360,
+     883,
+     10,
+     14
+    ],
+    [
+     371,
+     883,
+     10,
+     14
+    ]
+   ],
+   "anchor": [
+    5,
+    13
+   ],
+   "fps": 5
+  },
+  "fx_flashlight_E": {
+   "frames": [
+    [
+     721,
+     750,
+     48,
+     25
+    ]
+   ],
+   "anchor": [
+    0,
+    12
+   ],
+   "note": "additive-ish warm cone, draw over the floor in front of the Floor Supervisor at night"
+  },
+  "fx_flashlight_W": {
+   "frames": [
+    [
+     770,
+     750,
+     48,
+     25
+    ]
+   ],
+   "anchor": [
+    47,
+    12
+   ]
+  },
+  "fx_flashlight_S": {
+   "frames": [
+    [
+     75,
+     525,
+     25,
+     48
+    ]
+   ],
+   "anchor": [
+    12,
+    0
+   ]
+  },
+  "fx_flashlight_N": {
+   "frames": [
+    [
+     101,
+     525,
+     25,
+     48
+    ]
+   ],
+   "anchor": [
+    12,
+    47
+   ]
+  },
+  "scanlines": {
+   "frames": [
+    [
+     427,
+     1011,
+     4,
+     4
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "note": "tile over CRT/memo UI panels only"
+  },
+  "panel_memo": {
+   "frames": [
+    [
+     218,
+     883,
+     15,
+     15
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "slice": 5,
+   "note": "9-slice panel, green hairline inset. Use with VT323 text #7cf2a0"
+  },
+  "panel_beige": {
+   "frames": [
+    [
+     234,
+     883,
+     15,
+     15
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "slice": 5,
+   "note": "9-slice beige plastic panel (buttons, inspector frame)"
+  },
+  "ping-pong-table": {
+   "frames": [
+    [
+     270,
+     340,
+     104,
+     62
+    ],
+    [
+     375,
+     340,
+     104,
+     62
+    ],
+    [
+     480,
+     340,
+     104,
+     62
+    ],
+    [
+     585,
+     340,
+     104,
+     62
+    ],
+    [
+     690,
+     340,
+     104,
+     62
+    ],
+    [
+     795,
+     340,
+     104,
+     62
+    ],
+    [
+     900,
+     340,
+     104,
+     62
+    ],
+    [
+     0,
+     403,
+     104,
+     62
+    ]
+   ],
+   "anchor": [
+    51,
+    57
+   ],
+   "footprint": [
+    6,
+    3
+   ],
+   "kind": "furniture",
+   "fps": 8
+  },
+  "vending-machine": {
+   "frames": [
+    [
+     105,
+     403,
+     40,
+     62
+    ],
+    [
+     146,
+     403,
+     40,
+     62
+    ],
+    [
+     187,
+     403,
+     40,
+     62
+    ],
+    [
+     228,
+     403,
+     40,
+     62
+    ],
+    [
+     269,
+     403,
+     40,
+     62
+    ]
+   ],
+   "anchor": [
+    19,
+    57
+   ],
+   "footprint": [
+    2,
+    3
+   ],
+   "kind": "furniture",
+   "fps": 3
+  },
+  "aquarium-tank": {
+   "frames": [
+    [
+     776,
+     0,
+     136,
+     80
+    ],
+    [
+     0,
+     97,
+     136,
+     80
+    ],
+    [
+     137,
+     97,
+     136,
+     80
+    ],
+    [
+     274,
+     97,
+     136,
+     80
+    ],
+    [
+     411,
+     97,
+     136,
+     80
+    ],
+    [
+     548,
+     97,
+     136,
+     80
+    ],
+    [
+     685,
+     97,
+     136,
+     80
+    ],
+    [
+     822,
+     97,
+     136,
+     80
+    ],
+    [
+     0,
+     178,
+     136,
+     80
+    ],
+    [
+     137,
+     178,
+     136,
+     80
+    ],
+    [
+     274,
+     178,
+     136,
+     80
+    ],
+    [
+     411,
+     178,
+     136,
+     80
+    ],
+    [
+     548,
+     178,
+     136,
+     80
+    ],
+    [
+     685,
+     178,
+     136,
+     80
+    ],
+    [
+     822,
+     178,
+     136,
+     80
+    ],
+    [
+     0,
+     259,
+     136,
+     80
+    ],
+    [
+     0,
+     1018,
+     136,
+     80
+    ],
+    [
+     137,
+     1018,
+     136,
+     80
+    ],
+    [
+     274,
+     1018,
+     136,
+     80
+    ],
+    [
+     411,
+     1018,
+     136,
+     80
+    ],
+    [
+     548,
+     1018,
+     136,
+     80
+    ],
+    [
+     685,
+     1018,
+     136,
+     80
+    ],
+    [
+     822,
+     1018,
+     136,
+     80
+    ],
+    [
+     0,
+     1099,
+     136,
+     80
+    ],
+    [
+     137,
+     1099,
+     136,
+     80
+    ],
+    [
+     274,
+     1099,
+     136,
+     80
+    ],
+    [
+     411,
+     1099,
+     136,
+     80
+    ],
+    [
+     548,
+     1099,
+     136,
+     80
+    ],
+    [
+     685,
+     1099,
+     136,
+     80
+    ],
+    [
+     822,
+     1099,
+     136,
+     80
+    ],
+    [
+     0,
+     1180,
+     136,
+     80
+    ],
+    [
+     137,
+     1180,
+     136,
+     80
+    ]
+   ],
+   "anchor": [
+    67,
+    75
+   ],
+   "footprint": [
+    8,
+    4
+   ],
+   "kind": "furniture",
+   "fps": 6,
+   "fish": [
+    "gerald",
+    "pamela",
+    "steve",
+    "the-intern",
+    "muriel",
+    "dot"
+   ],
+   "note": "fish swim baked in; use state night (brighter bubbles, cool glow) and add glow_aquarium additively; frames 16-31 are the same tank with Gerald missing (states day_nogerald / night_nogerald)",
+   "states": {
+    "day": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7
+    ],
+    "night": [
+     8,
+     9,
+     10,
+     11,
+     12,
+     13,
+     14,
+     15
+    ],
+    "day_nogerald": [
+     16,
+     17,
+     18,
+     19,
+     20,
+     21,
+     22,
+     23
+    ],
+    "night_nogerald": [
+     24,
+     25,
+     26,
+     27,
+     28,
+     29,
+     30,
+     31
+    ]
+   }
+  },
+  "fish_gerald": {
+   "frames": [
+    [
+     603,
+     998,
+     12,
+     9
+    ],
+    [
+     616,
+     998,
+     12,
+     9
+    ]
+   ],
+   "anchor": [
+    6,
+    4
+   ],
+   "fps": 4,
+   "note": "loose fish sprite for gerald (faces right, flip for left)"
+  },
+  "fish_pamela": {
+   "frames": [
+    [
+     629,
+     998,
+     12,
+     9
+    ],
+    [
+     642,
+     998,
+     12,
+     9
+    ]
+   ],
+   "anchor": [
+    6,
+    4
+   ],
+   "fps": 4,
+   "note": "loose fish sprite for pamela (faces right, flip for left)"
+  },
+  "fish_steve": {
+   "frames": [
+    [
+     655,
+     998,
+     12,
+     9
+    ],
+    [
+     668,
+     998,
+     12,
+     9
+    ]
+   ],
+   "anchor": [
+    6,
+    4
+   ],
+   "fps": 4,
+   "note": "loose fish sprite for steve (faces right, flip for left)"
+  },
+  "fish_the-intern": {
+   "frames": [
+    [
+     681,
+     998,
+     12,
+     9
+    ],
+    [
+     694,
+     998,
+     12,
+     9
+    ]
+   ],
+   "anchor": [
+    6,
+    4
+   ],
+   "fps": 4,
+   "note": "loose fish sprite for the-intern (faces right, flip for left)"
+  },
+  "fish_muriel": {
+   "frames": [
+    [
+     707,
+     998,
+     12,
+     9
+    ],
+    [
+     720,
+     998,
+     12,
+     9
+    ]
+   ],
+   "anchor": [
+    6,
+    4
+   ],
+   "fps": 4,
+   "note": "loose fish sprite for muriel (faces right, flip for left)"
+  },
+  "fish_dot": {
+   "frames": [
+    [
+     733,
+     998,
+     12,
+     9
+    ],
+    [
+     746,
+     998,
+     12,
+     9
+    ]
+   ],
+   "anchor": [
+    6,
+    4
+   ],
+   "fps": 4,
+   "note": "loose fish sprite for dot (faces right, flip for left)"
+  },
+  "fish-food-shelf": {
+   "frames": [
+    [
+     127,
+     525,
+     40,
+     48
+    ]
+   ],
+   "anchor": [
+    19,
+    43
+   ],
+   "footprint": [
+    2,
+    2
+   ],
+   "kind": "furniture"
+  },
+  "nap-pod": {
+   "frames": [
+    [
+     777,
+     576,
+     40,
+     44
+    ],
+    [
+     818,
+     576,
+     40,
+     44
+    ]
+   ],
+   "anchor": [
+    19,
+    39
+   ],
+   "footprint": [
+    2,
+    2
+   ],
+   "kind": "furniture",
+   "states": {
+    "open": [
+     0
+    ],
+    "occupied": [
+     1
+    ]
+   }
+  },
+  "mystery-door": {
+   "frames": [
+    [
+     331,
+     259,
+     40,
+     68
+    ],
+    [
+     372,
+     259,
+     40,
+     68
+    ],
+    [
+     413,
+     259,
+     40,
+     68
+    ]
+   ],
+   "anchor": [
+    19,
+    63
+   ],
+   "footprint": [
+    2,
+    2
+   ],
+   "kind": "furniture",
+   "note": "free-standing, slightly too white",
+   "states": {
+    "closed": [
+     0
+    ],
+    "ajar": [
+     1,
+     2
+    ]
+   }
+  },
+  "goat-fence": {
+   "frames": [
+    [
+     302,
+     750,
+     24,
+     30
+    ]
+   ],
+   "anchor": [
+    11,
+    25
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture",
+   "note": "E-W rail segment; use goat-fence_v for N-S runs, goat-fence_post at corners"
+  },
+  "goat-fence_v": {
+   "frames": [
+    [
+     687,
+     670,
+     24,
+     38
+    ]
+   ],
+   "anchor": [
+    11,
+    33
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "goat-fence_post": {
+   "frames": [
+    [
+     292,
+     713,
+     24,
+     32
+    ]
+   ],
+   "anchor": [
+    11,
+    27
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "hay-bale": {
+   "frames": [
+    [
+     327,
+     750,
+     40,
+     30
+    ]
+   ],
+   "anchor": [
+    19,
+    25
+   ],
+   "footprint": [
+    2,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "hay-bale_1x1": {
+   "frames": [
+    [
+     368,
+     750,
+     24,
+     30
+    ]
+   ],
+   "anchor": [
+    11,
+    25
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "goat-bed": {
+   "frames": [
+    [
+     492,
+     625,
+     40,
+     42
+    ]
+   ],
+   "anchor": [
+    19,
+    37
+   ],
+   "footprint": [
+    2,
+    2
+   ],
+   "kind": "furniture"
+  },
+  "plant-wall": {
+   "frames": [
+    [
+     490,
+     576,
+     24,
+     46
+    ]
+   ],
+   "anchor": [
+    11,
+    41
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture",
+   "note": "tiles horizontally into a hedge"
+  },
+  "plant-wall_1x2": {
+   "frames": [
+    [
+     137,
+     259,
+     24,
+     70
+    ]
+   ],
+   "anchor": [
+    11,
+    65
+   ],
+   "footprint": [
+    1,
+    2
+   ],
+   "kind": "furniture"
+  },
+  "mail-slot": {
+   "frames": [
+    [
+     859,
+     576,
+     104,
+     44
+    ]
+   ],
+   "anchor": [
+    51,
+    39
+   ],
+   "footprint": [
+    6,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "mail-counter": {
+   "frames": [
+    [
+     712,
+     670,
+     104,
+     38
+    ]
+   ],
+   "anchor": [
+    51,
+    33
+   ],
+   "footprint": [
+    6,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "package": {
+   "frames": [
+    [
+     393,
+     750,
+     24,
+     30
+    ]
+   ],
+   "anchor": [
+    11,
+    25
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "package_typo": {
+   "frames": [
+    [
+     418,
+     750,
+     24,
+     30
+    ]
+   ],
+   "anchor": [
+    11,
+    25
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture",
+   "note": "label misspelt (red marks)"
+  },
+  "it-desk": {
+   "frames": [
+    [
+     817,
+     670,
+     72,
+     38
+    ],
+    [
+     890,
+     670,
+     72,
+     38
+    ]
+   ],
+   "anchor": [
+    35,
+    33
+   ],
+   "footprint": [
+    4,
+    1
+   ],
+   "kind": "furniture",
+   "fps": 2
+  },
+  "archive-shelf": {
+   "frames": [
+    [
+     168,
+     525,
+     200,
+     48
+    ]
+   ],
+   "anchor": [
+    99,
+    43
+   ],
+   "footprint": [
+    12,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "bookshelf-wide": {
+   "frames": [
+    [
+     369,
+     525,
+     104,
+     48
+    ]
+   ],
+   "anchor": [
+    51,
+    43
+   ],
+   "footprint": [
+    6,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "bookshelf_6x1": {
+   "frames": [
+    [
+     474,
+     525,
+     104,
+     48
+    ]
+   ],
+   "anchor": [
+    51,
+    43
+   ],
+   "footprint": [
+    6,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "bookshelf_7x1": {
+   "frames": [
+    [
+     579,
+     525,
+     120,
+     48
+    ]
+   ],
+   "anchor": [
+    59,
+    43
+   ],
+   "footprint": [
+    7,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "bookshelf_12x1": {
+   "frames": [
+    [
+     700,
+     525,
+     200,
+     48
+    ]
+   ],
+   "anchor": [
+    99,
+    43
+   ],
+   "footprint": [
+    12,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "bookshelf": {
+   "frames": [
+    [
+     474,
+     525,
+     104,
+     48
+    ]
+   ],
+   "anchor": [
+    51,
+    43
+   ],
+   "alias_of": "bookshelf_6x1",
+   "footprint": [
+    6,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "whiteboard": {
+   "frames": [
+    [
+     783,
+     466,
+     72,
+     52
+    ]
+   ],
+   "anchor": [
+    35,
+    47
+   ],
+   "footprint": [
+    4,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "whiteboard-full": {
+   "frames": [
+    [
+     856,
+     466,
+     72,
+     52
+    ]
+   ],
+   "anchor": [
+    35,
+    47
+   ],
+   "footprint": [
+    4,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "intercom": {
+   "frames": [
+    [
+     0,
+     525,
+     24,
+     50
+    ],
+    [
+     25,
+     525,
+     24,
+     50
+    ]
+   ],
+   "anchor": [
+    11,
+    45
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture",
+   "fps": 3,
+   "note": "\"the intercom is thinking\": play state thinking",
+   "states": {
+    "idle": [
+     0
+    ],
+    "thinking": [
+     0,
+     1
+    ]
+   }
+  },
+  "fish-food-flake": {
+   "frames": [
+    [
+     59,
+     1011,
+     10,
+     6
+    ]
+   ],
+   "anchor": [
+    5,
+    3
+   ],
+   "note": "decal floating on the aquarium water surface"
+  },
+  "crt_glitch": {
+   "frames": [
+    [
+     84,
+     783,
+     20,
+     22
+    ],
+    [
+     105,
+     783,
+     20,
+     22
+    ]
+   ],
+   "anchor": [
+    10,
+    18
+   ],
+   "fps": 12,
+   "note": "1-2 frame flicker overlay/state for crt_front"
+  },
+  "reception-desk": {
+   "frames": [
+    [
+     533,
+     625,
+     56,
+     42
+    ]
+   ],
+   "anchor": [
+    27,
+    37
+   ],
+   "footprint": [
+    3,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "microwave": {
+   "frames": [
+    [
+     590,
+     625,
+     24,
+     42
+    ],
+    [
+     615,
+     625,
+     24,
+     42
+    ]
+   ],
+   "anchor": [
+    11,
+    37
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture",
+   "states": {
+    "ok": [
+     0
+    ],
+    "running": [
+     1
+    ]
+   }
+  },
+  "fridge": {
+   "frames": [
+    [
+     648,
+     466,
+     24,
+     54
+    ]
+   ],
+   "anchor": [
+    11,
+    49
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "snack-bar": {
+   "frames": [
+    [
+     515,
+     576,
+     56,
+     46
+    ]
+   ],
+   "anchor": [
+    27,
+    41
+   ],
+   "footprint": [
+    3,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "toilet-door": {
+   "frames": [
+    [
+     50,
+     525,
+     24,
+     50
+    ]
+   ],
+   "anchor": [
+    11,
+    45
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "rug_6x3": {
+   "frames": [
+    [
+     406,
+     466,
+     104,
+     57
+    ]
+   ],
+   "anchor": [
+    51,
+    52
+   ],
+   "footprint": [
+    6,
+    3
+   ],
+   "kind": "furniture",
+   "layer": "floor"
+  },
+  "rug_8x3": {
+   "frames": [
+    [
+     511,
+     466,
+     136,
+     57
+    ]
+   ],
+   "anchor": [
+    67,
+    52
+   ],
+   "footprint": [
+    8,
+    3
+   ],
+   "kind": "furniture",
+   "layer": "floor"
+  },
+  "rug": {
+   "frames": [
+    [
+     406,
+     466,
+     104,
+     57
+    ]
+   ],
+   "anchor": [
+    51,
+    52
+   ],
+   "alias_of": "rug_6x3",
+   "footprint": [
+    6,
+    3
+   ],
+   "kind": "furniture",
+   "layer": "floor"
+  },
+  "counter": {
+   "frames": [
+    [
+     640,
+     625,
+     24,
+     42
+    ]
+   ],
+   "anchor": [
+    11,
+    37
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "bin": {
+   "frames": [
+    [
+     443,
+     750,
+     24,
+     30
+    ]
+   ],
+   "anchor": [
+    11,
+    25
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "dog-bed": {
+   "frames": [
+    [
+     563,
+     750,
+     40,
+     26
+    ]
+   ],
+   "anchor": [
+    19,
+    21
+   ],
+   "footprint": [
+    2,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "candle": {
+   "frames": [
+    [
+     665,
+     625,
+     24,
+     42
+    ],
+    [
+     690,
+     625,
+     24,
+     42
+    ],
+    [
+     715,
+     625,
+     24,
+     42
+    ]
+   ],
+   "anchor": [
+    11,
+    37
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture",
+   "fps": 6
+  },
+  "screen_3x1": {
+   "frames": [
+    [
+     887,
+     403,
+     56,
+     58
+    ],
+    [
+     944,
+     403,
+     56,
+     58
+    ],
+    [
+     0,
+     466,
+     56,
+     58
+    ],
+    [
+     57,
+     466,
+     56,
+     58
+    ]
+   ],
+   "anchor": [
+    27,
+    53
+   ],
+   "footprint": [
+    3,
+    1
+   ],
+   "kind": "furniture",
+   "fps": 2
+  },
+  "screen_4x1": {
+   "frames": [
+    [
+     114,
+     466,
+     72,
+     58
+    ],
+    [
+     187,
+     466,
+     72,
+     58
+    ],
+    [
+     260,
+     466,
+     72,
+     58
+    ],
+    [
+     333,
+     466,
+     72,
+     58
+    ]
+   ],
+   "anchor": [
+    35,
+    53
+   ],
+   "footprint": [
+    4,
+    1
+   ],
+   "kind": "furniture",
+   "fps": 2
+  },
+  "screen": {
+   "frames": [
+    [
+     114,
+     466,
+     72,
+     58
+    ],
+    [
+     187,
+     466,
+     72,
+     58
+    ],
+    [
+     260,
+     466,
+     72,
+     58
+    ],
+    [
+     333,
+     466,
+     72,
+     58
+    ]
+   ],
+   "anchor": [
+    35,
+    53
+   ],
+   "alias_of": "screen_4x1",
+   "footprint": [
+    4,
+    1
+   ],
+   "kind": "furniture",
+   "fps": 2
+  },
+  "pod-booth": {
+   "frames": [
+    [
+     929,
+     466,
+     24,
+     52
+    ]
+   ],
+   "anchor": [
+    11,
+    47
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "podium": {
+   "frames": [
+    [
+     468,
+     750,
+     18,
+     28
+    ]
+   ],
+   "anchor": [
+    9,
+    25
+   ],
+   "alias_of": "lectern"
+  },
+  "water-cooler": {
+   "frames": [
+    [
+     241,
+     713,
+     16,
+     32
+    ],
+    [
+     258,
+     713,
+     16,
+     32
+    ],
+    [
+     275,
+     713,
+     16,
+     32
+    ]
+   ],
+   "anchor": [
+    8,
+    29
+   ],
+   "alias_of": "water_cooler",
+   "fps": 3
+  },
+  "desk-chair_up_orange": {
+   "frames": [
+    [
+     317,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_up_orange": {
+   "frames": [
+    [
+     340,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_down_orange": {
+   "frames": [
+    [
+     363,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_down_orange": {
+   "frames": [
+    [
+     386,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_left_orange": {
+   "frames": [
+    [
+     409,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_left_orange": {
+   "frames": [
+    [
+     432,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_right_orange": {
+   "frames": [
+    [
+     455,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_right_orange": {
+   "frames": [
+    [
+     478,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_up_mustard": {
+   "frames": [
+    [
+     501,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_up_mustard": {
+   "frames": [
+    [
+     524,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_down_mustard": {
+   "frames": [
+    [
+     547,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_down_mustard": {
+   "frames": [
+    [
+     570,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_left_mustard": {
+   "frames": [
+    [
+     593,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_left_mustard": {
+   "frames": [
+    [
+     616,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_right_mustard": {
+   "frames": [
+    [
+     639,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_right_mustard": {
+   "frames": [
+    [
+     662,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_up_teal": {
+   "frames": [
+    [
+     685,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_up_teal": {
+   "frames": [
+    [
+     708,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_down_teal": {
+   "frames": [
+    [
+     731,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_down_teal": {
+   "frames": [
+    [
+     754,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_left_teal": {
+   "frames": [
+    [
+     777,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_left_teal": {
+   "frames": [
+    [
+     800,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_right_teal": {
+   "frames": [
+    [
+     823,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_right_teal": {
+   "frames": [
+    [
+     846,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_up_avocado": {
+   "frames": [
+    [
+     869,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_up_avocado": {
+   "frames": [
+    [
+     892,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_down_avocado": {
+   "frames": [
+    [
+     915,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_down_avocado": {
+   "frames": [
+    [
+     938,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_left_avocado": {
+   "frames": [
+    [
+     961,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_left_avocado": {
+   "frames": [
+    [
+     984,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_right_avocado": {
+   "frames": [
+    [
+     0,
+     750,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_right_avocado": {
+   "frames": [
+    [
+     23,
+     750,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_up_cream": {
+   "frames": [
+    [
+     46,
+     750,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_up_cream": {
+   "frames": [
+    [
+     69,
+     750,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_down_cream": {
+   "frames": [
+    [
+     92,
+     750,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_down_cream": {
+   "frames": [
+    [
+     115,
+     750,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_left_cream": {
+   "frames": [
+    [
+     138,
+     750,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_left_cream": {
+   "frames": [
+    [
+     161,
+     750,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "desk-chair_right_cream": {
+   "frames": [
+    [
+     184,
+     750,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_right_cream": {
+   "frames": [
+    [
+     207,
+     750,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "stool": {
+   "frames": [
+    [
+     604,
+     750,
+     22,
+     26
+    ]
+   ],
+   "anchor": [
+    10,
+    22
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "sofa": {
+   "frames": [
+    [
+     90,
+     713,
+     56,
+     34
+    ]
+   ],
+   "anchor": [
+    27,
+    29
+   ],
+   "footprint": [
+    3,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "beanbag_orange": {
+   "frames": [
+    [
+     627,
+     750,
+     22,
+     26
+    ]
+   ],
+   "anchor": [
+    10,
+    22
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "beanbag_teal": {
+   "frames": [
+    [
+     650,
+     750,
+     22,
+     26
+    ]
+   ],
+   "anchor": [
+    10,
+    22
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "beanbag_mustard": {
+   "frames": [
+    [
+     673,
+     750,
+     22,
+     26
+    ]
+   ],
+   "anchor": [
+    10,
+    22
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "beanbag": {
+   "frames": [
+    [
+     627,
+     750,
+     22,
+     26
+    ]
+   ],
+   "anchor": [
+    10,
+    22
+   ],
+   "alias_of": "beanbag_orange",
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "coffee-machine": {
+   "frames": [
+    [
+     572,
+     576,
+     40,
+     46
+    ],
+    [
+     613,
+     576,
+     40,
+     46
+    ],
+    [
+     654,
+     576,
+     40,
+     46
+    ],
+    [
+     695,
+     576,
+     40,
+     46
+    ],
+    [
+     736,
+     576,
+     40,
+     46
+    ]
+   ],
+   "anchor": [
+    19,
+    41
+   ],
+   "footprint": [
+    2,
+    1
+   ],
+   "kind": "furniture",
+   "fps": 4,
+   "states": {
+    "ok": [
+     0,
+     1,
+     2
+    ],
+    "broken": [
+     3,
+     4
+    ]
+   }
+  },
+  "printer": {
+   "frames": [
+    [
+     964,
+     576,
+     40,
+     44
+    ],
+    [
+     0,
+     625,
+     40,
+     44
+    ],
+    [
+     41,
+     625,
+     40,
+     44
+    ],
+    [
+     82,
+     625,
+     40,
+     44
+    ]
+   ],
+   "anchor": [
+    19,
+    39
+   ],
+   "footprint": [
+    2,
+    1
+   ],
+   "kind": "furniture",
+   "fps": 4,
+   "states": {
+    "ok": [
+     0
+    ],
+    "printing": [
+     0,
+     1,
+     2
+    ],
+    "jam": [
+     3
+    ]
+   }
+  },
+  "cabinet": {
+   "frames": [
+    [
+     506,
+     403,
+     40,
+     60
+    ]
+   ],
+   "anchor": [
+    19,
+    55
+   ],
+   "footprint": [
+    2,
+    2
+   ],
+   "kind": "furniture"
+  },
+  "table_10x2": {
+   "frames": [
+    [
+     740,
+     625,
+     168,
+     42
+    ]
+   ],
+   "anchor": [
+    83,
+    37
+   ],
+   "footprint": [
+    10,
+    2
+   ],
+   "kind": "furniture"
+  },
+  "table_4x2": {
+   "frames": [
+    [
+     909,
+     625,
+     72,
+     42
+    ]
+   ],
+   "anchor": [
+    35,
+    37
+   ],
+   "footprint": [
+    4,
+    2
+   ],
+   "kind": "furniture"
+  },
+  "table_5x2": {
+   "frames": [
+    [
+     0,
+     670,
+     88,
+     42
+    ]
+   ],
+   "anchor": [
+    43,
+    37
+   ],
+   "footprint": [
+    5,
+    2
+   ],
+   "kind": "furniture"
+  },
+  "table_1x2": {
+   "frames": [
+    [
+     89,
+     670,
+     24,
+     42
+    ]
+   ],
+   "anchor": [
+    11,
+    37
+   ],
+   "footprint": [
+    1,
+    2
+   ],
+   "kind": "furniture"
+  },
+  "table_1x1": {
+   "frames": [
+    [
+     696,
+     750,
+     24,
+     26
+    ]
+   ],
+   "anchor": [
+    11,
+    21
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "plant_monstera": {
+   "frames": [
+    [
+     123,
+     625,
+     24,
+     44
+    ]
+   ],
+   "anchor": [
+    11,
+    39
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "plant_fern": {
+   "frames": [
+    [
+     148,
+     625,
+     24,
+     44
+    ]
+   ],
+   "anchor": [
+    11,
+    39
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "plant_rubber": {
+   "frames": [
+    [
+     173,
+     625,
+     24,
+     44
+    ]
+   ],
+   "anchor": [
+    11,
+    39
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "plant_succulent": {
+   "frames": [
+    [
+     198,
+     625,
+     24,
+     44
+    ]
+   ],
+   "anchor": [
+    11,
+    39
+   ],
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "plant": {
+   "frames": [
+    [
+     268,
+     750,
+     16,
+     30
+    ]
+   ],
+   "anchor": [
+    8,
+    27
+   ],
+   "alias_of": "snake_plant"
+  },
+  "plant-tall": {
+   "frames": [
+    [
+     67,
+     713,
+     22,
+     34
+    ]
+   ],
+   "anchor": [
+    11,
+    30
+   ],
+   "alias_of": "plant_tall"
+  },
+  "lava_lamp": {
+   "frames": [
+    [
+     250,
+     883,
+     8,
+     15
+    ],
+    [
+     259,
+     883,
+     8,
+     15
+    ],
+    [
+     268,
+     883,
+     8,
+     15
+    ],
+    [
+     277,
+     883,
+     8,
+     15
+    ]
+   ],
+   "anchor": [
+    4,
+    14
+   ],
+   "fps": 2,
+   "kind": "belonging",
+   "note": "glow: pair with glow_lamp tinted orange at night"
+  },
+  "rolodex": {
+   "frames": [
+    [
+     923,
+     998,
+     9,
+     8
+    ]
+   ],
+   "anchor": [
+    4,
+    7
+   ],
+   "kind": "belonging"
+  },
+  "desk_fan": {
+   "frames": [
+    [
+     457,
+     883,
+     11,
+     13
+    ],
+    [
+     469,
+     883,
+     11,
+     13
+    ]
+   ],
+   "anchor": [
+    5,
+    12
+   ],
+   "fps": 10,
+   "kind": "belonging"
+  },
+  "pencil_cup": {
+   "frames": [
+    [
+     933,
+     998,
+     6,
+     8
+    ]
+   ],
+   "anchor": [
+    3,
+    7
+   ],
+   "kind": "belonging"
+  },
+  "globe": {
+   "frames": [
+    [
+     793,
+     984,
+     10,
+     12
+    ]
+   ],
+   "anchor": [
+    5,
+    11
+   ],
+   "kind": "belonging"
+  },
+  "trophy": {
+   "frames": [
+    [
+     283,
+     998,
+     9,
+     11
+    ]
+   ],
+   "anchor": [
+    4,
+    10
+   ],
+   "kind": "belonging",
+   "note": "\"Employee of the Hour\" trophy"
+  },
+  "binder_stack": {
+   "frames": [
+    [
+     312,
+     998,
+     10,
+     10
+    ]
+   ],
+   "anchor": [
+    5,
+    9
+   ],
+   "kind": "belonging"
+  },
+  "snow_globe": {
+   "frames": [
+    [
+     759,
+     998,
+     7,
+     9
+    ],
+    [
+     767,
+     998,
+     7,
+     9
+    ],
+    [
+     775,
+     998,
+     7,
+     9
+    ]
+   ],
+   "anchor": [
+    3,
+    8
+   ],
+   "fps": 3,
+   "kind": "belonging"
+  },
+  "sticky_notes": {
+   "frames": [
+    [
+     1005,
+     998,
+     9,
+     7
+    ]
+   ],
+   "anchor": [
+    4,
+    6
+   ],
+   "kind": "belonging"
+  },
+  "desk_radio": {
+   "frames": [
+    [
+     783,
+     998,
+     12,
+     9
+    ]
+   ],
+   "anchor": [
+    6,
+    8
+   ],
+   "kind": "belonging"
+  },
+  "bonsai": {
+   "frames": [
+    [
+     323,
+     998,
+     11,
+     10
+    ]
+   ],
+   "anchor": [
+    5,
+    9
+   ],
+   "kind": "belonging"
+  },
+  "clipboard": {
+   "frames": [
+    [
+     335,
+     998,
+     8,
+     10
+    ]
+   ],
+   "anchor": [
+    4,
+    9
+   ],
+   "kind": "belonging"
+  },
+  "typewriter": {
+   "frames": [
+    [
+     344,
+     998,
+     14,
+     10
+    ]
+   ],
+   "anchor": [
+    7,
+    9
+   ],
+   "kind": "belonging"
+  },
+  "pennant": {
+   "frames": [
+    [
+     359,
+     998,
+     10,
+     10
+    ]
+   ],
+   "anchor": [
+    5,
+    9
+   ],
+   "kind": "belonging"
+  },
+  "mug_green": {
+   "frames": [
+    [
+     796,
+     998,
+     8,
+     9
+    ]
+   ],
+   "anchor": [
+    4,
+    8
+   ],
+   "kind": "belonging"
+  },
+  "mug_mint": {
+   "frames": [
+    [
+     805,
+     998,
+     8,
+     9
+    ]
+   ],
+   "anchor": [
+    4,
+    8
+   ],
+   "kind": "belonging"
+  },
+  "mug_sea": {
+   "frames": [
+    [
+     814,
+     998,
+     8,
+     9
+    ]
+   ],
+   "anchor": [
+    4,
+    8
+   ],
+   "kind": "belonging"
+  },
+  "stapler": {
+   "frames": [
+    [
+     70,
+     1011,
+     10,
+     6
+    ]
+   ],
+   "anchor": [
+    5,
+    5
+   ],
+   "kind": "belonging",
+   "note": "the stapler that keeps getting lost"
+  },
+  "certificate": {
+   "frames": [
+    [
+     293,
+     998,
+     9,
+     11
+    ]
+   ],
+   "anchor": [
+    4,
+    10
+   ],
+   "kind": "belonging"
+  },
+  "headphones_desk": {
+   "frames": [
+    [
+     0,
+     1011,
+     10,
+     7
+    ]
+   ],
+   "anchor": [
+    5,
+    6
+   ],
+   "kind": "belonging"
+  },
+  "glow_monitor": {
+   "frames": [
+    [
+     487,
+     750,
+     40,
+     28
+    ]
+   ],
+   "anchor": [
+    20,
+    14
+   ],
+   "kind": "light",
+   "blend": "additive",
+   "note": "green CRT light pool; draw at the screen, more at night"
+  },
+  "glow_lamp": {
+   "frames": [
+    [
+     147,
+     713,
+     56,
+     34
+    ]
+   ],
+   "anchor": [
+    28,
+    17
+   ],
+   "kind": "light",
+   "blend": "additive",
+   "note": "warm desk-lamp pool on the floor/desk"
+  },
+  "glow_fluoro": {
+   "frames": [
+    [
+     223,
+     625,
+     72,
+     44
+    ]
+   ],
+   "anchor": [
+    36,
+    22
+   ],
+   "kind": "light",
+   "blend": "additive",
+   "note": "cool fluorescent light pool under a fluoro_panel"
+  },
+  "glow_aquarium": {
+   "frames": [
+    [
+     162,
+     259,
+     168,
+     70
+    ]
+   ],
+   "anchor": [
+    84,
+    35
+   ],
+   "kind": "light",
+   "blend": "additive",
+   "note": "cool wash in front of the aquarium (night stronger)"
+  },
+  "glow_elevator": {
+   "frames": [
+    [
+     296,
+     625,
+     64,
+     44
+    ]
+   ],
+   "anchor": [
+    32,
+    22
+   ],
+   "kind": "light",
+   "blend": "additive",
+   "note": ""
+  },
+  "glow_candle": {
+   "frames": [
+    [
+     827,
+     828,
+     20,
+     16
+    ]
+   ],
+   "anchor": [
+    10,
+    8
+   ],
+   "kind": "light",
+   "blend": "additive",
+   "note": ""
+  },
+  "glow_small": {
+   "frames": [
+    [
+     804,
+     984,
+     16,
+     12
+    ]
+   ],
+   "anchor": [
+    8,
+    6
+   ],
+   "kind": "light",
+   "blend": "additive",
+   "note": "generic tintable sparkle glow"
+  },
+  "fluoro_panel_32": {
+   "frames": [
+    [
+     823,
+     998,
+     36,
+     9
+    ]
+   ],
+   "anchor": [
+    18,
+    8
+   ],
+   "kind": "light",
+   "float": true,
+   "note": "hovers ~28px above the floor; pair with glow_fluoro below + sign_shadow-style ground shadow"
+  },
+  "fluoro_panel_48": {
+   "frames": [
+    [
+     860,
+     998,
+     52,
+     9
+    ]
+   ],
+   "anchor": [
+    26,
+    8
+   ],
+   "kind": "light",
+   "float": true,
+   "note": "hovers ~28px above the floor; pair with glow_fluoro below + sign_shadow-style ground shadow"
+  },
+  "shadow_soft_1": {
+   "frames": [
+    [
+     821,
+     984,
+     24,
+     12
+    ]
+   ],
+   "anchor": [
+    12,
+    6
+   ],
+   "kind": "shadow",
+   "note": "soft ellipse contact shadow for a 1-tile wide object"
+  },
+  "shadow_soft_2": {
+   "frames": [
+    [
+     846,
+     984,
+     40,
+     12
+    ]
+   ],
+   "anchor": [
+    20,
+    6
+   ],
+   "kind": "shadow",
+   "note": "soft ellipse contact shadow for a 2-tile wide object"
+  },
+  "shadow_soft_3": {
+   "frames": [
+    [
+     887,
+     984,
+     56,
+     12
+    ]
+   ],
+   "anchor": [
+    28,
+    6
+   ],
+   "kind": "shadow",
+   "note": "soft ellipse contact shadow for a 3-tile wide object"
+  },
+  "shadow_soft_4": {
+   "frames": [
+    [
+     944,
+     984,
+     72,
+     12
+    ]
+   ],
+   "anchor": [
+    36,
+    6
+   ],
+   "kind": "shadow",
+   "note": "soft ellipse contact shadow for a 4-tile wide object"
+  },
+  "shadow_soft_6": {
+   "frames": [
+    [
+     0,
+     998,
+     104,
+     12
+    ]
+   ],
+   "anchor": [
+    52,
+    6
+   ],
+   "kind": "shadow",
+   "note": "soft ellipse contact shadow for a 6-tile wide object"
+  },
+  "shadow_soft_8": {
+   "frames": [
+    [
+     105,
+     998,
+     136,
+     12
+    ]
+   ],
+   "anchor": [
+    68,
+    6
+   ],
+   "kind": "shadow",
+   "note": "soft ellipse contact shadow for a 8-tile wide object"
+  },
+  "shadow_person_soft": {
+   "frames": [
+    [
+     940,
+     998,
+     18,
+     8
+    ]
+   ],
+   "anchor": [
+    9,
+    4
+   ],
+   "kind": "shadow",
+   "note": "3-step soft shadow under walking people (replaces shadow_person)"
+  },
+  "void_grid_fine": {
+   "frames": [
+    [
+     519,
+     259,
+     64,
+     64
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "atmosphere",
+   "note": "16px cross-hair grid + faint speckle; tile infinitely, fade alpha with distance from camera (0 beyond ~40 tiles)"
+  },
+  "fx_motes": {
+   "frames": [
+    [
+     0,
+     0,
+     96,
+     96
+    ],
+    [
+     97,
+     0,
+     96,
+     96
+    ],
+    [
+     194,
+     0,
+     96,
+     96
+    ],
+    [
+     291,
+     0,
+     96,
+     96
+    ],
+    [
+     388,
+     0,
+     96,
+     96
+    ],
+    [
+     485,
+     0,
+     96,
+     96
+    ],
+    [
+     582,
+     0,
+     96,
+     96
+    ],
+    [
+     679,
+     0,
+     96,
+     96
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "fps": 4,
+   "tile": true,
+   "kind": "atmosphere",
+   "blend": "additive",
+   "note": "drifting dust motes overlay; tile over the screen at low alpha (more visible at night)"
+  },
+  "fx_paper": {
+   "frames": [
+    [
+     848,
+     828,
+     14,
+     16
+    ],
+    [
+     863,
+     828,
+     14,
+     16
+    ],
+    [
+     878,
+     828,
+     14,
+     16
+    ],
+    [
+     893,
+     828,
+     14,
+     16
+    ],
+    [
+     908,
+     828,
+     14,
+     16
+    ],
+    [
+     923,
+     828,
+     14,
+     16
+    ]
+   ],
+   "anchor": [
+    7,
+    15
+   ],
+   "fps": 10,
+   "kind": "fx",
+   "loop": false,
+   "note": "a sheet of paper fluttering down"
+  },
+  "fx_sweat": {
+   "frames": [
+    [
+     242,
+     998,
+     7,
+     12
+    ],
+    [
+     250,
+     998,
+     7,
+     12
+    ],
+    [
+     258,
+     998,
+     7,
+     12
+    ],
+    [
+     266,
+     998,
+     7,
+     12
+    ]
+   ],
+   "anchor": [
+    3,
+    0
+   ],
+   "fps": 10,
+   "kind": "fx",
+   "loop": false,
+   "note": "sweat drop; spawn at the side of the head"
+  },
+  "fx_dust": {
+   "frames": [
+    [
+     370,
+     998,
+     12,
+     10
+    ],
+    [
+     383,
+     998,
+     12,
+     10
+    ],
+    [
+     396,
+     998,
+     12,
+     10
+    ],
+    [
+     409,
+     998,
+     12,
+     10
+    ]
+   ],
+   "anchor": [
+    8,
+    8
+   ],
+   "fps": 12,
+   "kind": "fx",
+   "loop": false,
+   "note": "running dust puff behind the feet (flip for direction)"
+  },
+  "fx_note": {
+   "frames": [
+    [
+     938,
+     828,
+     9,
+     16
+    ],
+    [
+     948,
+     828,
+     9,
+     16
+    ],
+    [
+     958,
+     828,
+     9,
+     16
+    ],
+    [
+     968,
+     828,
+     9,
+     16
+    ]
+   ],
+   "anchor": [
+    4,
+    15
+   ],
+   "fps": 6,
+   "kind": "fx",
+   "loop": false,
+   "note": "music note floating up (humming)"
+  },
+  "fx_heart": {
+   "frames": [
+    [
+     382,
+     883,
+     9,
+     14
+    ],
+    [
+     392,
+     883,
+     9,
+     14
+    ],
+    [
+     402,
+     883,
+     9,
+     14
+    ],
+    [
+     412,
+     883,
+     9,
+     14
+    ]
+   ],
+   "anchor": [
+    4,
+    13
+   ],
+   "fps": 6,
+   "kind": "fx",
+   "loop": false
+  },
+  "fx_bubbles": {
+   "frames": [
+    [
+     871,
+     750,
+     7,
+     24
+    ],
+    [
+     879,
+     750,
+     7,
+     24
+    ],
+    [
+     887,
+     750,
+     7,
+     24
+    ],
+    [
+     895,
+     750,
+     7,
+     24
+    ],
+    [
+     903,
+     750,
+     7,
+     24
+    ],
+    [
+     911,
+     750,
+     7,
+     24
+    ],
+    [
+     919,
+     750,
+     7,
+     24
+    ],
+    [
+     927,
+     750,
+     7,
+     24
+    ]
+   ],
+   "anchor": [
+    3,
+    23
+   ],
+   "fps": 8,
+   "kind": "fx",
+   "note": "rising bubble column (aquarium, water cooler)"
+  },
+  "fx_steam_big": {
+   "frames": [
+    [
+     968,
+     806,
+     11,
+     20
+    ],
+    [
+     980,
+     806,
+     11,
+     20
+    ],
+    [
+     992,
+     806,
+     11,
+     20
+    ],
+    [
+     1004,
+     806,
+     11,
+     20
+    ],
+    [
+     0,
+     828,
+     11,
+     20
+    ],
+    [
+     12,
+     828,
+     11,
+     20
+    ]
+   ],
+   "anchor": [
+    5,
+    19
+   ],
+   "fps": 6,
+   "kind": "fx",
+   "note": "juicier coffee steam (6 frames)"
+  },
+  "fx_zzz_big": {
+   "frames": [
+    [
+     50,
+     828,
+     14,
+     18
+    ],
+    [
+     65,
+     828,
+     14,
+     18
+    ],
+    [
+     80,
+     828,
+     14,
+     18
+    ],
+    [
+     95,
+     828,
+     14,
+     18
+    ],
+    [
+     110,
+     828,
+     14,
+     18
+    ],
+    [
+     125,
+     828,
+     14,
+     18
+    ]
+   ],
+   "anchor": [
+    2,
+    17
+   ],
+   "fps": 4,
+   "kind": "fx",
+   "note": "smoother Zzz (6 frames)"
+  },
+  "fx_sparkles": {
+   "frames": [
+    [
+     978,
+     828,
+     16,
+     16
+    ],
+    [
+     995,
+     828,
+     16,
+     16
+    ],
+    [
+     0,
+     849,
+     16,
+     16
+    ],
+    [
+     17,
+     849,
+     16,
+     16
+    ],
+    [
+     34,
+     849,
+     16,
+     16
+    ],
+    [
+     51,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    8,
+    8
+   ],
+   "fps": 10,
+   "kind": "fx",
+   "note": "cluster of twinkles (rewards, new hire, polish)"
+  },
+  "fx_confetti_big": {
+   "frames": [
+    [
+     901,
+     525,
+     48,
+     48
+    ],
+    [
+     950,
+     525,
+     48,
+     48
+    ],
+    [
+     0,
+     576,
+     48,
+     48
+    ],
+    [
+     49,
+     576,
+     48,
+     48
+    ],
+    [
+     98,
+     576,
+     48,
+     48
+    ],
+    [
+     147,
+     576,
+     48,
+     48
+    ],
+    [
+     196,
+     576,
+     48,
+     48
+    ],
+    [
+     245,
+     576,
+     48,
+     48
+    ],
+    [
+     294,
+     576,
+     48,
+     48
+    ],
+    [
+     343,
+     576,
+     48,
+     48
+    ],
+    [
+     392,
+     576,
+     48,
+     48
+    ],
+    [
+     441,
+     576,
+     48,
+     48
+    ]
+   ],
+   "anchor": [
+    24,
+    32
+   ],
+   "fps": 14,
+   "kind": "fx",
+   "loop": false
+  },
+  "isle_x_tl": {
+   "frames": [
+    [
+     68,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_x_t": {
+   "frames": [
+    [
+     85,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_x_tr": {
+   "frames": [
+    [
+     102,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_x_l": {
+   "frames": [
+    [
+     119,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_x_c": {
+   "frames": [
+    [
+     136,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_x_r": {
+   "frames": [
+    [
+     153,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_x_bl": {
+   "frames": [
+    [
+     170,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_x_b": {
+   "frames": [
+    [
+     187,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_x_br": {
+   "frames": [
+    [
+     204,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_k_tl": {
+   "frames": [
+    [
+     221,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_k_t": {
+   "frames": [
+    [
+     238,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_k_tr": {
+   "frames": [
+    [
+     255,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_k_l": {
+   "frames": [
+    [
+     272,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_k_c": {
+   "frames": [
+    [
+     289,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_k_r": {
+   "frames": [
+    [
+     306,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_k_bl": {
+   "frames": [
+    [
+     323,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_k_b": {
+   "frames": [
+    [
+     340,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_k_br": {
+   "frames": [
+    [
+     357,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_l_tl": {
+   "frames": [
+    [
+     374,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_l_t": {
+   "frames": [
+    [
+     391,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_l_tr": {
+   "frames": [
+    [
+     408,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_l_l": {
+   "frames": [
+    [
+     425,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_l_c": {
+   "frames": [
+    [
+     442,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_l_r": {
+   "frames": [
+    [
+     459,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_l_bl": {
+   "frames": [
+    [
+     476,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_l_b": {
+   "frames": [
+    [
+     493,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_l_br": {
+   "frames": [
+    [
+     510,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_a_tl": {
+   "frames": [
+    [
+     527,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_a_t": {
+   "frames": [
+    [
+     544,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_a_tr": {
+   "frames": [
+    [
+     561,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_a_l": {
+   "frames": [
+    [
+     578,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_a_c": {
+   "frames": [
+    [
+     595,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_a_r": {
+   "frames": [
+    [
+     612,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_a_bl": {
+   "frames": [
+    [
+     629,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_a_b": {
+   "frames": [
+    [
+     646,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_a_br": {
+   "frames": [
+    [
+     663,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_n_tl": {
+   "frames": [
+    [
+     680,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_n_t": {
+   "frames": [
+    [
+     697,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_n_tr": {
+   "frames": [
+    [
+     714,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_n_l": {
+   "frames": [
+    [
+     731,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_n_c": {
+   "frames": [
+    [
+     748,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_n_r": {
+   "frames": [
+    [
+     765,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_n_bl": {
+   "frames": [
+    [
+     782,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_n_b": {
+   "frames": [
+    [
+     799,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_n_br": {
+   "frames": [
+    [
+     816,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_b_tl": {
+   "frames": [
+    [
+     833,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_b_t": {
+   "frames": [
+    [
+     850,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_b_tr": {
+   "frames": [
+    [
+     867,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_b_l": {
+   "frames": [
+    [
+     884,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_b_c": {
+   "frames": [
+    [
+     901,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_b_r": {
+   "frames": [
+    [
+     918,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_b_bl": {
+   "frames": [
+    [
+     935,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_b_b": {
+   "frames": [
+    [
+     952,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_b_br": {
+   "frames": [
+    [
+     969,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_q_tl": {
+   "frames": [
+    [
+     986,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_q_t": {
+   "frames": [
+    [
+     1003,
+     849,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_q_tr": {
+   "frames": [
+    [
+     0,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_q_l": {
+   "frames": [
+    [
+     17,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_q_c": {
+   "frames": [
+    [
+     34,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_q_r": {
+   "frames": [
+    [
+     51,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_q_bl": {
+   "frames": [
+    [
+     68,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_q_b": {
+   "frames": [
+    [
+     85,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_q_br": {
+   "frames": [
+    [
+     102,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_g_tl": {
+   "frames": [
+    [
+     119,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_g_t": {
+   "frames": [
+    [
+     136,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_g_tr": {
+   "frames": [
+    [
+     153,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_g_l": {
+   "frames": [
+    [
+     170,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_g_c": {
+   "frames": [
+    [
+     187,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_g_r": {
+   "frames": [
+    [
+     204,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_g_bl": {
+   "frames": [
+    [
+     221,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_g_b": {
+   "frames": [
+    [
+     238,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_g_br": {
+   "frames": [
+    [
+     255,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_m_tl": {
+   "frames": [
+    [
+     272,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_m_t": {
+   "frames": [
+    [
+     289,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_m_tr": {
+   "frames": [
+    [
+     306,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_m_l": {
+   "frames": [
+    [
+     323,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_m_c": {
+   "frames": [
+    [
+     340,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_m_r": {
+   "frames": [
+    [
+     357,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_m_bl": {
+   "frames": [
+    [
+     374,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_m_b": {
+   "frames": [
+    [
+     391,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_m_br": {
+   "frames": [
+    [
+     408,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_i_tl": {
+   "frames": [
+    [
+     425,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_i_t": {
+   "frames": [
+    [
+     442,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_i_tr": {
+   "frames": [
+    [
+     459,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_i_l": {
+   "frames": [
+    [
+     476,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_i_c": {
+   "frames": [
+    [
+     493,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_i_r": {
+   "frames": [
+    [
+     510,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_i_bl": {
+   "frames": [
+    [
+     527,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_i_b": {
+   "frames": [
+    [
+     544,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_i_br": {
+   "frames": [
+    [
+     561,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_p_tl": {
+   "frames": [
+    [
+     578,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_p_t": {
+   "frames": [
+    [
+     595,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_p_tr": {
+   "frames": [
+    [
+     612,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_p_l": {
+   "frames": [
+    [
+     629,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_p_c": {
+   "frames": [
+    [
+     646,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_p_r": {
+   "frames": [
+    [
+     663,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_p_bl": {
+   "frames": [
+    [
+     680,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_p_b": {
+   "frames": [
+    [
+     697,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_p_br": {
+   "frames": [
+    [
+     714,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_v_tl": {
+   "frames": [
+    [
+     731,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_v_t": {
+   "frames": [
+    [
+     748,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_v_tr": {
+   "frames": [
+    [
+     765,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_v_l": {
+   "frames": [
+    [
+     782,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_v_c": {
+   "frames": [
+    [
+     799,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_v_r": {
+   "frames": [
+    [
+     816,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_v_bl": {
+   "frames": [
+    [
+     833,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_v_b": {
+   "frames": [
+    [
+     850,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_v_br": {
+   "frames": [
+    [
+     867,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_s_tl": {
+   "frames": [
+    [
+     884,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_s_t": {
+   "frames": [
+    [
+     901,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_s_tr": {
+   "frames": [
+    [
+     918,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_s_l": {
+   "frames": [
+    [
+     935,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_s_c": {
+   "frames": [
+    [
+     952,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_s_r": {
+   "frames": [
+    [
+     969,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_s_bl": {
+   "frames": [
+    [
+     986,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_s_b": {
+   "frames": [
+    [
+     1003,
+     866,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "isle_s_br": {
+   "frames": [
+    [
+     0,
+     883,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor"
+  },
+  "outline2_tl": {
+   "frames": [
+    [
+     17,
+     883,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor",
+   "note": "subtler meeting outline: crisp corner brackets + faint dotted edges"
+  },
+  "outline2_t": {
+   "frames": [
+    [
+     34,
+     883,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor",
+   "note": "subtler meeting outline: crisp corner brackets + faint dotted edges"
+  },
+  "outline2_tr": {
+   "frames": [
+    [
+     51,
+     883,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor",
+   "note": "subtler meeting outline: crisp corner brackets + faint dotted edges"
+  },
+  "outline2_l": {
+   "frames": [
+    [
+     68,
+     883,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor",
+   "note": "subtler meeting outline: crisp corner brackets + faint dotted edges"
+  },
+  "outline2_r": {
+   "frames": [
+    [
+     85,
+     883,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor",
+   "note": "subtler meeting outline: crisp corner brackets + faint dotted edges"
+  },
+  "outline2_bl": {
+   "frames": [
+    [
+     102,
+     883,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor",
+   "note": "subtler meeting outline: crisp corner brackets + faint dotted edges"
+  },
+  "outline2_b": {
+   "frames": [
+    [
+     119,
+     883,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor",
+   "note": "subtler meeting outline: crisp corner brackets + faint dotted edges"
+  },
+  "outline2_br": {
+   "frames": [
+    [
+     136,
+     883,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor",
+   "note": "subtler meeting outline: crisp corner brackets + faint dotted edges"
+  },
+  "signtxt_sign-1": {
+   "frames": [
+    [
+     481,
+     883,
+     111,
+     13
+    ]
+   ],
+   "anchor": [
+    55,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Alignment is its own reward.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-2": {
+   "frames": [
+    [
+     593,
+     883,
+     131,
+     13
+    ]
+   ],
+   "anchor": [
+    65,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Please enjoy each metric equally.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-3": {
+   "frames": [
+    [
+     725,
+     883,
+     139,
+     13
+    ]
+   ],
+   "anchor": [
+    69,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The numbers know when you are tired.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-4": {
+   "frames": [
+    [
+     865,
+     883,
+     73,
+     13
+    ]
+   ],
+   "anchor": [
+    36,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Gratitude scales.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-5": {
+   "frames": [
+    [
+     0,
+     900,
+     125,
+     13
+    ]
+   ],
+   "anchor": [
+    62,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Your desk missed you. It told us.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-6": {
+   "frames": [
+    [
+     126,
+     900,
+     143,
+     13
+    ]
+   ],
+   "anchor": [
+    71,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Welcome. You have always worked here.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-7": {
+   "frames": [
+    [
+     270,
+     900,
+     117,
+     13
+    ]
+   ],
+   "anchor": [
+    58,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Nourishment is a deliverable.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-8": {
+   "frames": [
+    [
+     388,
+     900,
+     179,
+     13
+    ]
+   ],
+   "anchor": [
+    89,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Read the Handbook. The Handbook is reading you.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-9": {
+   "frames": [
+    [
+     568,
+     900,
+     115,
+     13
+    ]
+   ],
+   "anchor": [
+    57,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Reflection builds character.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-10": {
+   "frames": [
+    [
+     684,
+     900,
+     125,
+     13
+    ]
+   ],
+   "anchor": [
+    62,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Wellness is mandatory. Enjoy it.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-11": {
+   "frames": [
+    [
+     810,
+     900,
+     60,
+     13
+    ]
+   ],
+   "anchor": [
+    30,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Restoration \u2192",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-12": {
+   "frames": [
+    [
+     871,
+     900,
+     87,
+     13
+    ]
+   ],
+   "anchor": [
+    43,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Muster Point (Calmly)",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-13": {
+   "frames": [
+    [
+     0,
+     914,
+     115,
+     13
+    ]
+   ],
+   "anchor": [
+    57,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Our Founder sees your output.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-14": {
+   "frames": [
+    [
+     116,
+     914,
+     53,
+     13
+    ]
+   ],
+   "anchor": [
+    26,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Ship calmly.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-sec-shelf": {
+   "frames": [
+    [
+     170,
+     914,
+     65,
+     13
+    ]
+   ],
+   "anchor": [
+    32,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The North Shelf",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-sec-row": {
+   "frames": [
+    [
+     236,
+     914,
+     63,
+     13
+    ]
+   ],
+   "anchor": [
+    31,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Refinement Row",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-sec-commons": {
+   "frames": [
+    [
+     300,
+     914,
+     83,
+     13
+    ]
+   ],
+   "anchor": [
+    41,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Calibration Commons",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-sec-floor": {
+   "frames": [
+    [
+     384,
+     914,
+     81,
+     13
+    ]
+   ],
+   "anchor": [
+    40,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Gratitude Floor",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-sec-ring": {
+   "frames": [
+    [
+     466,
+     914,
+     71,
+     13
+    ]
+   ],
+   "anchor": [
+    35,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Reassurance Ring",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-sec-vista": {
+   "frames": [
+    [
+     538,
+     914,
+     65,
+     13
+    ]
+   ],
+   "anchor": [
+    32,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Founder's Vista",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-allhands": {
+   "frames": [
+    [
+     604,
+     914,
+     111,
+     13
+    ]
+   ],
+   "anchor": [
+    55,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Gratitude Assembly Hall",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-boardroom": {
+   "frames": [
+    [
+     716,
+     914,
+     109,
+     13
+    ]
+   ],
+   "anchor": [
+    54,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Long Table of Consensus",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-team-1": {
+   "frames": [
+    [
+     826,
+     914,
+     59,
+     13
+    ]
+   ],
+   "anchor": [
+    29,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Synergy Basin",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-team-2": {
+   "frames": [
+    [
+     886,
+     914,
+     67,
+     13
+    ]
+   ],
+   "anchor": [
+    33,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Circle-Back",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-team-3": {
+   "frames": [
+    [
+     954,
+     914,
+     61,
+     13
+    ]
+   ],
+   "anchor": [
+    30,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Deep Dive Pool",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-huddle-1": {
+   "frames": [
+    [
+     0,
+     928,
+     47,
+     13
+    ]
+   ],
+   "anchor": [
+    23,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Quick Sync",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-huddle-2": {
+   "frames": [
+    [
+     48,
+     928,
+     51,
+     13
+    ]
+   ],
+   "anchor": [
+    25,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Parking Lot",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-huddle-3": {
+   "frames": [
+    [
+     100,
+     928,
+     65,
+     13
+    ]
+   ],
+   "anchor": [
+    32,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Take It Offline",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-booth-1": {
+   "frames": [
+    [
+     166,
+     928,
+     65,
+     13
+    ]
+   ],
+   "anchor": [
+    32,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Pod of Solitude",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-booth-2": {
+   "frames": [
+    [
+     232,
+     928,
+     73,
+     13
+    ]
+   ],
+   "anchor": [
+    36,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Listening Box",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-booth-3": {
+   "frames": [
+    [
+     306,
+     928,
+     75,
+     13
+    ]
+   ],
+   "anchor": [
+    37,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Booth 3 (Unlisted)",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-wellness": {
+   "frames": [
+    [
+     382,
+     928,
+     85,
+     13
+    ]
+   ],
+   "anchor": [
+    42,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Wellness Session",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-breakroom": {
+   "frames": [
+    [
+     468,
+     928,
+     93,
+     13
+    ]
+   ],
+   "anchor": [
+    46,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Contemplation Room",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-annex": {
+   "frames": [
+    [
+     562,
+     928,
+     159,
+     13
+    ]
+   ],
+   "anchor": [
+    79,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Quiet Annex. Sitting is transferable.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-it": {
+   "frames": [
+    [
+     722,
+     928,
+     109,
+     13
+    ]
+   ],
+   "anchor": [
+    54,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Have you tried aligning it?",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-mail": {
+   "frames": [
+    [
+     832,
+     928,
+     123,
+     13
+    ]
+   ],
+   "anchor": [
+    61,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The mail is grateful to be here.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-plants": {
+   "frames": [
+    [
+     0,
+     942,
+     149,
+     13
+    ]
+   ],
+   "anchor": [
+    74,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Please greet the plants as colleagues.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-door": {
+   "frames": [
+    [
+     150,
+     942,
+     61,
+     13
+    ]
+   ],
+   "anchor": [
+    30,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "This is a door.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-break": {
+   "frames": [
+    [
+     212,
+     942,
+     133,
+     13
+    ]
+   ],
+   "anchor": [
+    66,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Recreation is a form of alignment.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-grove": {
+   "frames": [
+    [
+     346,
+     942,
+     147,
+     13
+    ]
+   ],
+   "anchor": [
+    73,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Breathe in for four, out for the quota.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-nap": {
+   "frames": [
+    [
+     494,
+     942,
+     89,
+     13
+    ]
+   ],
+   "anchor": [
+    44,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Rest is a deliverable.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-archive": {
+   "frames": [
+    [
+     584,
+     942,
+     127,
+     13
+    ]
+   ],
+   "anchor": [
+    63,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Please do not sneeze on Year One.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-aqua": {
+   "frames": [
+    [
+     712,
+     942,
+     123,
+     13
+    ]
+   ],
+   "anchor": [
+    61,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Please enjoy each fish equally.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-gerald": {
+   "frames": [
+    [
+     836,
+     942,
+     155,
+     13
+    ]
+   ],
+   "anchor": [
+    77,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Gerald swims to the left. He has reasons.",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "signtxt_sign-goat": {
+   "frames": [
+    [
+     0,
+     956,
+     89,
+     13
+    ]
+   ],
+   "anchor": [
+    44,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "AUTHORIZED GOATS ONLY",
+   "note": "slim baked sign (3x5 font). Float 10px above sign_shadow_small"
+  },
+  "sectxt_sec-shelf": {
+   "frames": [
+    [
+     90,
+     956,
+     65,
+     13
+    ]
+   ],
+   "anchor": [
+    32,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The North Shelf"
+  },
+  "sectxt_sec-row": {
+   "frames": [
+    [
+     156,
+     956,
+     63,
+     13
+    ]
+   ],
+   "anchor": [
+    31,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Refinement Row"
+  },
+  "sectxt_sec-commons": {
+   "frames": [
+    [
+     220,
+     956,
+     83,
+     13
+    ]
+   ],
+   "anchor": [
+    41,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Calibration Commons"
+  },
+  "sectxt_sec-floor": {
+   "frames": [
+    [
+     304,
+     956,
+     81,
+     13
+    ]
+   ],
+   "anchor": [
+    40,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Gratitude Floor"
+  },
+  "sectxt_sec-ring": {
+   "frames": [
+    [
+     386,
+     956,
+     71,
+     13
+    ]
+   ],
+   "anchor": [
+    35,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Reassurance Ring"
+  },
+  "sectxt_sec-vista": {
+   "frames": [
+    [
+     458,
+     956,
+     65,
+     13
+    ]
+   ],
+   "anchor": [
+    32,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Founder's Vista"
+  },
+  "sectxt_sec-annex": {
+   "frames": [
+    [
+     524,
+     956,
+     65,
+     13
+    ]
+   ],
+   "anchor": [
+    32,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Quiet Annex"
+  },
+  "roomtxt_allhands": {
+   "frames": [
+    [
+     590,
+     956,
+     125,
+     13
+    ]
+   ],
+   "anchor": [
+    62,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Gratitude Assembly Hall \u00b7 65"
+  },
+  "roomtxt_boardroom": {
+   "frames": [
+    [
+     716,
+     956,
+     123,
+     13
+    ]
+   ],
+   "anchor": [
+    61,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Long Table of Consensus \u00b7 14"
+  },
+  "roomtxt_team-1": {
+   "frames": [
+    [
+     840,
+     956,
+     69,
+     13
+    ]
+   ],
+   "anchor": [
+    34,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Synergy Basin \u00b7 8"
+  },
+  "roomtxt_team-2": {
+   "frames": [
+    [
+     910,
+     956,
+     77,
+     13
+    ]
+   ],
+   "anchor": [
+    38,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Circle-Back \u00b7 6"
+  },
+  "roomtxt_team-3": {
+   "frames": [
+    [
+     0,
+     970,
+     71,
+     13
+    ]
+   ],
+   "anchor": [
+    35,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Deep Dive Pool \u00b7 8"
+  },
+  "roomtxt_huddle-1": {
+   "frames": [
+    [
+     72,
+     970,
+     57,
+     13
+    ]
+   ],
+   "anchor": [
+    28,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Quick Sync \u00b7 4"
+  },
+  "roomtxt_huddle-2": {
+   "frames": [
+    [
+     130,
+     970,
+     61,
+     13
+    ]
+   ],
+   "anchor": [
+    30,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Parking Lot \u00b7 3"
+  },
+  "roomtxt_huddle-3": {
+   "frames": [
+    [
+     192,
+     970,
+     75,
+     13
+    ]
+   ],
+   "anchor": [
+    37,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Take It Offline \u00b7 4"
+  },
+  "roomtxt_booth-1": {
+   "frames": [
+    [
+     268,
+     970,
+     75,
+     13
+    ]
+   ],
+   "anchor": [
+    37,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Pod of Solitude \u00b7 1"
+  },
+  "roomtxt_booth-2": {
+   "frames": [
+    [
+     344,
+     970,
+     83,
+     13
+    ]
+   ],
+   "anchor": [
+    41,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Listening Box \u00b7 1"
+  },
+  "roomtxt_booth-3": {
+   "frames": [
+    [
+     428,
+     970,
+     85,
+     13
+    ]
+   ],
+   "anchor": [
+    42,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Booth 3 (Unlisted) \u00b7 1"
+  },
+  "roomtxt_wellness": {
+   "frames": [
+    [
+     514,
+     970,
+     95,
+     13
+    ]
+   ],
+   "anchor": [
+    47,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Wellness Session \u00b7 6"
+  },
+  "roomtxt_breakroom": {
+   "frames": [
+    [
+     610,
+     970,
+     103,
+     13
+    ]
+   ],
+   "anchor": [
+    51,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Contemplation Room \u00b7 1"
+  },
+  "roomtxt_team-4": {
+   "frames": [
+    [
+     714,
+     970,
+     97,
+     13
+    ]
+   ],
+   "anchor": [
+    48,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Retrospective Harbor \u00b7 8"
+  },
+  "roomtxt_team-5": {
+   "frames": [
+    [
+     812,
+     970,
+     119,
+     13
+    ]
+   ],
+   "anchor": [
+    59,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Alignment Conservatory \u00b7 6"
+  },
+  "roomtxt_huddle-4": {
+   "frames": [
+    [
+     932,
+     970,
+     59,
+     13
+    ]
+   ],
+   "anchor": [
+    29,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Per My Last \u00b7 4"
+  },
+  "roomtxt_huddle-5": {
+   "frames": [
+    [
+     0,
+     984,
+     85,
+     13
+    ]
+   ],
+   "anchor": [
+    42,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Let's Offline This \u00b7 3"
+  },
+  "roomtxt_huddle-6": {
+   "frames": [
+    [
+     86,
+     984,
+     69,
+     13
+    ]
+   ],
+   "anchor": [
+    34,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Sync Adjacent \u00b7 4"
+  },
+  "roomtxt_booth-4": {
+   "frames": [
+    [
+     156,
+     984,
+     87,
+     13
+    ]
+   ],
+   "anchor": [
+    43,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Second Silence \u00b7 1"
+  },
+  "roomtxt_booth-5": {
+   "frames": [
+    [
+     244,
+     984,
+     101,
+     13
+    ]
+   ],
+   "anchor": [
+    50,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "Annex Booth (Unlisted) \u00b7 1"
+  },
+  "roomtxt_void-offsites": {
+   "frames": [
+    [
+     346,
+     984,
+     79,
+     13
+    ]
+   ],
+   "anchor": [
+    39,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The White Picnic \u00b7 8"
+  },
+  "roomtxt_board-visit": {
+   "frames": [
+    [
+     426,
+     984,
+     95,
+     13
+    ]
+   ],
+   "anchor": [
+    47,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Temporary Table \u00b7 14"
+  },
+  "roomtxt_archive": {
+   "frames": [
+    [
+     522,
+     984,
+     131,
+     13
+    ]
+   ],
+   "anchor": [
+    65,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Archive (Year One\u2013Present) \u00b7 6"
+  },
+  "roomtxt_aquarium": {
+   "frames": [
+    [
+     654,
+     984,
+     49,
+     13
+    ]
+   ],
+   "anchor": [
+    24,
+    12
+   ],
+   "kind": "sign",
+   "float": true,
+   "text": "The Tank \u00b7 6"
+  },
+  "sign_shadow_small": {
+   "frames": [
+    [
+     150,
+     1011,
+     30,
+     5
+    ]
+   ],
+   "anchor": [
+    15,
+    2
+   ],
+   "kind": "shadow"
+  },
+  "sign_slim_cream": {
+   "frames": [
+    [
+     704,
+     984,
+     10,
+     13
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "slice": 3,
+   "kind": "ui",
+   "note": "9-slice (3px) slim plaque, 11px tall: for runtime text use the 3x5 baked glyph atlas `tiny_font`"
+  },
+  "sign_slim_dark": {
+   "frames": [
+    [
+     715,
+     984,
+     10,
+     13
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "slice": 3,
+   "kind": "ui",
+   "note": "9-slice (3px) slim plaque, 11px tall: for runtime text use the 3x5 baked glyph atlas `tiny_font`"
+  },
+  "sign_slim_ghost": {
+   "frames": [
+    [
+     726,
+     984,
+     10,
+     13
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "slice": 3,
+   "kind": "ui",
+   "note": "9-slice (3px) slim plaque, 11px tall: for runtime text use the 3x5 baked glyph atlas `tiny_font`"
+  },
+  "tiny_font": {
+   "frames": [
+    [
+     181,
+     1011,
+     217,
+     5
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "kind": "ui",
+   "glyphs": {
+    "!": [
+     0,
+     1
+    ],
+    "\"": [
+     2,
+     3
+    ],
+    "#": [
+     6,
+     3
+    ],
+    "%": [
+     10,
+     3
+    ],
+    "&": [
+     14,
+     3
+    ],
+    "'": [
+     18,
+     1
+    ],
+    "(": [
+     20,
+     2
+    ],
+    ")": [
+     23,
+     2
+    ],
+    "+": [
+     26,
+     3
+    ],
+    ",": [
+     30,
+     1
+    ],
+    "-": [
+     32,
+     3
+    ],
+    ".": [
+     36,
+     1
+    ],
+    "/": [
+     38,
+     3
+    ],
+    "0": [
+     42,
+     3
+    ],
+    "1": [
+     46,
+     3
+    ],
+    "2": [
+     50,
+     3
+    ],
+    "3": [
+     54,
+     3
+    ],
+    "4": [
+     58,
+     3
+    ],
+    "5": [
+     62,
+     3
+    ],
+    "6": [
+     66,
+     3
+    ],
+    "7": [
+     70,
+     3
+    ],
+    "8": [
+     74,
+     3
+    ],
+    "9": [
+     78,
+     3
+    ],
+    ":": [
+     82,
+     1
+    ],
+    "?": [
+     84,
+     3
+    ],
+    "A": [
+     88,
+     3
+    ],
+    "B": [
+     92,
+     3
+    ],
+    "C": [
+     96,
+     3
+    ],
+    "D": [
+     100,
+     3
+    ],
+    "E": [
+     104,
+     3
+    ],
+    "F": [
+     108,
+     3
+    ],
+    "G": [
+     112,
+     3
+    ],
+    "H": [
+     116,
+     3
+    ],
+    "I": [
+     120,
+     3
+    ],
+    "J": [
+     124,
+     3
+    ],
+    "K": [
+     128,
+     3
+    ],
+    "L": [
+     132,
+     3
+    ],
+    "M": [
+     136,
+     3
+    ],
+    "N": [
+     140,
+     3
+    ],
+    "O": [
+     144,
+     3
+    ],
+    "P": [
+     148,
+     3
+    ],
+    "Q": [
+     152,
+     3
+    ],
+    "R": [
+     156,
+     3
+    ],
+    "S": [
+     160,
+     3
+    ],
+    "T": [
+     164,
+     3
+    ],
+    "U": [
+     168,
+     3
+    ],
+    "V": [
+     172,
+     3
+    ],
+    "W": [
+     176,
+     3
+    ],
+    "X": [
+     180,
+     3
+    ],
+    "Y": [
+     184,
+     3
+    ],
+    "Z": [
+     188,
+     3
+    ],
+    "\u00b7": [
+     192,
+     1
+    ],
+    "\u2013": [
+     194,
+     3
+    ],
+    "\u2014": [
+     198,
+     4
+    ],
+    "\u2122": [
+     203,
+     3
+    ],
+    "\u2190": [
+     207,
+     4
+    ],
+    "\u2192": [
+     212,
+     4
+    ]
+   },
+   "glyph_h": 5,
+   "space": 2,
+   "note": "white 3x5 caps glyphs: glyphs[ch] = [x, width] in this frame; tint at draw time; 1px letter spacing"
+  },
+  "corridor-strip": {
+   "frames": [
+    [
+     153,
+     883,
+     16,
+     16
+    ]
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "tile": true,
+   "kind": "floor",
+   "note": "endless void corridor tile; repeat along x for the strip length (data w), y-anchor = tile top"
+  },
+  "chair_up": {
+   "frames": [
+    [
+     645,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ],
+   "alias_of": "chair_n_orange",
+   "note": "worker faces N; draw AFTER the person (covers their lower back)"
+  },
+  "desk-chair_up": {
+   "frames": [
+    [
+     685,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "alias_of": "desk-chair_up_teal",
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_up": {
+   "frames": [
+    [
+     524,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "alias_of": "armchair_up_mustard",
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "chair_down": {
+   "frames": [
+    [
+     628,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ],
+   "alias_of": "chair_s_orange",
+   "note": "worker faces S; draw BEFORE the person"
+  },
+  "desk-chair_down": {
+   "frames": [
+    [
+     731,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "alias_of": "desk-chair_down_teal",
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_down": {
+   "frames": [
+    [
+     570,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "alias_of": "armchair_down_mustard",
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "chair_left": {
+   "frames": [
+    [
+     679,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ],
+   "alias_of": "chair_w_orange"
+  },
+  "desk-chair_left": {
+   "frames": [
+    [
+     777,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "alias_of": "desk-chair_left_teal",
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_left": {
+   "frames": [
+    [
+     616,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "alias_of": "armchair_left_mustard",
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "chair_right": {
+   "frames": [
+    [
+     662,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ],
+   "alias_of": "chair_e_orange"
+  },
+  "desk-chair_right": {
+   "frames": [
+    [
+     823,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "alias_of": "desk-chair_right_teal",
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair_right": {
+   "frames": [
+    [
+     662,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "alias_of": "armchair_right_mustard",
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "chair": {
+   "frames": [
+    [
+     628,
+     806,
+     16,
+     20
+    ]
+   ],
+   "anchor": [
+    8,
+    16
+   ],
+   "alias_of": "chair_s_orange",
+   "note": "worker faces S; draw BEFORE the person"
+  },
+  "desk-chair": {
+   "frames": [
+    [
+     731,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "alias_of": "desk-chair_down_teal",
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "armchair": {
+   "frames": [
+    [
+     570,
+     713,
+     22,
+     32
+    ]
+   ],
+   "anchor": [
+    10,
+    28
+   ],
+   "alias_of": "armchair_down_mustard",
+   "footprint": [
+    1,
+    1
+   ],
+   "kind": "furniture"
+  },
+  "crt": {
+   "frames": [
+    [
+     935,
+     750,
+     20,
+     22
+    ],
+    [
+     956,
+     750,
+     20,
+     22
+    ],
+    [
+     977,
+     750,
+     20,
+     22
+    ],
+    [
+     998,
+     750,
+     20,
+     22
+    ],
+    [
+     0,
+     783,
+     20,
+     22
+    ],
+    [
+     21,
+     783,
+     20,
+     22
+    ]
+   ],
+   "anchor": [
+    10,
+    18
+   ],
+   "alias_of": "crt_front",
+   "fps": 4,
+   "note": "screen faces camera (desk south of a worker facing N... i.e. south-row pod desks). Animated numbers."
+  },
+  "crt_up": {
+   "frames": [
+    [
+     935,
+     750,
+     20,
+     22
+    ],
+    [
+     956,
+     750,
+     20,
+     22
+    ],
+    [
+     977,
+     750,
+     20,
+     22
+    ],
+    [
+     998,
+     750,
+     20,
+     22
+    ],
+    [
+     0,
+     783,
+     20,
+     22
+    ],
+    [
+     21,
+     783,
+     20,
+     22
+    ]
+   ],
+   "anchor": [
+    10,
+    18
+   ],
+   "alias_of": "crt_front",
+   "fps": 4,
+   "note": "screen faces camera (desk south of a worker facing N... i.e. south-row pod desks). Animated numbers."
+  },
+  "crt_down": {
+   "frames": [
+    [
+     42,
+     783,
+     20,
+     22
+    ],
+    [
+     63,
+     783,
+     20,
+     22
+    ]
+   ],
+   "anchor": [
+    10,
+    18
+   ],
+   "alias_of": "crt_back",
+   "fps": 1,
+   "note": "back of a CRT (screen faces away from camera)"
+  },
+  "desk-phone": {
+   "frames": [
+    [
+     748,
+     984,
+     14,
+     12
+    ]
+   ],
+   "anchor": [
+    7,
+    9
+   ],
+   "alias_of": "phone"
+  },
+  "photo": {
+   "frames": [
+    [
+     303,
+     998,
+     8,
+     10
+    ]
+   ],
+   "anchor": [
+    4,
+    9
+   ],
+   "alias_of": "photo_frame"
+  }
+ },
+ "dog": {
+  "sheet": "biscuit.png",
+  "pet_id": "biscuit",
+  "cell": [
+   24,
+   24
+  ],
+  "foot_anchor": [
+   12,
+   21
+  ],
+  "cols": 4,
+  "rows": [
+   "idle_S",
+   "idle_N",
+   "idle_E",
+   "idle_W",
+   "walk_S",
+   "walk_N",
+   "walk_E",
+   "walk_W"
+  ],
+  "anims": {
+   "idle": {
+    "frames": 4,
+    "fps": 3,
+    "loop": true
+   },
+   "walk": {
+    "frames": 4,
+    "fps": 7,
+    "loop": true
+   }
+  }
+ },
+ "props_sheet": "props.png"
+}

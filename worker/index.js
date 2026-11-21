@@ -122,9 +122,10 @@ async function office(req, env) {
   else h.set('Cache-Control', 'public,max-age=3600');
   h.set('X-Content-Type-Options', 'nosniff'); h.set('Referrer-Policy', 'no-referrer');
   // Bevy can require WASM compilation; keep these headers scoped to the game, not share links.
+  // The office page boots from small inline scripts (base-path fix, seed box, wasm loader), so inline is allowed here only.
   h.set('Cross-Origin-Opener-Policy', 'same-origin');
   h.set('Cross-Origin-Embedder-Policy', 'require-corp');
-  h.set('Content-Security-Policy', "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self' blob:; connect-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'");
+  h.set('Content-Security-Policy', "default-src 'self'; script-src 'self' 'unsafe-inline' 'wasm-unsafe-eval'; worker-src 'self' blob:; connect-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; media-src 'self' blob:; object-src 'none'; base-uri 'self'; frame-ancestors 'none'");
   return new Response(req.method === 'HEAD' ? null : res.body, { status: res.status, headers: h });
 }
 
