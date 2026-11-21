@@ -1,0 +1,18 @@
+{
+  "name": "pixelmob",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pixel Mob — tiny people, big feelings",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "npm run build && wrangler dev --local --port 8799",
+    "test": "npm run build && node --test tests/codes.test.js",
+    "check:deploy": "npm run build && wrangler deploy --dry-run --outdir .deploy-check",
+    "brand": "python3 scripts/brand.py",
+    "og": "python3 scripts/og.py"
+  },
+  "devDependencies": {
+    "wrangler": "^4.166.0"
+  }
+}

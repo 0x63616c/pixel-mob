@@ -1,0 +1,13 @@
+node_modules/
+.wrangler/
+.deploy-check/
+.env*
+.dev.vars*
+*.log
+*.secret*
+pub*.json
+claim*.json
+cap*/
+__pycache__/
+.DS_Store
+.deploy/

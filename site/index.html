@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en" data-app="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<!--META-->
+<title>Pixel Mob — Turn any message into a tiny pixel crowd</title>
+<meta name="description" content="Make a mob of tiny pixel people spell your message. Create a free surprise link, send it to a friend and watch the crowd assemble.">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://pixelmob.io/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pixel Mob">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="Pixel Mob — Turn any message into a tiny pixel crowd">
+<meta property="og:description" content="Make a mob of tiny pixel people spell your message. Create a free surprise link, send it to a friend and watch the crowd assemble.">
+<meta property="og:url" content="https://pixelmob.io/">
+<meta property="og:image" content="https://pixelmob.io/og.png">
+<meta property="og:image:secure_url" content="https://pixelmob.io/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pixel Mob: a crowd of tiny pixel people spells PIXEL MOB above the words “Tiny people. Big feelings.”">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pixel Mob — Turn any message into a tiny pixel crowd">
+<meta name="twitter:description" content="Make a mob of tiny pixel people spell your message. Create a free surprise link, send it to a friend and watch the crowd assemble.">
+<meta name="twitter:image" content="https://pixelmob.io/og.png">
+<meta name="twitter:image:alt" content="Pixel Mob: a crowd of tiny pixel people spells PIXEL MOB above the words “Tiny people. Big feelings.”">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","@id":"https://pixelmob.io/#app","name":"Pixel Mob","url":"https://pixelmob.io/","description":"Make a mob of tiny pixel people spell your message. Create a free surprise link, send it to a friend and watch the crowd assemble.","applicationCategory":"EntertainmentApplication","operatingSystem":"Any","browserRequirements":"Requires JavaScript and HTML5 canvas","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"image":"https://pixelmob.io/og.png","inLanguage":"en"},{"@type":"WebSite","@id":"https://pixelmob.io/#site","name":"Pixel Mob","url":"https://pixelmob.io/"},{"@type":"HowTo","name":"How to send a Pixel Mob message","step":[{"@type":"HowToStep","name":"Write your words","text":"Type up to 32 letters, numbers or punctuation."},{"@type":"HowToStep","name":"Send the surprise","text":"Copy the link or use your phone’s share sheet. The preview keeps the message secret."},{"@type":"HowToStep","name":"Watch them assemble","text":"Your friend opens the link, taps to reveal, and the crowd spells your message."}]}]}</script>
+<!--/META-->
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#f4f2ee">
+<meta name="color-scheme" content="light">
+<meta name="apple-mobile-web-app-title" content="Pixel Mob">
+<meta name="application-name" content="Pixel Mob">
+<style>
+  :root{--sh-btn:-4px 4px 0;--sh-press:-1px 1px 0;--sh-card:-6px 6px 0;--sh-og:-7px 7px 0;--ink:#2d2420;--paper:#f4f2ee;--card:#fffdf8;--muted:#7a7268;--line:#2d2420;--accent:#e2483d}
+  *{box-sizing:border-box}
+  [hidden]{display:none!important}
+  html,body{margin:0;height:100%;background:var(--paper);overflow:hidden;color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;overscroll-behavior:none}
+  canvas#c{position:fixed;inset:0;width:100vw;height:100vh;height:100lvh;display:block;touch-action:none;
+    image-rendering:pixelated;image-rendering:crisp-edges;cursor:pointer;outline:none}
+  canvas{image-rendering:pixelated;image-rendering:crisp-edges}
+  #sa{position:fixed;top:0;left:0;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);visibility:hidden;pointer-events:none}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  /* fade helpers: nothing UI-ish paints until JS decides the mode (no flash) */
+  .fx{opacity:0;visibility:hidden;transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.2,1),visibility 0s linear .6s}
+  .fx.on{opacity:1;visibility:visible;transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.2,1),visibility 0s}
+  /* buttons */
+  .pbtn{appearance:none;-webkit-appearance:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;padding:0 18px;
+    font:600 15px/1 inherit;font-family:inherit;letter-spacing:.005em;color:#fff;background:var(--ink);border:2px solid var(--ink);border-radius:10px;
+    box-shadow:var(--sh-btn) #120d0a;cursor:pointer;text-decoration:none;user-select:none;-webkit-user-select:none;touch-action:manipulation;
+    transition:transform .08s ease,box-shadow .08s ease,background .2s,opacity .2s;white-space:nowrap}
+  .pbtn:active{transform:translate(-2px,2px);box-shadow:var(--sh-press) #120d0a}
+  .pbtn:focus-visible,.icon-btn:focus-visible,canvas#c:focus-visible{outline:3px solid #3a7bd5;outline-offset:3px}
+  .pbtn.light{color:var(--ink);background:#fff;box-shadow:var(--sh-btn) var(--ink)}
+  .pbtn.light:active{box-shadow:var(--sh-press) var(--ink)}
+  .pbtn[disabled],.pbtn[aria-disabled=true]{opacity:.38;pointer-events:none}
+  .pbtn .spark{color:#f1c40f}
+  /* 404 copy */
+  #lost{position:fixed;left:0;right:0;text-align:center;pointer-events:none}
+  #lost p{margin:0 0 12px;font-size:13px;color:#77736c;letter-spacing:.01em}
+  #lost button{pointer-events:auto;font:inherit;font-size:13px;color:var(--ink);background:#fff;border:1px solid #e3e0da;border-radius:8px;
+    padding:0 14px;min-height:36px;cursor:pointer;box-shadow:var(--sh-press) #d9d1c6;touch-action:manipulation}
+  /* bottom bars */
+  .bar{position:fixed;left:0;right:0;bottom:calc(22px + env(safe-area-inset-bottom));display:flex;justify-content:center;gap:10px;padding:0 16px;transform:translateY(10px)}
+  .bar.on{transform:none}
+  html[data-app=home]:not(.panel-open) #homebar{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+  #homebar{transition-delay:.15s}
+  /* teaser */
+  #teaser{position:fixed;left:0;right:0;top:50%;transform:translateY(calc(-50% + 14px));text-align:center;pointer-events:none;padding:0 20px}
+  #teaser.on{transform:translateY(-50%)}
+  #teaser.out{opacity:0;visibility:hidden;transform:translateY(-50%) scale(.94);transition:opacity .22s ease,transform .3s ease,visibility 0s linear .3s}
+  #teaser .card{display:inline-flex;flex-direction:column;align-items:center;gap:16px;padding:22px 24px 20px;background:rgba(255,253,248,.86);
+    -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);border:2px solid var(--ink);border-radius:16px;box-shadow:var(--sh-card) var(--ink);pointer-events:auto}
+  #teaser .eyebrow{font:700 11px/1 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.22em;color:var(--accent);text-transform:uppercase}
+  #teaser .sub{margin:-4px 0 0;font-size:14px;color:var(--muted)}
+  #reveal{animation:pulse 1.6s ease-in-out infinite}
+  @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.045)}}
+  /* creator panel */
+  #panel{position:fixed;left:50%;bottom:calc(12px + env(safe-area-inset-bottom) + var(--kb,0px));z-index:5;
+    width:min(460px,calc(100vw - 20px));max-height:calc(100% - 24px);overflow:auto;
+    background:var(--card);border:2px solid var(--ink);border-radius:16px;box-shadow:var(--sh-card) var(--ink),-14px 22px 50px rgba(45,36,32,.16);
+    padding:14px 16px 16px;transform:translate(-50%,calc(100% + 60px));opacity:0;visibility:hidden;
+    transition:transform .55s cubic-bezier(.2,.9,.25,1.06),opacity .3s ease,visibility 0s linear .55s,bottom .25s ease}
+  .panel-open #panel{transform:translate(-50%,0);opacity:1;visibility:visible;transition:transform .55s cubic-bezier(.2,.9,.25,1.06),opacity .3s ease,visibility 0s,bottom .25s ease}
+  #panel header{display:flex;align-items:center;gap:10px;margin:0 0 6px}
+  #panel header .pic{width:24px;height:32px;flex:none}
+  #panel h2{margin:0;flex:1;line-height:0}
+  .icon-btn{appearance:none;border:0;background:transparent;width:44px;height:44px;margin:-8px -10px -8px 0;border-radius:10px;font-size:20px;color:var(--ink);cursor:pointer;touch-action:manipulation}
+  .icon-btn:hover{background:#f1ede6}
+  #panel .sub{margin:0 0 12px;font-size:14px;line-height:1.4;color:var(--muted)}
+  .field{display:flex;align-items:center;gap:10px;border:2px solid var(--ink);border-radius:12px;background:var(--paper);padding:0 12px 0 14px;min-height:54px}
+  .field:focus-within{background:#fff;box-shadow:0 0 0 3px rgba(58,123,213,.35)}
+  #msg{flex:1;min-width:0;border:0;background:transparent;outline:none;color:var(--ink);font:700 20px/1.2 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    letter-spacing:.06em;text-transform:uppercase;padding:12px 0}
+  #msg::placeholder{color:#b9b1a5;letter-spacing:.06em}
+  #count{font:600 13px/1 ui-monospace,SFMono-Regular,Menlo,monospace;color:#8b847a;font-variant-numeric:tabular-nums;transition:color .2s,transform .15s}
+  #count.near{color:#d35400}#count.bump{transform:scale(1.25)}
+  #note{min-height:18px;margin:8px 2px 10px;font-size:12.5px;line-height:1.35;color:#8b847a;transition:color .2s}
+  #note.warn{color:#c0392b}
+  #link{display:block;font:500 13px/1.3 ui-monospace,SFMono-Regular,Menlo,monospace;color:#5f574d;background:var(--paper);border:1px dashed #cfc7bb;border-radius:10px;
+    padding:11px 12px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;user-select:all;-webkit-user-select:all}
+  #link.empty{color:#b9b1a5;user-select:none}
+  .actions{display:flex;gap:10px;margin-top:12px}
+  .actions .grow{flex:1}
+  #copyBtn.done{background:#2e9e5b;border-color:#2e9e5b;box-shadow:var(--sh-btn) #1d6b3c}
+  /* toast */
+  #toast{position:fixed;left:50%;top:calc(14px + env(safe-area-inset-top));z-index:9;transform:translate(-50%,-12px);background:var(--ink);color:#fff;
+    font-size:14px;font-weight:600;padding:12px 16px;border-radius:12px;box-shadow:var(--sh-btn) #120d0a;max-width:calc(100vw - 32px);text-align:center}
+  #toast.on{transform:translate(-50%,0)}
+  /* og card (only used to render the share image) */
+  #ogcard{position:fixed;inset:0;display:none;align-items:center;justify-content:center}
+  html[data-app=og] #ogcard{display:flex}
+  #ogcard .card{display:flex;flex-direction:column;align-items:center;gap:16px;padding:26px 36px 24px;background:rgba(255,253,248,.94);border:3px solid var(--ink);border-radius:18px;box-shadow:var(--sh-og) var(--ink)}
+  #ogcard .eyebrow{font:800 14px/1 "JetBrains Mono",ui-monospace,monospace;letter-spacing:.3em;color:var(--accent)}
+  #ogcard .sub{font:600 18px/1.2 Inter,system-ui,sans-serif;color:#6f675d}
+  html[data-app=og] .bar,html[data-app=og] #lost{display:none}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition-duration:.01s!important}}
+  @media (max-width:420px){.pbtn{padding:0 14px}#panel{padding:12px 14px 14px}}
+
+  /* Pixel Mob brand: pixel headline art, ink / warm-paper palette, coral signal */
+  .eyebrow,.section-label{font:700 11px/1.5 ui-monospace,SFMono-Regular,monospace;letter-spacing:.16em;color:var(--accent)}
+  #top{display:none;position:absolute;top:calc(22px + env(safe-area-inset-top));left:24px;right:24px;z-index:2;align-items:center;justify-content:space-between;gap:12px}
+  #top a{color:var(--ink);text-decoration:none;font-weight:650;font-size:13px;min-height:44px;display:flex;align-items:center}
+  #top .nav-new{padding:0 12px;border:2px solid var(--ink);border-radius:9px;gap:8px;background:var(--card);box-shadow:var(--sh-btn) var(--ink);transition:transform .08s,box-shadow .08s}#top .nav-new:active,#lost button:active{transform:translate(-2px,2px);box-shadow:var(--sh-press) var(--ink)}
+  #landing{display:none}html[data-app=home] #landing{display:block}html[data-app=home] #top{display:flex}
+  html[data-app=home],html[data-app=home] body{height:auto;min-height:100%;overflow-x:hidden;overflow-y:auto;overscroll-behavior:auto}
+  html[data-app=home] #c{position:absolute;height:100svh;touch-action:pan-y;cursor:default}
+  #hero{position:relative;padding:0 24px 26px;margin-top:calc(100svh - 295px);height:295px;text-align:center;pointer-events:none}
+  #hero>*{pointer-events:auto}#hero h1{font:800 clamp(34px,5vw,48px)/1.06 system-ui,sans-serif;letter-spacing:-.055em;margin:9px 0 10px}#hero h1 span{color:var(--accent)}
+  #hero p{font-size:15px;line-height:1.5;color:#746c62;margin:0 0 18px}
+  #hero .how-link{display:block;color:#82766c;font-size:12px;margin:18px auto 0;text-decoration:none;width:max-content}
+  .panel-open #hero{opacity:0;pointer-events:none}.panel-open #hero>*{pointer-events:none}.panel-open #top .nav-new{visibility:hidden}
+  #how{position:relative;background:var(--card);border-top:1px solid #e1d9ce;padding:80px max(24px,calc((100% - 1020px)/2)) 60px;scroll-margin-top:24px}
+  #how h2{font:750 clamp(32px,5vw,50px)/1.08 system-ui,sans-serif;letter-spacing:-.045em;margin:10px 0 18px}
+  #how .lead{max-width:640px;color:#746c62;line-height:1.75;font-size:17px}
+  .steps{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding:0;margin:42px 0 80px}.steps span{display:inline-block;padding:6px 9px;border:1px solid #d9d1c6;border-radius:8px;font:700 14px ui-monospace,monospace;color:var(--accent)}
+  .steps h3{font-size:19px;letter-spacing:-.02em;margin:18px 0 9px}.steps p{color:#746c62;font-size:15px;line-height:1.7;margin:0}.outro{text-align:center;margin:50px 0 70px}.outro p{color:#82766c;font-size:13px;margin:20px 0}
+  details{max-width:720px;margin:auto;border-top:1px solid #e1d9ce;padding:22px 0}summary{cursor:pointer;font-weight:650;font-size:16px;min-height:24px}details p{line-height:1.7;color:#746c62;margin:14px 0 0;font-size:15px}
+  footer{position:relative;display:flex;align-items:flex-start;flex-direction:column;background:var(--paper);padding:40px max(24px,calc((100% - 1020px)/2));gap:10px;border-top:1px solid #e1d9ce}footer p{color:#746c62;font-size:13px;margin:0;line-height:1.6}footer nav{display:flex;gap:24px;margin:6px 0 12px}footer nav a{font-size:13px;color:var(--ink);text-decoration:none;min-height:32px;display:flex;align-items:center}footer .privacy-note{font-size:12px;color:#82766c}
+  #ogcard .card{max-width:90%}html[data-app=og] #ogcard.landing{align-items:flex-end;padding-bottom:24px}html[data-app=og] #ogcard.landing .card{background:none;border:0;box-shadow:none;padding:0;gap:12px}
+  #panel header .pic{width:36px;height:20px}#panel header img{image-rendering:pixelated}
+  #lost button{min-height:44px;border:2px solid var(--ink);box-shadow:var(--sh-btn) var(--ink);transition:transform .08s,box-shadow .08s}.pbtn.light:active{transform:translate(-2px,2px)}#toast{box-shadow:var(--sh-btn) #120d0a}.field{box-shadow:var(--sh-press) var(--ink)}a:focus-visible,summary:focus-visible{outline:3px solid #3a7bd5;outline-offset:4px}
+  #brandline{position:fixed;bottom:calc(6px + env(safe-area-inset-bottom));left:0;right:0;font:600 10px ui-monospace,monospace;letter-spacing:.1em;text-align:center;color:#9a8f83;display:none;text-decoration:none;pointer-events:auto}
+  html[data-app=surprise] #brandline,html[data-app=error] #brandline,html[data-app=lost] #brandline{display:block}
+  @media(max-width:600px){#top{left:18px;right:18px;top:calc(12px + env(safe-area-inset-top))}#top img{width:140px;height:20px}#top .nav-new{font-size:12px;padding:0 9px}.steps{grid-template-columns:1fr;gap:30px;margin-bottom:50px}#how{padding-top:50px}.steps li{padding-left:50px;position:relative}.steps span{position:absolute;left:0;top:0}.steps h3{margin-top:0}.actions .pbtn{font-size:13px;padding:0 10px}}
+  @media(max-height:650px){#hero{height:240px;margin-top:calc(100svh - 240px);padding-bottom:14px}#hero h1{font-size:30px}#hero p{font-size:13px;margin-bottom:12px}#hero .how-link{margin-top:12px}#hero .eyebrow{font-size:10px}}
+</style>
+</head>
+<body>
+<div id="sa"></div>
+<canvas id="c" role="img" tabindex="0" aria-label="A crowd of little pixel people"></canvas>
+<header id="top"><a href="/" aria-label="Pixel Mob home"><img src="/wordmark.svg" alt="Pixel Mob" width="210" height="30"></a><a class="nav-new" href="/new">Make a message <span aria-hidden="true">↗</span></a></header>
+<main id="landing">
+  <section id="hero"><div class="eyebrow">ONE MESSAGE. ONE TINY MOB.</div>
+    <h1>Tiny people.<br><span>Big feelings.</span></h1>
+    <p>Your words, brought to life by a crowd.<br>Send the link. Make someone’s day.</p>
+    <button class="pbtn" type="button" data-open-panel>Assemble your message <span aria-hidden="true">→</span></button>
+    <a class="how-link" href="#how">How does it work? ↓</a>
+  </section>
+  <section id="how" aria-labelledby="how-title">
+    <div class="section-label">A LITTLE CROWD GOES A LONG WAY</div>
+    <h2 id="how-title">Say it with a mob.</h2>
+    <p class="lead">Pixel Mob turns your words into a living pixel-art message. The crowd wanders, a leader calls “Mob, assemble!”, and everyone runs into place. It’s a tiny surprise, made just for them.</p>
+    <ol class="steps"><li><span>01</span><h3>Write your words</h3><p>A birthday wish. An inside joke. A very important “HI”. You get 32 characters. The mob handles the rest.</p></li><li><span>02</span><h3>Send the surprise</h3><p>Copy your link or use your phone’s share sheet. The preview keeps the message a surprise.</p></li><li><span>03</span><h3>Watch them assemble</h3><p>Your friend opens the link, taps to reveal, and the mob spells it out. Confetti very much included.</p></li></ol>
+    <div class="outro"><h2>Small gesture.<br>Massive mob energy.</h2><button class="pbtn" type="button" data-open-panel>Make your first message →</button><p>Free. No account. Just a little joy.</p></div>
+    <details><summary>Can anyone read my message?</summary><p>Your message is scrambled into the link, not saved in a database. This is a surprise, not encryption: anyone with the link can reveal it. Please don’t use it for private information.</p></details>
+    <details><summary>What can the mob spell?</summary><p>Up to 32 letters, numbers, spaces and supported punctuation, plus hearts. Accented letters are simplified, and we’ll tell you if a character can’t be used.</p></details>
+    <details><summary>Does it work on my phone?</summary><p>Yes. Pixel Mob is made for modern phone and desktop browsers, with touch controls, keyboard support and a reduced-motion option that follows your device’s preference.</p></details>
+  </section>
+  <footer><a href="/" aria-label="Pixel Mob home"><img src="/wordmark.svg" alt="Pixel Mob" width="140" height="20"></a><p>Many tiny people. One big feeling.</p><nav aria-label="Footer"><a href="/new">Make a message</a><a href="/the-office/">The Office ↗</a></nav><p class="privacy-note">No accounts. No message database.<br>Anonymous usage counts help keep the mob moving.</p></footer>
+</main>
+<p id="sr" class="sr" aria-live="polite"></p>
+<div id="lost" class="fx"><p>This page could not be found.</p><button id="home" type="button">Return home</button></div>
+<div id="teaser" class="fx" aria-live="polite"><div class="card">
+  <div class="eyebrow">PIXEL MOB · INCOMING</div>
+  <div id="teaserTitle" role="heading" aria-level="2" aria-label="Someone sent you a message"></div>
+  <p class="sub">A tiny mob. A message just for you.</p>
+  <button id="reveal" class="pbtn" type="button">Meet your mob 👀</button>
+</div></div>
+
+<div id="endbar" class="bar fx"><button id="replay" class="pbtn light" type="button">↻ Replay</button><button class="pbtn" type="button" data-open-panel>Make your own mob →</button></div>
+<section id="panel" role="dialog" aria-modal="false" aria-labelledby="ptitle" aria-hidden="true">
+  <header><img class="pic" src="/logo.svg" width="36" height="20" alt="">
+    <h2 id="ptitle"><span class="sr">Make a Pixel Mob message</span><span id="ptitleArt"></span></h2>
+    <button id="pclose" class="icon-btn" type="button" aria-label="Close">✕</button></header>
+  <p class="sub">Your words. One tiny mob. Send a link and let the crowd do the talking.</p>
+  <label class="sr" for="msg">Your secret message</label>
+  <div class="field"><input id="msg" type="text" maxlength="48" autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false"
+    enterkeyhint="done" placeholder="HAPPY BIRTHDAY!" aria-describedby="note count"><span id="count" aria-live="polite">0/32</span></div>
+  <div id="note">Letters, numbers and symbols like ! ? # @ &amp; % &lt; &gt; { } ~ £ € ♥ all work</div>
+  <div id="link" class="empty" aria-label="Your link">Type something to get your link</div>
+  <div class="actions"><button id="copyBtn" class="pbtn grow" type="button" disabled><span>Copy link</span></button>
+    <button id="shareBtn" class="pbtn light" type="button" hidden disabled>Share…</button>
+    <a id="prevBtn" class="pbtn light" target="_blank" rel="noopener" aria-disabled="true">Preview ↗</a></div>
+</section>
+<div id="toast" class="fx" role="status" aria-live="polite"></div>
+<div id="ogcard" aria-hidden="true"><div class="card"><img src="/wordmark.svg" width="280" height="40" alt=""><div class="eyebrow" id="ogEyebrow">YOUR WORDS. ONE TINY MOB.</div><div id="ogTitle"></div><div class="sub" id="ogSub">Tiny people. Big feelings. → pixelmob.io</div></div></div>
+<a id="brandline" href="/new">PIXEL MOB · MAKE A LITTLE JOY ↗</a>
+
+<noscript><div style="position:relative;z-index:10;padding:20px;background:#fffdf8">Pixel Mob needs JavaScript to bring the crowd to life. Please enable it, then reload.</div></noscript>
+<script defer src="/app.js"></script>
+</body>
+</html>

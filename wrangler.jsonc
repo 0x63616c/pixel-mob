@@ -1,0 +1,26 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "pixelmob",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-20",
+  "account_id": "eb3ea2e5ef93e58704d39980583fee38",
+  "workers_dev": true,
+  "preview_urls": false,
+  "assets": {
+    "directory": "./site",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "none",
+    "not_found_handling": "none"
+  },
+  "analytics_engine_datasets": [{ "binding": "MOB_EVENTS", "dataset": "pixelmob_events" }],
+  "ratelimits": [{ "name": "EVENT_LIMITER", "namespace_id": "1001", "simple": { "limit": 30, "period": 60 } }],
+  "routes": [
+    { "pattern": "pixelmob.io", "custom_domain": true },
+    { "pattern": "www.pixelmob.io", "custom_domain": true }
+  ],
+  // Request logs/traces include the full path, which would retain share codes. Privacy wins.
+  // Aggregate, anonymous events go to Analytics Engine; the Worker never emits console logs.
+  "observability": { "enabled": false },
+  "vars": { "WEB_ANALYTICS_TOKEN": "aae05380cc30416e8ed07b16c430bcbc", "CF_ACCOUNT_ID": "eb3ea2e5ef93e58704d39980583fee38" }
+}
