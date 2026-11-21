@@ -1,3 +1,5 @@
 # The Office
 
-A Bevy/WebAssembly pixel office sim, served at https://pixelmob.io/the-office/. The source is being merged in from its own workspace.
+A Bevy + WebAssembly Severance-style pixel office sim.
+
+Play it at [pixelmob.io/the-office](https://pixelmob.io/the-office/). This directory is the source. The Worker serves the release build from [`../site/the-office/`](../site/the-office/).

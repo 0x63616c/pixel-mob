@@ -1,0 +1,15 @@
+target/
+dist/
+dist-the-office/
+node_modules/
+shots/
+*.mp4
+*.gif
+__pycache__/
+dist-release/
+dist-release.tmp/
+dist-the-office.new/
+
+# here.now publish receipts (may contain a one-time claim token)
+tools/art/pub.json
+tools/art/pub*.json

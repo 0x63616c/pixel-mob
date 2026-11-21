@@ -1,0 +1,54 @@
+[package]
+name = "pixel-office"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = { version = "0.16.1", default-features = false, features = [
+  "std", "async_executor", "bevy_asset", "bevy_color", "bevy_core_pipeline", "bevy_render",
+  "bevy_sprite", "bevy_text", "bevy_ui", "bevy_winit", "bevy_window", "bevy_log",
+  "png", "webgl2", "default_font",
+] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+rand = { version = "0.8", features = ["small_rng"] }
+pathfinding = "4"
+
+[features]
+default = ["debug-gizmos"]
+# path/event gizmos for ?debug=1; dropped from the release web build to save size
+debug-gizmos = ["bevy/bevy_gizmos"]
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = "=0.2.129"
+web-sys = { version = "0.3", features = ["Window", "Location", "Document", "Element", "HtmlElement", "UrlSearchParams", "Performance"] }
+getrandom = { version = "0.2", features = ["js"] }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+bevy = { version = "0.16.1", default-features = false, features = ["x11"] }
+
+[profile.dev]
+opt-level = 1
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+opt-level = "z"
+lto = "fat"
+codegen-units = 1
+panic = "abort"
+strip = true
+
+# fast iteration web builds (tools/build.sh fast)
+[profile.fast]
+inherits = "release"
+lto = false
+codegen-units = 32
+incremental = true
+opt-level = 1
+strip = false
+[profile.fast.package."*"]
+opt-level = 2
+
+[build-dependencies]
+serde_json = "1"

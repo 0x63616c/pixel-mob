@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pixel Office · Art Preview</title>
+<style>
+@font-face{font-family:Silk;src:url(game/assets/fonts/Silkscreen-Regular.ttf)}
+@font-face{font-family:VT;src:url(game/assets/fonts/VT323-Regular.ttf)}
+:root{--void:#f6f5f1;--ink:#2a3a36;--teal:#2f6f68;--grn:#7cf2a0;--term:#0e1a16;--rule:#cfcabd}
+*{box-sizing:border-box}
+body{margin:0;background:var(--void);color:var(--ink);font-family:Silk,monospace;-webkit-font-smoothing:none}
+header{padding:28px 18px 8px;text-align:center}
+.logo{font-family:Georgia,'Times New Roman',serif;font-size:30px;letter-spacing:.32em;color:#1f2b28;margin:0}
+.tag{font-size:10px;letter-spacing:.18em;color:#7d8a86;margin-top:8px}
+section{max-width:1180px;margin:0 auto;padding:18px 14px 8px}
+h2{font-size:11px;letter-spacing:.2em;font-weight:normal;border-top:1px solid var(--rule);padding-top:12px;margin:10px 0 12px;color:#5d6a66}
+canvas{image-rendering:pixelated;image-rendering:crisp-edges;display:block}
+.stage{display:flex;justify-content:center;background:var(--void)}
+.ctrl{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:12px 0 0}
+button{font-family:Silk,monospace;font-size:10px;letter-spacing:.1em;background:#d9cdaf;color:#2a2622;border:1px solid #8f8266;box-shadow:inset 1px 1px 0 #ece4cd,inset -1px -1px 0 #b8aa89;padding:7px 10px;cursor:pointer}
+button.on{background:var(--term);color:var(--grn);border-color:#2c8a55;box-shadow:none}
+.memo{background:var(--term);color:var(--grn);font-family:VT,monospace;font-size:19px;line-height:1.15;padding:12px 14px;border:1px solid #2c8a55;outline:3px solid var(--term);max-width:520px;margin:6px auto;position:relative;overflow:hidden}
+.memo:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(0,0,0,.22) 0 1px,transparent 1px 3px);pointer-events:none}
+.memo .t{color:#2c8a55;margin-right:8px}.memo h3{font-family:VT;font-weight:normal;font-size:20px;margin:0 0 6px;border-bottom:1px solid #2c8a55;letter-spacing:.1em}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+footer{font-size:9px;color:#9aa49f;text-align:center;padding:24px;letter-spacing:.15em}
+.note{font-size:9px;color:#8a9692;text-align:center;letter-spacing:.12em;margin-top:8px}
+</style></head><body>
+<header><p class="logo">PIXEL OFFICE</p><div class="tag">WE REFINE · WE ALIGN · WE ARE GRATEFUL — ART PREVIEW</div></header>
+<section><h2>00 · THE FLOOR — RENDERED FROM COMPANY.JSON (96×64, 24 ROOMS)</h2>
+<div class="stage"><canvas id="map"></canvas></div>
+<div class="ctrl" id="mctrl"></div>
+<div class="note">ISLAND TILES · SOFT SHADOWS · LIGHT POOLS · SLIM SIGNAGE · DUST MOTES · THE TANK</div>
+</section>
+<section><h2>01 · THE ORIGINAL POD (ROUND 1)</h2>
+<div class="stage"><canvas id="hero"></canvas></div>
+<div class="ctrl"><button id="bAuto" class="on">AUTO CYCLE</button><button id="bDay">DAY</button><button id="bNight">NIGHT</button><button id="bFlick">VOID FLICKER</button><button id="bParty">WAFFLE CEREMONY</button></div>
+<div class="note">CRT GLOW · FLOATING SIGNAGE · ELEVATOR · 24/7 SHIFT</div>
+</section>
+<section><h2>02 · THE STAFF — EVERY ANIMATION</h2>
+<div class="ctrl" id="dirs"></div>
+<div class="scroll"><canvas id="sheet"></canvas></div></section>
+<section><h2>03 · FURNITURE, BELONGINGS & SIGNAGE</h2><div class="scroll"><canvas id="props"></canvas></div></section>
+<section><h2>03B · ROUND 2 — NEW PROPS, BELONGINGS, LIGHT, PARTICLES, ISLANDS</h2><div class="scroll"><canvas id="props2"></canvas></div></section>
+<section><h2>04 · INTERFACE</h2><div class="scroll"><canvas id="ui"></canvas></div>
+<div class="memo"><h3>INTERNAL MEMO FEED</h3>
+<div><span class="t">03:12</span>Output Calibration has reached 73% of Q4 Refinement.</div>
+<div><span class="t">03:14</span>D. Hale booked BOARDROOM for "Quick Align" (4 hrs).</div>
+<div><span class="t">03:15</span>A goat has been observed near Pod 3. Please do not engage the goat.</div>
+<div><span class="t">03:20</span>Reminder: the numbers are grateful for you.</div></div>
+</section>
+<footer>ORIGINAL HOMAGE · PIXEL ART GENERATED FOR THE BEVY BUILD · FONTS: SILKSCREEN & VT323 (OFL)</footer>
+<script type="module">
+const A = 'game/assets/art/';
+const atlas = await (await fetch(A + 'atlas.json')).json();
+const load = s => new Promise(r => { const i = new Image(); i.onload = () => r(i); i.src = A + s; });
+const propsImg = await load(atlas.props_sheet);
+const vign = await load('vignette.png');
+const goatImg = await load(atlas.goat.sheet);
+const PEOPLE = {}; for (const [k, s] of Object.entries(atlas.people.sheets)) PEOPLE[k] = await load(s);
+await document.fonts.load('8px Silk'); await document.fonts.load('16px VT');
+const PP = atlas.people, PR = atlas.props;
+const rowIdx = {}; PP.rows.forEach((r, i) => rowIdx[r] = i);
+const growIdx = {}; atlas.goat.rows.forEach((r, i) => growIdx[r] = i);
+let T = 0;
+// ---------- drawing primitives (integer pixels only) ----------
+function prop(ctx, name, x, y, frame = null, alpha = 1) {
+  const p = PR[name]; if (!p) { console.warn('no prop', name); return; }
+  const fps = p.fps || 0; const n = p.frames.length;
+  const f = frame ?? (fps ? Math.floor(T * fps) % n : 0);
+  const [sx, sy, w, h] = p.frames[((f % n) + n) % n];
+  if (alpha !== 1) ctx.globalAlpha = alpha;
+  ctx.drawImage(propsImg, sx, sy, w, h, Math.round(x - p.anchor[0]), Math.round(y - p.anchor[1]), w, h);
+  ctx.globalAlpha = 1;
+}
+function person(ctx, key, anim, dir, x, y, t0 = 0) {
+  const a = PP.anims[anim]; const n = a.frames;
+  let f = Math.floor((T + t0) * a.fps); f = a.loop ? f % n : Math.min(f, n - 1);
+  const [cw, ch] = PP.cell; const r = rowIdx[anim + '_' + dir];
+  ctx.drawImage(PEOPLE[key], f * cw, r * ch, cw, ch, Math.round(x - PP.foot_anchor[0]), Math.round(y - PP.foot_anchor[1]), cw, ch);
+}
+function goat(ctx, anim, dir, x, y) {
+  const G = atlas.goat, a = G.anims[anim], f = Math.floor(T * a.fps) % a.frames, [cw, ch] = G.cell;
+  ctx.drawImage(goatImg, f * cw, growIdx[anim + '_' + dir] * ch, cw, ch, Math.round(x - G.foot_anchor[0]), Math.round(y - G.foot_anchor[1]), cw, ch);
+}
+function nine(ctx, name, x, y, w, h) {
+  const p = PR[name], [sx, sy, sw, sh] = p.frames[0], s = p.slice;
+  const xs = [0, s, sw - s, sw], ys = [0, s, sh - s, sh], dx = [x, x + s, x + w - s, x + w], dy = [y, y + s, y + h - s, y + h];
+  for (let j = 0; j < 3; j++) for (let i = 0; i < 3; i++)
+    ctx.drawImage(propsImg, sx + xs[i], sy + ys[j], xs[i + 1] - xs[i], ys[j + 1] - ys[j], dx[i], dy[j], dx[i + 1] - dx[i], dy[j + 1] - dy[j]);
+}
+// crisp pixel text (threshold the Silkscreen glyphs)
+const tcache = new Map();
+function ptext(ctx, s, x, y, col = '#2a2622', font = '8px Silk') {
+  const key = s + col + font; let c = tcache.get(key);
+  if (!c) {
+    const m = document.createElement('canvas').getContext('2d'); m.font = font; const w = Math.ceil(m.measureText(s).width) + 2;
+    c = document.createElement('canvas'); c.width = w; c.height = 12; const g = c.getContext('2d');
+    g.font = font; g.fillStyle = col; g.textBaseline = 'top'; g.fillText(s, 0, 0);
+    const d = g.getImageData(0, 0, w, 12); for (let i = 3; i < d.data.length; i += 4) d.data[i] = d.data[i] > 110 ? 255 : 0; g.putImageData(d, 0, 0);
+    tcache.set(key, c);
+  }
+  ctx.drawImage(c, Math.round(x), Math.round(y)); return c.width - 2;
+}
+function twidth(s) { const m = document.createElement('canvas').getContext('2d'); m.font = '8px Silk'; return Math.ceil(m.measureText(s).width); }
+function bubble(ctx, text, x, y, age, life, kind = 'bubble') {
+  // pop: grows 0→1.15→1 then shrinks out
+  const pin = Math.min(1, age / 0.18), pout = Math.max(0, (age - (life - 0.18)) / 0.18);
+  let s = pin < 1 ? (pin < .7 ? pin / .7 * 1.15 : 1.15 - (pin - .7) / .3 * .15) : 1; if (pout > 0) s *= (1 - pout);
+  if (s <= 0.05) return;
+  const col = kind === 'bubble_memo' ? '#7cf2a0' : '#2a2622';
+  const tw = twidth(text), w = tw + 10, h = 15;
+  const off = document.createElement('canvas'); off.width = w; off.height = h + 4; const g = off.getContext('2d');
+  nine(g, kind, 0, 0, w, h); prop(g, kind + '_tail', w >> 1, h + 3); ptext(g, text, 5, 3, col);
+  const W = Math.max(1, Math.round(w * s)), H = Math.max(1, Math.round((h + 4) * s));
+  ctx.drawImage(off, Math.round(x - W / 2), Math.round(y - H), W, H);
+}
+function fit(cv, lw, lh, maxCss, minK = 1) {
+  const dpr = devicePixelRatio || 1; const avail = Math.min(maxCss, cv.parentElement.clientWidth || innerWidth) * dpr;
+  let k = Math.max(minK, Math.floor(avail / lw));
+  // on high-DPI phones an integer step can leave the canvas far too small; fill instead (>=3 device px per pixel keeps it crisp)
+  if (dpr >= 2 && k * lw < avail * 0.88 && avail / lw >= 2 && minK === 1) k = avail / lw;
+  cv.width = lw; cv.height = lh; cv.style.width = (lw * k / dpr) + 'px'; cv.style.height = (lh * k / dpr) + 'px';
+  const ctx = cv.getContext('2d'); ctx.imageSmoothingEnabled = false; return ctx;
+}
+// ================= HERO SCENE =================
+const HW = 400, HH = 250;
+const hero = document.getElementById('hero'); let hctx;
+const resize = () => { if (typeof p2C !== 'undefined') p2ctx = fit(p2C, G2W, G2H, 1160); if (typeof mapC !== 'undefined') mctx = fit(mapC, MW, MH, 1160); hctx = fit(hero, HW, HH, 1160); sctx = fit(sheetC, SW, SH, 99999, Math.max(1, Math.ceil((devicePixelRatio || 1) * 1.5))); pctx = fit(propC, PW, PH, 1160); uctx = fit(uiC, UW, UH, 1160); };
+let mode = 'auto', flicker = 0, party = -99;
+const bset = id => document.querySelectorAll('.ctrl button[id]').forEach(b => b.classList.toggle('on', b.id === id));
+bAuto.onclick = () => { mode = 'auto'; bset('bAuto'); }; bDay.onclick = () => { mode = 'day'; bset('bDay'); }; bNight.onclick = () => { mode = 'night'; bset('bNight'); };
+bFlick.onclick = () => flicker = 0.6; bParty.onclick = () => party = T;
+const STAFF_ALL = Object.keys(PP.by_person).filter(k => PP.kinds[k] === 'staff');
+const STAFF = (() => { const by = {}; STAFF_ALL.forEach(k => { const st = PP.looks[k].hairStyle + PP.looks[k].top; (by[st] = by[st] || []).push(k); }); const out = []; let i = 0; const groups = Object.values(by); while (out.length < STAFF_ALL.length) { for (const g of groups) if (g[i]) out.push(g[i]); i++; } return out; })();
+const ROLE = k => Object.keys(PP.kinds).find(x => PP.kinds[x] === k);
+const RECEPT = ROLE('receptionist'), SUPER = ROLE('security'), CLEANERS = Object.keys(PP.kinds).filter(x => PP.kinds[x] === 'cleaner');
+const dogImg = atlas.dog ? await load(atlas.dog.sheet) : null; const drowIdx = {}; if (atlas.dog) atlas.dog.rows.forEach((r, i) => drowIdx[r] = i);
+function dog(ctx, anim, dir, x, y) { const G = atlas.dog, a = G.anims[anim], f = Math.floor(T * a.fps) % a.frames, [cw, ch] = G.cell;
+  ctx.drawImage(dogImg, f * cw, drowIdx[anim + '_' + dir] * ch, cw, ch, Math.round(x - G.foot_anchor[0]), Math.round(y - G.foot_anchor[1]), cw, ch); }
+const POD1 = { x: 76, y: 128 }, POD2 = { x: 152, y: 128 };
+const CARPET = { x: 2, y: 5, w: 10, h: 5 };  // tiles
+const TEAMT = { x: 304, y: 150 };
+const LINES = ['per my last memo', 'the numbers feel scary', 'is this refinement?', 'I love it here', 'quick align at 3 AM?', 'enjoy each metric', 'who moved my stapler', 'Q4 is 73% grateful', 'the goat is back', 'circle back... forever'];
+const bubbles = [];  // {who:{x,y}, text, t0, life}
+function seatPos(pod, i) { const s = PR.desk_pod4.seats[i]; return { x: pod.x + s.x, y: pod.y + s.y, f: s.facing }; }
+const workers = [];
+[POD1, POD2].forEach((pod, pi) => { for (let i = 0; i < 4; i++) { const s = seatPos(pod, i); workers.push({ key: STAFF[pi * 4 + i], ...s, pod, i, t0: (pi * 4 + i) * .37 }); } });
+const tseats = PR.table_team.seats;
+const meet = [0, 1, 3, 5, 6].map((si, k) => ({ key: STAFF[9 + k], x: TEAMT.x + tseats[si].x, y: TEAMT.y + tseats[si].y, f: tseats[si].facing, t0: k * .5 }));
+function walker(path, speed, key, anim = 'walk') {  // loop along waypoints
+  const segs = []; let L = 0;
+  for (let i = 0; i < path.length; i++) { const a = path[i], b = path[(i + 1) % path.length]; const l = Math.hypot(b[0] - a[0], b[1] - a[1]); segs.push({ a, b, l, s: L }); L += l; }
+  return t => { let d = (t * speed) % L; const g = segs.find(s => d >= s.s && d < s.s + s.l) || segs[0]; const u = (d - g.s) / g.l;
+    const x = g.a[0] + (g.b[0] - g.a[0]) * u, y = g.a[1] + (g.b[1] - g.a[1]) * u; const dx = g.b[0] - g.a[0], dy = g.b[1] - g.a[1];
+    return { x, y, dir: Math.abs(dx) > Math.abs(dy) ? (dx > 0 ? 'E' : 'W') : (dy > 0 ? 'S' : 'N'), key, anim }; };
+}
+const supervisor = walker([[20, 196], [230, 196], [230, 226], [20, 226]], 18, SUPER);
+const facil = walker([[372, 200], [372, 222], [252, 222], [252, 200]], 9, CLEANERS[1] || CLEANERS[0]);
+const corgi = walker([[200, 176], [236, 186], [226, 214], [196, 200]], 14, null);
+const goatW = walker([[120, 232], [196, 238], [180, 214], [128, 216]], 9, null);
+function lightAt() {
+  if (mode === 'day') return 0; if (mode === 'night') return 1;
+  const c = (T % 24) / 24; return Math.max(0, Math.min(1, (Math.sin((c - .25) * Math.PI * 2) + .2) * .9));   // 0 day .. 1 night
+}
+// elevator cycle (12s): rise 0-1s, doors open 2-2.75, new hire walks out 3-6, doors close 7, sink 10-11
+function elevatorState(t) {
+  const c = t % 12; let rise = 8, door = 0;
+  if (c < 1) rise = Math.floor(c * 8.99); else if (c > 10.5 && c < 11.5) rise = 8 - Math.floor((c - 10.5) * 8.99); else if (c >= 11.5) rise = 0;
+  if (c >= 2 && c < 2.75) door = Math.floor((c - 2) / .75 * 5.99); else if (c >= 2.75 && c < 7) door = 5; else if (c >= 7 && c < 7.75) door = 5 - Math.floor((c - 7) / .75 * 5.99);
+  return { c, rise, door };
+}
+function drawVoid(ctx, night) {
+  const g = ctx.createRadialGradient(HW / 2, HH * .55, 20, HW / 2, HH / 2, HW * .75);
+  g.addColorStop(0, '#fbfaf7'); g.addColorStop(1, '#efeee9'); ctx.fillStyle = g; ctx.fillRect(0, 0, HW, HH);
+  // faint infinite grid fading with distance
+  for (let x = 0; x < HW; x += 16) for (let y = 0; y < HH; y += 16) {
+    const d = Math.hypot(x - HW / 2, y - HH * .55) / (HW * .55); const a = Math.max(0, .16 - d * .16);
+    if (a > 0.01) { ctx.fillStyle = `rgba(110,125,135,${a})`; ctx.fillRect(x, y, 1, 1); }
+  }
+}
+function carpet(ctx, r) {
+  for (let j = 0; j < r.h; j++) for (let i = 0; i < r.w; i++) {
+    const v = j === 0 ? 't' : j === r.h - 1 ? 'b' : '', hz = i === 0 ? 'l' : i === r.w - 1 ? 'r' : '';
+    prop(ctx, 'carpet_' + ((v + hz) || 'c'), (r.x + i) * 16, (r.y + j) * 16);
+  }
+  for (let i = 0; i < r.w; i++) prop(ctx, 'carpet_shadow', (r.x + i) * 16, (r.y + r.h) * 16);
+}
+function outline(ctx, r) {
+  for (let j = 0; j < r.h; j++) for (let i = 0; i < r.w; i++) {
+    const v = j === 0 ? 't' : j === r.h - 1 ? 'b' : '', hz = i === 0 ? 'l' : i === r.w - 1 ? 'r' : '';
+    if (v || hz) prop(ctx, 'outline_' + (v + hz), (r.x + i) * 16, (r.y + j) * 16);
+  }
+}
+function floatY(seed) { return Math.round(Math.sin(T * 1.6 + seed) * 1.2); }
+let lastBubble = 0;
+function heroFrame() {
+  const ctx = hctx, night = lightAt();
+  drawVoid(ctx, night);
+  // far-out oddities in the void
+  prop(ctx, 'shadow_small', 216, 152); prop(ctx, 'phone_ring', 216, 150, Math.floor(T * 12) % 2 + (Math.floor(T) % 3 === 0 ? 0 : 0)); 
+  carpet(ctx, CARPET); outline(ctx, { x: 15, y: 7, w: 9, h: 5 });
+  const D = [];  // y-sorted drawables
+  const add = (y, fn) => D.push({ y, fn });
+  for (const pod of [POD1, POD2]) {
+    add(pod.y, c => prop(c, 'desk_pod4', pod.x, pod.y));
+    PR.desk_pod4.crt.forEach((k, i) => add(pod.y + 0.5 + i * .01, c => prop(c, k.sprite, pod.x + k.x, pod.y + k.y, k.sprite === 'crt_front' ? (Math.floor(T * 4) + i) % 6 : null)));
+    PR.desk_pod4.keyboard.forEach(k => add(pod.y + .4, c => prop(c, 'keyboard', pod.x + k.x, pod.y + k.y)));
+    const items = pod === POD1 ? [['desk_lamp', 'mug_orange'], ['cactus', 'photo_frame'], ['figurine', 'papers'], ['mug_teal', 'stress_ball']] : [['photo_frame', 'eraser'], ['desk_lamp', 'mug_mustard'], ['caricature', 'nameplate'], ['cactus', 'mug_cream']];
+    PR.desk_pod4.items.forEach((k, i) => items[i].forEach((n, j) => add(pod.y + .45 + j * .01, c => prop(c, n, pod.x + k.x + (k.x > 0 ? -j * 7 : j * 7) - (n === 'desk_lamp' ? 2 : 0), pod.y + k.y + (n === 'desk_lamp' ? -1 : 0), n === 'desk_lamp' ? (lightAt() > .45 ? 1 : 0) : null))));
+  }
+  const chairCols = ['orange', 'mustard', 'teal', 'avocado'];
+  workers.forEach((w, i) => {
+    const sleepy = night > .6 && (i === 2 || i === 6), tired = night > .4 && i === 5;
+    const anim = party > 0 && T - party < 4 ? 'celebrate' : sleepy ? 'sleep' : tired ? 'tired' : (i === 1 && Math.floor(T / 6) % 3 === 1) ? 'drink' : 'type';
+    const ch = 'chair_' + (w.f === 'S' ? 's' : 'n') + '_' + chairCols[i % 4];
+    if (w.f === 'S') { add(w.y - 1, c => prop(c, ch, w.x, w.y + 1)); add(w.y, c => person(c, w.key, anim, w.f, w.x, w.y, w.t0)); }
+    else { add(w.y, c => person(c, w.key, anim, w.f, w.x, w.y, w.t0)); add(w.y + .2, c => prop(c, ch, w.x, w.y + 1)); }
+    if (sleepy) add(w.y + 1, c => prop(c, 'fx_zzz', w.x + 4, w.y - 18));
+  });
+  // meeting table
+  add(TEAMT.y, c => prop(c, 'table_team', TEAMT.x, TEAMT.y));
+  add(TEAMT.y + .3, c => { prop(c, 'mug_cream', TEAMT.x - 20, TEAMT.y - 2); prop(c, 'papers', TEAMT.x + 6, TEAMT.y + 2); prop(c, 'phone', TEAMT.x + 22, TEAMT.y); });
+  meet.forEach((m, k) => {
+    const anim = party > 0 && T - party < 4 ? 'clap' : (Math.floor(T / 3) % 5 === k) ? 'talk' : 'sit';
+    const ch = 'chair_' + (m.f === 'S' ? 's' : 'n') + '_' + chairCols[(k + 1) % 4];
+    if (m.f === 'S') { add(m.y - 1, c => prop(c, ch, m.x, m.y + 1)); add(m.y, c => person(c, m.key, anim, m.f, m.x, m.y, m.t0)); }
+    else { add(m.y, c => person(c, m.key, anim, m.f, m.x, m.y, m.t0)); add(m.y + .2, c => prop(c, ch, m.x, m.y + 1)); }
+  });
+  // presenter at meeting
+  // elevator + receptionist
+  const E = elevatorState(T), EX = 368, EY = 68;
+  add(EY, c => E.rise < 8 ? prop(c, 'elevator_rise', EX, EY, E.rise) : prop(c, 'elevator', EX, EY, E.door));
+  if (E.c > 2.6 && E.c < 6.5) {   // new hire steps out and walks to reception
+    const u = Math.min(1, (E.c - 2.6) / 3.2); const x = EX - u * 30, y = EY - 4 + Math.min(1, u * 3) * 8;
+    const dir = u < .3 ? 'S' : 'W';
+    add(y, c => { prop(c, 'shadow_person', x, y); person(c, STAFF[20], u >= 1 ? 'wave' : 'walk', dir, x, y); });
+  }
+  add(84, c => prop(c, 'desk', 322, 78));
+  add(84.5, c => prop(c, 'crt_back', 314, 72));
+  add(84.5, c => prop(c, 'phone', 334, 70));
+  add(64, c => prop(c, 'chair_s_cream', 322, 66));
+  add(70, c => person(c, RECEPT, E.c > 5.2 && E.c < 7 ? 'wave' : (Math.floor(T / 5) % 2 ? 'phone' : 'type'), 'S', 322, 65));
+  add(86, c => prop(c, 'snake_plant', 296, 84));
+  // shrine + signs
+  add(74, c => prop(c, 'founder_shrine', 44, 74));
+  add(78, c => prop(c, 'plant_tall', 14, 80)); add(78, c => prop(c, 'snake_plant_terracotta', 76, 80));
+  add(78, c => prop(c, 'filing_cabinet', 102, 80)); add(78, c => prop(c, 'filing_cabinet_avocado', 118, 80));
+  // break area
+  add(206, c => prop(c, 'coffee_station', 56, 206, (E.c > 8 && E.c < 10.5) ? 3 + Math.floor(T * 4) % 2 : Math.floor(T * 4) % 3));
+  add(206, c => prop(c, 'water_cooler', 92, 206));
+  add(214, c => prop(c, 'snake_plant', 108, 214));
+  add(208, c => person(c, STAFF[21], 'drink', 'S', 22, 214));
+  // walkers
+  const s = supervisor(T); add(s.y, c => { prop(c, 'shadow_person', s.x, s.y); person(c, s.key, night > .55 ? 'flashlight' : 'walk', s.dir, s.x, s.y); });
+  if (night > .55) add(s.y - 0.1, c => { const k = 'fx_flashlight_' + s.dir, o = { E: [6, -12], W: [-6, -12], S: [3, -9], N: [3, -16] }[s.dir]; c.globalCompositeOperation = 'lighter'; prop(c, k, s.x + o[0], s.y + o[1]); c.globalCompositeOperation = 'source-over'; });
+  const f = facil(T); const co = { E: [13, 0], W: [-13, 0], S: [0, 7], N: [0, -7] }[f.dir];
+  add(f.y + co[1], c => prop(c, 'facilities_cart', f.x + co[0], f.y + co[1]));
+  add(f.y, c => { prop(c, 'shadow_person', f.x, f.y); person(c, f.key, 'walk', f.dir, f.x, f.y); });
+  add(126, c => { prop(c, 'shadow_person', 232, 126); person(c, CLEANERS[0], 'idle', 'W', 232, 126); });
+  if (dogImg) { const d = corgi(T); const di = Math.floor(T / 5) % 3 === 1; add(d.y, c => { prop(c, 'shadow_goat', d.x, d.y); dog(c, di ? 'idle' : 'walk', d.dir, d.x, d.y); }); }
+  const g = goatW(T); const gIdle = Math.floor(T / 4) % 3 === 2;
+  add(g.y, c => { prop(c, 'shadow_goat', g.x, g.y); goat(c, gIdle ? 'idle' : 'walk', g.dir, g.x, g.y); });
+  // a lone runner far in the void
+  const rx = ((T * 60) % 700) - 150; add(242, c => { prop(c, 'shadow_person', rx, 242); person(c, STAFF[22], 'run', 'E', rx, 242); });
+  D.sort((a, b) => a.y - b.y); D.forEach(d => d.fn(ctx));
+  // floating signs (above everything, with ground shadows)
+  [['sign_dept_a', 112, 66, 0], ['sign_0', 204, 32, 1.3]].forEach(([n, x, y, sd]) => { const fy = floatY(sd); prop(ctx, 'sign_shadow', x, y + 18); prop(ctx, n, x, y + fy); });
+  { const s = 'QUICK ALIGN · TEAM 8', w = twidth(s) + 10, fy = floatY(4), tx = 262; prop(ctx, 'sign_shadow', tx, 110); nine(ctx, 'panel_memo', tx - (w >> 1), 86 + fy, w, 15); ptext(ctx, s, tx - (w >> 1) + 5, 89 + fy, '#7cf2a0'); }
+  // emotes + bubbles
+  if (T - lastBubble > 1.7) { lastBubble = T; const pool = [...workers, ...meet]; const w = pool[Math.floor(Math.random() * pool.length)]; bubbles.push({ w, text: LINES[Math.floor(Math.random() * LINES.length)], t0: T, life: 2.6 }); }
+  for (let i = bubbles.length - 1; i >= 0; i--) { const b = bubbles[i]; const age = T - b.t0; if (age > b.life) { bubbles.splice(i, 1); continue; } bubble(ctx, b.text, b.w.x, b.w.y - 26, age, b.life); }
+  const em = ['emote_numbers', 'emote_coffee', 'emote_exclaim', 'emote_heart', 'emote_goat'];
+  const ek = Math.floor(T / 2.2) % em.length, et = (T % 2.2); if (et < 1.4) { const w = meet[ek % meet.length]; if (!bubbles.some(b => b.w === w)) prop(ctx, em[ek], w.x + 2, w.y - 25 - Math.round(Math.min(1, et * 6) * 3)); }
+  if (E.c > 3 && E.c < 5) prop(ctx, 'emote_sparkle', EX - 22, 40);
+  if (gIdle) prop(ctx, 'emote_goat', g.x + 4, g.y - 18);
+  if (party > 0 && T - party < 4) { [[76, 90], [152, 96], [300, 100]].forEach(([x, y], k) => prop(ctx, 'fx_confetti', x, y, Math.min(7, Math.floor((T - party) * 8 + k)))); prop(ctx, 'emote_waffle', 300, 88); }
+  // global light: day white → pale blue-grey night (multiply), then CRT glow (additive)
+  if (night > 0.01) {
+    ctx.globalCompositeOperation = 'multiply'; ctx.fillStyle = `rgb(${255 - 70 * night},${255 - 52 * night},${255 - 28 * night})`; ctx.fillRect(0, 0, HW, HH);
+    ctx.globalCompositeOperation = 'lighter';
+    const glow = (x, y, r, a) => { const gg = ctx.createRadialGradient(x, y, 0, x, y, r); gg.addColorStop(0, `rgba(80,200,130,${a})`); gg.addColorStop(1, 'rgba(80,200,130,0)'); ctx.fillStyle = gg; ctx.fillRect(x - r, y - r, r * 2, r * 2); };
+    for (const pod of [POD1, POD2]) PR.desk_pod4.crt.forEach(k => glow(pod.x + k.x, pod.y + k.y - 10, 22, .22 * night));
+    const warm = (x, y, r, a) => { const gg = ctx.createRadialGradient(x, y, 0, x, y, r); gg.addColorStop(0, `rgba(255,205,120,${a})`); gg.addColorStop(1, 'rgba(255,205,120,0)'); ctx.fillStyle = gg; ctx.fillRect(x - r, y - r, r * 2, r * 2); };
+    if (night > .45) { const k0 = PR.desk_pod4.items[0], k1 = PR.desk_pod4.items[1]; warm(POD1.x + k0.x + 2, POD1.y + k0.y - 4, 20, .28 * night); warm(POD2.x + k1.x + 2, POD2.y + k1.y - 4, 20, .28 * night); }
+    const eg = ctx.createRadialGradient(368, 44, 0, 368, 44, 34); eg.addColorStop(0, `rgba(255,214,140,${.25 * night})`); eg.addColorStop(1, 'rgba(255,214,140,0)'); ctx.fillStyle = eg; ctx.fillRect(326, 4, 84, 80);
+    ctx.globalCompositeOperation = 'source-over';
+  }
+  { const hz = ctx.createLinearGradient(0, 0, 0, 46); hz.addColorStop(0, `rgba(${night > .5 ? '226,232,240' : '255,255,255'},.55)`); hz.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = hz; ctx.fillRect(0, 0, HW, 46); }
+  ctx.globalAlpha = .9; ctx.drawImage(vign, 0, 0, HW, HH); ctx.globalAlpha = 1;
+  if (flicker > 0) { if (Math.random() < .5) { ctx.fillStyle = 'rgba(255,255,255,.75)'; ctx.fillRect(0, 0, HW, HH); } }
+  // HUD
+  const mins = Math.floor((T % 24) / 24 * 1440 + 360) % 1440, hh = String(Math.floor(mins / 60)).padStart(2, '0'), mm = String(mins % 60).padStart(2, '0');
+  ctx.fillStyle = '#0e1a16'; ctx.fillRect(6, 6, 84, 14); ctx.fillStyle = '#2c8a55'; ctx.fillRect(7, 7, 82, 1);
+  ptext(ctx, `DAY 47  ${mode === 'auto' ? hh + ':' + mm : mode === 'night' ? '03:12' : '10:40'}`, 10, 9, '#7cf2a0');
+  ctx.fillStyle = '#0e1a16'; ctx.fillRect(HW - 112, HH - 22, 106, 16); ptext(ctx, 'Q4 REFINEMENT 73%', HW - 108, HH - 20, '#7cf2a0');
+  ctx.fillStyle = '#1d4a33'; ctx.fillRect(HW - 108, HH - 10, 98, 2); ctx.fillStyle = '#7cf2a0'; ctx.fillRect(HW - 108, HH - 10, 72, 2);
+}
+// ================= SPRITE SHEET (all staff × all anims) =================
+const ANIMS = Object.keys(PP.anims);
+const SHEETK = [...STAFF.slice(0, 20), RECEPT, ...CLEANERS, SUPER];
+const CELLX = 30, CELLY = 34, LBL = 60;
+const SW = LBL + ANIMS.length * CELLX + 34, SH = 14 + SHEETK.length * CELLY + 34;
+const sheetC = document.getElementById('sheet'); let sctx;
+let sdir = 'cycle';
+['cycle', 'S', 'E', 'N', 'W'].forEach(d => { const b = document.createElement('button'); b.textContent = d === 'cycle' ? 'ALL DIRECTIONS' : 'FACING ' + d; if (d === 'cycle') b.classList.add('on'); b.onclick = () => { sdir = d; dirs.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); }; dirs.appendChild(b); });
+function sheetFrame() {
+  const c = sctx; c.fillStyle = '#f6f5f1'; c.fillRect(0, 0, SW, SH);
+  ANIMS.forEach((a, i) => ptext(c, ({celebrate:'YAY',facepalm:'FACEP',flashlight:'TORCH'}[a] || a).toUpperCase().slice(0, 5), LBL + i * CELLX + 1, 3 + (i % 2) * 0, '#7d8a86'));
+  const dir = sdir === 'cycle' ? 'SENW'[Math.floor(T / 2.5) % 4] : sdir;
+  SHEETK.forEach((k, j) => {
+    ptext(c, k.toUpperCase().slice(0, 8), 4, 14 + j * CELLY + 14, '#7d8a86'); ptext(c, ({receptionist:'RECEPTION',cleaner:'FACILITIES',security:'SUPERVISOR'}[PP.kinds[k]] || PP.looks[k].hairStyle.toUpperCase()).slice(0, 10), 4, 14 + j * CELLY + 23, '#b0b8b4');
+    ANIMS.forEach((a, i) => { const x = LBL + i * CELLX + 12, y = 14 + j * CELLY + 30;
+      if (!['sit', 'type', 'sleep'].includes(a)) prop(c, 'shadow_person', x, y);
+      person(c, k, a, dir, x, y, j * .13); });
+  });
+  const gy = 14 + SHEETK.length * CELLY + 26; ptext(c, 'GOAT', 4, gy - 12, '#7d8a86'); ptext(c, 'BISCUIT', 4, gy - 3, '#7d8a86');
+  ['idle', 'walk'].forEach((a, i) => 'SENW'.split('').forEach((d, k) => { const x = LBL + (i * 4 + k) * CELLX + 12; prop(c, 'shadow_goat', x, gy); goat(c, a, d, x, gy); if (dogImg) { const x2 = x + 8 * CELLX; prop(c, 'shadow_goat', x2, gy); dog(c, a, d, x2, gy); } }));
+}
+// ================= PROPS GALLERY =================
+const PROPLIST = ['desk_pod4', 'desk', 'crt_front', 'crt_back', 'keyboard', 'phone', 'phone_ring', 'chair_s_orange', 'chair_n_mustard', 'chair_e_teal', 'chair_w_avocado', 'chair_s_cream',
+  'filing_cabinet', 'filing_cabinet_avocado', 'snake_plant', 'snake_plant_terracotta', 'plant_tall', 'table_booth', 'table_huddle', 'table_team', 'table_boardroom', 'lectern', 'bench', 'projector_screen',
+  'coffee_station', 'water_cooler', 'elevator', 'elevator_rise', 'founder_shrine', 'mug_orange', 'mug_mustard', 'mug_teal', 'mug_cream', 'photo_frame', 'figurine', 'stress_ball', 'cactus', 'nameplate', 'papers', 'eraser', 'caricature', 'melon', 'waffle',
+  'desk_lamp', 'facilities_cart', 'sign_0', 'sign_1', 'sign_2', 'sign_3', 'sign_4', 'sign_5', 'sign_dept_a', 'sign_dept_b', 'room_tag'];
+const PW = 400; let layout = [], PH = 0;
+(() => { let x = 6, y = 8, rh = 0; for (const n of PROPLIST) { const [, , w, h] = PR[n].frames[0]; if (x + w > PW - 6) { x = 6; y += rh + 14; rh = 0; } layout.push({ n, x, y, w, h }); x += w + 10; rh = Math.max(rh, h); } PH = y + rh + 70; })();
+const propC = document.getElementById('props'); let pctx;
+function propsFrame() {
+  const c = pctx; c.fillStyle = '#f6f5f1'; c.fillRect(0, 0, PW, PH);
+  for (const L of layout) {
+    const p = PR[L.n]; let fr = null;
+    if (L.n === 'elevator') { const e = elevatorState(T); fr = e.door; }
+    if (L.n === 'elevator_rise') { fr = Math.floor((T * 6) % 16); fr = fr > 8 ? 16 - fr : fr; }
+    if (L.n === 'coffee_station') fr = Math.floor(T / 3) % 2 ? 3 + Math.floor(T * 4) % 2 : Math.floor(T * 4) % 3;
+    prop(c, L.n, L.x + p.anchor[0], L.y + p.anchor[1] + (p.float ? floatY(L.x) : 0), fr);
+  }
+  // carpet island sample + outline sample
+  const y0 = PH - 56; carpet(c, { x: 0.375, y: y0 / 16, w: 6, h: 3 });
+  for (let j = 0; j < 3; j++) for (let i = 0; i < 6; i++) { const v = j === 0 ? 't' : j === 2 ? 'b' : '', hz = i === 0 ? 'l' : i === 5 ? 'r' : ''; if (v || hz) prop(c, 'outline_' + (v + hz), 120 + i * 16, y0 + j * 16); }
+  ptext(c, 'CARPET ISLAND', 8, y0 - 10, '#7d8a86'); ptext(c, 'MEETING OUTLINE', 122, y0 - 10, '#7d8a86');
+  ['fx_flashlight_E'].forEach(n => prop(c, n, 230, y0 + 24)); ptext(c, 'FLASHLIGHT', 232, y0 - 10, '#7d8a86');
+  ['fx_confetti', 'fx_sparkle', 'fx_steam', 'fx_zzz', 'select_ring'].forEach((n, i) => prop(c, n, 300 + i * 20, y0 + 30)); ptext(c, 'FX', 300, y0 - 10, '#7d8a86');
+}
+
+// ================= 03B · ROUND 2 GALLERY =================
+const G2 = [
+ ['NEEDS-ART', ['aquarium-tank', 'nap-pod', 'ping-pong-table', 'vending-machine', 'mystery-door', 'fish-food-shelf', 'plant-wall', 'plant-wall_1x2', 'goat-fence', 'goat-fence_v', 'goat-fence_post', 'hay-bale', 'goat-bed', 'mail-slot', 'mail-counter', 'package', 'package_typo', 'it-desk', 'intercom', 'whiteboard-full', 'bookshelf-wide', 'portrait', 'crt_glitch', 'fish_gerald', 'fish_pamela', 'fish_steve', 'fish_the-intern', 'fish_muriel', 'fish_dot', 'fish-food-flake']],
+ ['FURNITURE (KEY = DATA TYPE)', ['reception-desk', 'pod-booth', 'screen_4x1', 'microwave', 'fridge', 'snack-bar', 'coffee-machine', 'printer', 'counter', 'cabinet', 'toilet-door', 'sofa', 'armchair_down_teal', 'armchair_right_orange', 'desk-chair_down_mustard', 'desk-chair_up_teal', 'stool', 'beanbag_orange', 'beanbag_teal', 'beanbag_mustard', 'bin', 'dog-bed', 'candle', 'plant_monstera', 'plant_fern', 'plant_rubber', 'plant_succulent']],
+ ['BELONGINGS', ['lava_lamp', 'desk_fan', 'snow_globe', 'typewriter', 'desk_radio', 'globe', 'trophy', 'bonsai', 'rolodex', 'pencil_cup', 'binder_stack', 'sticky_notes', 'clipboard', 'pennant', 'mug_green', 'mug_mint', 'mug_sea', 'stapler', 'certificate', 'headphones_desk']],
+ ['PARTICLES', ['fx_steam_big', 'fx_zzz_big', 'fx_sparkles', 'fx_confetti_big', 'fx_paper', 'fx_sweat', 'fx_note', 'fx_heart', 'fx_bubbles', 'fx_dust']],
+ ['SOFT SHADOWS', ['shadow_soft_1', 'shadow_soft_2', 'shadow_soft_3', 'shadow_soft_4', 'shadow_soft_6', 'shadow_person_soft']],
+];
+const GLOWS = ['glow_monitor', 'glow_lamp', 'glow_fluoro', 'glow_aquarium', 'glow_elevator', 'glow_candle', 'glow_small'];
+const G2W = 480; let g2lay = [], G2H = 0;
+(() => { let y = 4; for (const [title, list] of G2) { g2lay.push({ title, y }); y += 10; let x = 6, rh = 0;
+  for (const n of list) { if (!PR[n]) { console.warn('missing', n); continue; } const [, , w, h] = PR[n].frames[0]; const cw = Math.max(w, 30); if (x + cw > G2W - 6) { x = 6; y += rh + 12; rh = 0; } g2lay.push({ n, x: x + (cw - w) / 2, y, w, h }); x += cw + 8; rh = Math.max(rh, h); }
+  y += rh + 18; } G2H = y + 150; })();
+const p2C = document.getElementById('props2'); let p2ctx;
+function props2Frame() {
+  const c = p2ctx; c.fillStyle = '#f6f5f1'; c.fillRect(0, 0, G2W, G2H);
+  for (const L of g2lay) {
+    if (L.title) { tinyText(c, L.title, 6, L.y, '#7d8a86'); continue; }
+    const p = PR[L.n], n = p.frames.length; const fr = p.fps ? null : (n > 1 ? Math.floor(T * 1.5) % n : 0);
+    prop(c, L.n, L.x + p.anchor[0], L.y + p.anchor[1] + (p.float ? floatY(L.x) : 0), fr);
+    tinyText(c, L.n.replace('_', ' ').slice(0, 9), L.x, L.y + L.h + 2, '#a3ada9');
+  }
+  // light pools on a night tile (additive)
+  let y = G2H - 146; tinyText(c, 'LIGHT POOLS (ADDITIVE, NIGHT)', 6, y, '#7d8a86'); y += 8;
+  c.fillStyle = '#1b2a2e'; c.fillRect(6, y, G2W - 12, 56); c.globalCompositeOperation = 'lighter';
+  GLOWS.forEach((g, i) => prop(c, g, 40 + i * 66, y + 28)); c.globalCompositeOperation = 'source-over';
+  // islands
+  y += 64; tinyText(c, 'ISLAND 9-SLICES · LEGEND LETTERS', 6, y, '#7d8a86'); y += 8;
+  'xklanbqgmipvs'.split('').forEach((L, i) => { const x0 = 6 + i * 36;
+    for (let j = 0; j < 3; j++) for (let k = 0; k < 2; k++) prop(c, `isle_${L}_${['t', '', 'b'][j] + ['l', 'r'][k]}`, x0 + k * 16, y + j * 16);
+    tinyText(c, L, x0 + 14, y + 50, '#7d8a86'); });
+}
+// ================= UI =================
+const UW = 400, UH = 120; const uiC = document.getElementById('ui'); let uctx;
+const EMOTES = Object.keys(PR).filter(k => k.startsWith('emote_'));
+function uiFrame() {
+  const c = uctx; c.fillStyle = '#f6f5f1'; c.fillRect(0, 0, UW, UH);
+  EMOTES.forEach((e, i) => { const bob = Math.round(Math.abs(Math.sin(T * 3 + i)) * -2); prop(c, e, 12 + i * 19, 24 + bob); });
+  const cyc = (T % 3); bubble(c, 'please enjoy each metric equally', 100, 62, cyc, 3);
+  bubble(c, 'per my last memo', 260, 62, (T + 1) % 3, 3);
+  bubble(c, 'OVERTIME PROTOCOL ACTIVE', 100, 98, (T + 1.5) % 3, 3, 'bubble_memo');
+  bubble(c, 'psst... the 9th floor', 260, 98, (T + .5) % 3, 3, 'bubble_whisper');
+  prop(c, 'bubble_typing', 360, 64);
+  nine(c, 'panel_memo', 330, 76, 60, 34); ptext(c, 'MEMO', 344, 84, '#7cf2a0'); ptext(c, '73%', 346, 95, '#7cf2a0');
+}
+// ================= 00 · THE FLOOR, RENDERED FROM company.json =================
+const DATA = await (await fetch('game/assets/data/company.json')).json();
+const LY = DATA.layout, TS = 16, MW = 480, MH = 270;
+const mapC = document.getElementById('map'); let mctx;
+const ISLE = new Set('xklanbqgmipvs'.split(''));
+const tileAt = (x, y) => (LY.tiles[y] || '')[x] || '.';
+function keyFor(f) { for (const k of [`${f.type}_${f.w}x${f.h}`, `${f.type}_${f.facing}`, f.type]) if (PR[k]) return k; return null; }
+const hsh = s => { let h = 7; for (const c of s) h = (h * 31 + c.charCodeAt(0)) >>> 0; return h; };
+const CCOL = ['teal', 'orange', 'mustard', 'avocado', 'cream'];
+// static object list: {k, x, y (anchor/sort), frame?, after?}
+const OBJ = [];
+const FLAT = new Set(['rug', 'dog-bed', 'corridor-strip']);
+for (const f of LY.furniture) {
+  let k = keyFor(f); if (!k) continue;
+  if ((f.type === 'desk-chair' || f.type === 'armchair') && f.facing) { const c = `${f.type}_${f.facing}_${CCOL[hsh(f.room_id || f.section_id || f.area || f.id) % 5]}`; if (PR[c]) k = c; }
+  if (f.type === 'chair' && f.facing) { const m = { up: 'n', down: 's', left: 'w', right: 'e' }[f.facing]; const c = `chair_${m}_${CCOL[(hsh(f.room_id || f.area || f.id) + (f.room_id === 'allhands' ? f.y : 0)) % 5]}`; if (PR[c]) k = c; }
+  if (f.type === 'goat-fence') { const F = new Set(LY.furniture.filter(g => g.type === 'goat-fence').map(g => g.x + ',' + g.y)); const n = (dx, dy) => F.has((f.x + dx) + ',' + (f.y + dy));
+    const hz = n(-1, 0) || n(1, 0), vt = n(0, -1) || n(0, 1); k = hz && vt ? 'goat-fence_post' : vt ? 'goat-fence_v' : 'goat-fence'; }
+  if (f.type === 'beanbag') k = ['beanbag_orange', 'beanbag_teal', 'beanbag_mustard'][hsh(f.id) % 3];
+  if (f.type === 'plant') k = ['plant_monstera', 'plant_fern', 'plant_rubber', 'plant_succulent'][hsh(f.id) % 4];
+  const ax = (f.x + f.w / 2) * TS, ay = (f.y + f.h) * TS;
+  OBJ.push({ k, x: ax, y: ay, flat: FLAT.has(f.type), f, z: f.type.includes('chair') && f.facing === 'up' ? 3 : 0 });
+}
+// monitors + belongings on desks
+const OWN = {}; for (const o of DATA.objects.instances) if (o.desk_id && o.catalog_key) (OWN[o.desk_id] = OWN[o.desk_id] || []).push(o.catalog_key);
+const hasCrt = new Set(LY.furniture.filter(f => f.type === 'crt').map(f => f.x + ',' + f.y));
+const SEATED = [];
+for (const d of LY.desks) {
+  const m = d.monitor; if (!m) continue; const up = d.facing === 'up';
+  const mx = (m.x + .5) * TS, my = (m.y + (up ? 1 : .95)) * TS;
+  const tb = LY.tables.find(t => t.id === d.table_id); const sy = tb ? (tb.y + tb.h) * TS + 1 : my + 1;   // sort after the table top
+  if (!hasCrt.has(m.x + ',' + m.y)) OBJ.push({ k: up ? 'crt_front' : 'crt_back', x: mx, y: my + 1, sy, crt: !up, glow: true });
+  (OWN[d.id] || []).filter(k => PR[k] && PR[k].frames[0][2] <= 16).slice(0, 2).forEach((k, i) => OBJ.push({ k, x: mx + (i ? -10 : 10), y: my + (up ? -1 : 2), sy: sy + 1 }));
+  if (d.owner_id && PEOPLE[d.owner_id]) SEATED.push({ key: d.owner_id, x: (d.x + .5) * TS, y: (d.y + 1) * TS + (up ? 4 : 6), dir: up ? 'N' : 'S', t0: hsh(d.id) % 10 / 3, anim: hsh(d.id) % 11 === 0 ? 'doze' : 'type' });
+}
+OBJ.push({ k: 'elevator', x: (LY.elevator.rect.x + LY.elevator.rect.w / 2) * TS, y: (LY.elevator.rect.y + LY.elevator.rect.h) * TS, frame: 0 });
+const P = LY.poi, at = (p, dx = 0, dy = 0) => ({ x: (p.x + .5) * TS + dx, y: (p.y + 1) * TS + dy });
+const ROLEK = new Set([RECEPT, SUPER, ...CLEANERS]);
+let STAFFK = Object.keys(PEOPLE).filter(k => !ROLEK.has(k) && !SEATED.some(s => s.key === k));
+// some desk owners are away doing idle actions (empty chair left behind)
+for (let i = SEATED.length - 1; i >= 0 && STAFFK.length < 14; i--) if (hsh(SEATED[i].key) % 3 === 0) { STAFFK.push(SEATED[i].key); SEATED.splice(i, 1); }
+const ACTORS = [
+  { key: STAFFK[0], ...at(P.aquarium, -10, 4), dir: 'N', anim: 'nod' }, { key: STAFFK[1], ...at(P.aquarium, 14, 4), dir: 'N', anim: 'idle' },
+  { key: STAFFK[2], ...at(P.goat_pen, -14, -2), dir: 'E', anim: 'pet', heart: true },
+  { key: STAFFK[3], ...at(P.vending, 0, 6), dir: 'N', anim: 'fidget' },
+  { key: STAFFK[4], ...at(P.pingpong, -58, -14), dir: 'E', anim: 'celebrate' }, { key: STAFFK[5], ...at(P.pingpong, 58, -14), dir: 'W', anim: 'facepalm' },
+  { key: STAFFK[6], ...at(P.shrine, 0, 12), dir: 'N', anim: 'bow' }, { key: STAFFK[7], ...at(P.wellness, 0, 0), dir: 'S', anim: 'stretch' },
+  { key: STAFFK[8], ...at(P.mail, 0, 12), dir: 'N', anim: 'phone' }, { key: STAFFK[9], ...at(P.itdesk, 0, 14), dir: 'N', anim: 'knock' },
+  { key: STAFFK[10], ...at(P.coffee, 0, 10), dir: 'N', anim: 'drink' }, { key: STAFFK[11], ...at(P.library, 0, 6), dir: 'S', anim: 'talk' },
+  { key: RECEPT, ...at(P.reception, 0, -2), dir: 'S', anim: 'type' },
+].filter(a => a.key);
+const route = (pts, sp, key, anim) => walker(pts.map(p => [(p.x + .5) * TS, (p.y + 1) * TS]), sp, key, anim);
+const MWALK = [route(LY.patrol_route, 26, SUPER), route(LY.tidy_route, 14, CLEANERS[0] || SUPER),
+  walker([[P.void_corridor_start.x * TS, (P.void_corridor_start.y + 1) * TS], [P.void_corridor_start.x * TS + 520, (P.void_corridor_start.y + 1) * TS]], 52, STAFFK[12] || STAFF[0], 'run')];
+const goatM = walker([[86.5 * TS, 54 * TS], [92 * TS, 55 * TS], [93 * TS, 58 * TS], [88 * TS, 59 * TS]], 8, null);
+// fluorescent panels hovering over every section + key rooms
+const FLUO = [];
+for (const s of LY.sections) for (let i = 0; i < Math.floor(s.rect.w / 6); i++) FLUO.push({ x: (s.rect.x + 3 + i * 6) * TS, y: (s.rect.y + s.rect.h / 2 + .5) * TS });
+for (const id of ['aquarium', 'archive', 'board-visit']) { const r = DATA.rooms.find(r => r.id === id).rect; FLUO.push({ x: (r.x + r.w / 2) * TS, y: (r.y + r.h / 2) * TS }); }
+const TOUR = { TANK: [78, 46], 'NAP PODS': [40, 47], BREAK: [26, 47], 'GOAT PEN': [89, 57], DESKS: [32, 19], KITCHEN: [14, 32], 'MAIL & IT': [78, 26], ARCHIVE: [60, 49], ALLHANDS: [10, 9] };
+const TOURK = Object.keys(TOUR); let camFocus = null, mnight = 0;
+const mc = document.getElementById('mctrl');
+['TOUR', ...TOURK, 'NIGHT'].forEach(n => { const b = document.createElement('button'); b.textContent = n; if (n === 'TOUR') b.className = 'on';
+  b.onclick = () => { if (n === 'NIGHT') { mnight = mnight ? 0 : 1; b.classList.toggle('on', !!mnight); return; } camFocus = n === 'TOUR' ? null : n; mc.querySelectorAll('button').forEach(x => x.textContent !== 'NIGHT' && x.classList.toggle('on', x === b)); }; mc.appendChild(b); });
+function camPos() {
+  if (camFocus) { const [x, y] = TOUR[camFocus]; return [x * TS, y * TS]; }
+  const per = 7, i = Math.floor(T / per) % TOURK.length, u = (T % per) / per, a = TOUR[TOURK[i]], b = TOUR[TOURK[(i + 1) % TOURK.length]];
+  const e = u < .7 ? 0 : (1 - Math.cos((u - .7) / .3 * Math.PI)) / 2; return [(a[0] + (b[0] - a[0]) * e) * TS, (a[1] + (b[1] - a[1]) * e) * TS];
+}
+const ttc = document.createElement('canvas'); ttc.width = 256; ttc.height = 5; const ttg = ttc.getContext('2d');
+function tinyText(ctx, s, x, y, col) { // runtime text via tiny_font: draw white glyphs offscreen, tint, blit
+  const tf = PR.tiny_font, [sx, sy] = tf.frames[0]; let cx = 0; ttg.clearRect(0, 0, 256, 5);
+  for (const ch of s.toUpperCase()) { if (ch === ' ') { cx += tf.space + 1; continue; } const g = tf.glyphs[ch]; if (!g) continue; ttg.drawImage(propsImg, sx + g[0], sy, g[1], 5, cx, 0, g[1], 5); cx += g[1] + 1; }
+  ttg.globalCompositeOperation = 'source-atop'; ttg.fillStyle = col; ttg.fillRect(0, 0, cx, 5); ttg.globalCompositeOperation = 'source-over';
+  ctx.drawImage(ttc, 0, 0, cx, 5, x, y, cx, 5); return cx;
+}
+// labels: rooms > sections > signs, de-duplicated and nudged so plaques never overlap
+const LABELS = []; const names = new Set([...DATA.rooms.map(r => r.name.toLowerCase()), ...LY.sections.map(s => s.name.toLowerCase())]);
+const placeL = (k, x, y, extra) => { if (!PR[k]) return; const [, , w, h] = PR[k].frames[0], [ax, ay] = PR[k].anchor; let dy = 0;
+  const hit = d => LABELS.some(o => Math.abs(o.x - x) * 2 < (o.w + w + 4) && Math.abs((o.y + o.dy) - (y + d)) < (h + o.h) / 2 + 2);
+  for (let i = 0; i < 6 && hit(dy); i++) dy += i % 2 ? 28 : -14;
+  if (hit(dy)) return; LABELS.push({ k, x, y, dy, w, h, ...extra }); };
+for (const r of DATA.rooms) placeL('roomtxt_' + r.id, (r.sign.x + .5) * TS, (r.sign.y + 1) * TS, { bob: true });
+for (const s of LY.sections) placeL('sectxt_' + s.id, (s.label.x + .5) * TS, (s.label.y + .6) * TS, {});
+for (const s of LY.signs) if (!names.has(s.text.toLowerCase().split(' · ')[0])) placeL('signtxt_' + s.id, (s.x + .5) * TS, (s.y + 1) * TS - 12, { bob: true, shadow: true });
+function mapFrame() {
+  const c = mctx; const [fx, fy] = camPos(); const night = mnight || (mode === 'night' ? 1 : 0);
+  const ox = Math.round(fx - MW / 2), oy = Math.round(fy - MH / 2);
+  const vis = (x, y, m = 140) => x > ox - m && x < ox + MW + m && y > oy - m && y < oy + MH + m + 40;
+  // void + fine grid fading from the floor centre
+  c.fillStyle = '#f6f5f1'; c.fillRect(0, 0, MW, MH);
+  const gf = PR.void_grid_fine.frames[0];
+  for (let gy = Math.floor(oy / 64) * 64; gy < oy + MH; gy += 64) for (let gx = Math.floor(ox / 64) * 64; gx < ox + MW; gx += 64) {
+    const d = Math.hypot(gx + 32 - 48 * TS, gy + 32 - 32 * TS) / (60 * TS); c.globalAlpha = Math.max(0, .9 - d);
+    c.drawImage(propsImg, gf[0], gf[1], 64, 64, gx - ox, gy - oy, 64, 64); }
+  c.globalAlpha = 1;
+  // corridor strip into the void
+  const cs = LY.void_props.find(v => v.type === 'corridor-strip');
+  for (let i = 0; i < cs.w; i++) { const x = (cs.x + i) * TS; if (vis(x, cs.y * TS)) { c.globalAlpha = Math.max(0, 1 - i / 60); prop(c, 'corridor-strip', x - ox, cs.y * TS - oy); } } c.globalAlpha = 1;
+  // islands (9-slice by neighbours) + subtle meeting outlines
+  const x0 = Math.max(0, Math.floor(ox / TS)), y0 = Math.max(0, Math.floor(oy / TS));
+  for (let y = y0; y < Math.min(LY.h, y0 + MH / TS + 2); y++) for (let x = x0; x < Math.min(LY.w, x0 + MW / TS + 2); x++) {
+    const t = tileAt(x, y); if (t === '.' || t === 'E') continue;
+    const L = t === 'o' ? 'o' : t; const same = (dx, dy) => tileAt(x + dx, y + dy) === t;
+    const v = !same(0, -1) ? 't' : !same(0, 1) ? 'b' : '', h = !same(-1, 0) ? 'l' : !same(1, 0) ? 'r' : '';
+    if (ISLE.has(L)) prop(c, `isle_${L}_${(v + h) || 'c'}`, x * TS - ox, y * TS - oy);
+    else if (L === 'o' && (v || h)) prop(c, 'outline2_' + (v + h), x * TS - ox, y * TS - oy);
+  }
+  // flat things, then soft shadows under everything tall
+  for (const o of OBJ) if (o.flat && vis(o.x, o.y)) prop(c, o.k, o.x - ox, o.y - oy);
+  // y-sorted drawables
+  const D = [];
+  for (const o of OBJ) if (!o.flat && vis(o.x, o.y)) D.push({ y: (o.sy ?? o.y) + (o.z || 0), d: () => {
+    let fr = o.frame ?? null; if (o.k === 'aquarium-tank') fr = (night ? 8 : 0) + Math.floor(T * 6) % 8; if (o.k === 'nap-pod') fr = hsh(o.f.id) % 3 ? 1 : 0;
+    if (o.k === 'mystery-door') fr = (T % 9 > 7.5) ? 1 + Math.floor(T * 4) % 2 : 0; if (o.k === 'printer') fr = (T % 6 < 2) ? 1 : 0;
+    if (o.k === 'coffee-machine' || o.k === 'microwave') fr = (T % 8 < 3) ? 1 : 0;
+    prop(c, o.k, o.x - ox, o.y - oy, fr); } });
+  for (const s of SEATED) if (vis(s.x, s.y)) D.push({ y: s.y - (s.dir === 'S' ? 0 : 0), d: () => person(c, s.key, s.anim, s.dir, s.x - ox, s.y - oy, s.t0) });
+  for (const a of ACTORS) if (vis(a.x, a.y)) D.push({ y: a.y, d: () => { prop(c, 'shadow_person_soft', a.x - ox, a.y - oy); person(c, a.key, a.anim, a.dir, a.x - ox, a.y - oy, (hsh(a.key) % 7) / 2); } });
+  for (const w of MWALK) { const p = w(T); if (vis(p.x, p.y)) D.push({ y: p.y, d: () => { prop(c, 'shadow_person_soft', p.x - ox, p.y - oy); person(c, p.key, p.anim, p.dir, p.x - ox, p.y - oy); if (p.anim === 'run') prop(c, 'fx_sweat', p.x - ox + 6, p.y - oy - 26); } }); }
+  { const g = goatM(T); D.push({ y: g.y, d: () => goat(c, 'walk', g.dir, g.x - ox, g.y - oy) }); }
+  if (atlas.dog) { const db = at(P.dog_bed, 0, -4); D.push({ y: db.y + 1, d: () => dog(c, 'sleep' in atlas.dog.anims ? 'sleep' : 'idle', 'S', db.x - ox, db.y - oy) }); }
+  D.sort((a, b) => a.y - b.y).forEach(o => o.d());
+  // particles
+  const pt = (k, p, dx, dy) => vis(p.x, p.y) && prop(c, k, p.x + dx - ox, p.y + dy - oy);
+  pt('fx_steam_big', at(P.coffee), 0, -30); pt('fx_hearts' in PR ? 'fx_hearts' : 'fx_heart', at(P.goat_pen), -12, -36 - Math.floor(T * 8) % 8);
+  pt('fx_confetti_big', at(P.pingpong), 0, -40); pt('fx_paper', at(P.printer), 0, -24); pt('fx_sparkles', at(P.shrine), 0, -36); pt('fx_bubbles', at(P.aquarium), 20, -64);
+  for (const f of LY.furniture) if (f.type === 'nap-pod' && hsh(f.id) % 3) pt('fx_zzz_big', { x: (f.x + 1) * TS, y: (f.y + 1) * TS }, 6, -12);
+  for (const s of SEATED) if (s.anim === 'doze') pt('fx_zzz_big', s, 4, -26);
+  // night: dim + additive light pools. day: same pools at low alpha so islands still feel lit
+  if (night) { c.globalCompositeOperation = 'multiply'; c.fillStyle = '#5d6c80'; c.fillRect(0, 0, MW, MH); }
+  c.globalCompositeOperation = night ? 'lighter' : 'source-over'; const ga = night ? 1 : .35;
+  for (const f of FLUO) if (vis(f.x, f.y)) prop(c, 'glow_fluoro', f.x - ox, f.y - oy, null, ga * (night ? .55 : .8));
+  for (const o of OBJ) if (vis(o.x, o.y)) {
+    if (o.glow && !o.crt) prop(c, 'glow_monitor', o.x - ox, o.y - oy - 4, null, ga);
+    if (o.k === 'aquarium-tank') prop(c, 'glow_aquarium', o.x - ox, o.y - oy - 20, null, ga);
+    if (o.k === 'candle') prop(c, 'glow_candle', o.x - ox, o.y - oy - 8, null, ga);
+    if (o.k === 'vending-machine') prop(c, 'glow_small', o.x - ox, o.y - oy - 20, null, ga);
+    if (o.k === 'elevator') prop(c, 'glow_elevator', o.x - ox, o.y - oy - 10, null, ga);
+  }
+  c.globalCompositeOperation = 'source-over';
+  // floating fluoro panels + slim signs (bob, with ground shadow)
+  for (const L of LABELS) { if (!vis(L.x, L.y)) continue; const b = L.bob ? floatY(L.x) : 0;
+    if (L.shadow) prop(c, 'sign_shadow_small', L.x - ox, L.y + L.dy + 12 - oy); prop(c, L.k, L.x - ox, L.y + L.dy - oy + b); }
+  // atmosphere: motes + vignette
+  c.globalCompositeOperation = night ? 'lighter' : 'source-over'; c.globalAlpha = night ? .5 : .35;
+  const mf = PR.fx_motes, mfr = mf.frames[Math.floor(T * mf.fps) % mf.frames.length];
+  for (let y = -((oy % 96) + 96) % 96; y < MH; y += 96) for (let x = -((ox % 96) + 96) % 96; x < MW; x += 96) c.drawImage(propsImg, mfr[0], mfr[1], 96, 96, x, y, 96, 96);
+  c.globalAlpha = 1; c.globalCompositeOperation = 'source-over';
+  c.globalAlpha = night ? .9 : .55; c.drawImage(vign, 0, 0, MW, MH); c.globalAlpha = 1;
+  // HUD: room under camera in tiny_font
+  const tx = Math.floor(fx / TS), ty = Math.floor(fy / TS); const room = DATA.rooms.find(r => tx >= r.rect.x && tx < r.rect.x + r.rect.w && ty >= r.rect.y && ty < r.rect.y + r.rect.h);
+  const hud = (room ? room.name : (camFocus || 'THE FLOOR')); const hw = tinyText(ttc.getContext('2d'), hud, 0, 0, '#000'); nine(c, 'sign_slim_dark', 6, MH - 17, hw + 9, 11); tinyText(c, hud, 10, MH - 14, '#7cf2a0');
+}
+
+resize(); addEventListener('resize', resize);
+let last = performance.now();
+function loop(now) { const dt = Math.max(0, Math.min(.1, (now - last) / 1000)); last = now; T += dt; if (flicker > 0) flicker -= dt;
+  try { mapFrame(); heroFrame(); props2Frame(); sheetFrame(); propsFrame(); uiFrame(); } catch (e) { console.error(e.stack); } requestAnimationFrame(loop); }
+window.__art = { ready: true, grab: () => hero.toDataURL(), grabMap: () => mapC.toDataURL(), focus: n => camFocus = n, night: v => mnight = v, getT: () => T, setT: t => T = t, setMode: m => mode = m };
+requestAnimationFrame(loop);
+</script></body></html>
