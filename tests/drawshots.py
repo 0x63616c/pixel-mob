@@ -15,7 +15,7 @@ with sync_playwright() as p:
                 if pg.evaluate('__crowd.mode') == 'hold': break
             assert pg.evaluate('__crowd.mode') == 'hold', (eng, size, name, 'formation did not complete')
             pg.wait_for_timeout(700)
-            inb = pg.evaluate("(()=>{const w=document.getElementById('c').width;return __crowd.people().filter(p=>p.state==='placed').every(p=>p.x>0&&p.x<w)})()")
+            inb = pg.evaluate("(()=>{const w=innerWidth;return __crowd.people().filter(p=>p.state==='placed').every(p=>p.x>0&&p.x<w)})()")
             assert inb, (eng, size, name, 'mob outside the screen')
             ov = pg.evaluate('[__crowd.overlaps,__crowd.maxOverlaps,__crowd.overlapTotal]')
             pg.screenshot(path=f'{OUT}/{eng}-{size}-{name}.png'); res.append((eng, size, name, ov))

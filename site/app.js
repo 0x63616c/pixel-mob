@@ -554,7 +554,7 @@ function computeLayout(){
   lost.style.top=((oy+totH)/DPR+20)+"px";
   cv.setAttribute("aria-label",APP==="surprise"&&(sPhase==="intro"||sPhase==="teaser")?"A mob of tiny pixel people wandering around":`A mob of tiny pixel people spelling “${toDisplay(text)}”`);
 }
-// mob size: small thins straight strokes (ends, corners and junctions stay), huge splits every pixel into four people
+// mob size: small thins straight strokes (ends, corners and junctions stay); huge uses native drawings, else the medium grid
 function sizeCells(r){
   if(SIZE==="small"){const has=new Set(r.cells.map(([x,y])=>x+","+y)),h=(x,y)=>has.has(x+","+y);
     return {cols:r.cols,rows:r.rows,cells:r.cells.filter(([x,y,tint])=>{if(tint)return true;const st=(h(x-1,y)&&h(x+1,y)&&!h(x,y-1)&&!h(x,y+1))||(h(x,y-1)&&h(x,y+1)&&!h(x-1,y)&&!h(x+1,y));return !st||((x+y)&1)===0;})};}
