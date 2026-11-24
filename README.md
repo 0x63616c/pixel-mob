@@ -48,10 +48,6 @@ python3 tests/features.py https://pixelmob.io   # scenes, themes, reactions, dow
 
 Deploy with `npx wrangler deploy` (uses `wrangler.jsonc` and Workers Static Assets). The `/stats` page needs two Worker secrets: `STATS_KEY` (a long random string; the page's URL key) and `STATS_API_TOKEN` (an Account Analytics Read token). Set them with `npx wrangler secret put`.
 
-## The Office
-
-Source for an unreleased pixel office sim lives in [`the-office/`](the-office/). It is not currently served on pixelmob.io.
-
 ## License
 
 MIT for the code. Sprites, font and sounds are original.
